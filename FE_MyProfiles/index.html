@@ -17,10 +17,20 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="info.css" />
+    <link rel="stylesheet" href="career-goals.css" />
+    <link rel="stylesheet" href="education.css" />
+    <link rel="stylesheet" href="skills.css" />
+    <link rel="stylesheet" href="experience.css" />
+    <link rel="stylesheet" href="project.css" />
+    <link rel="stylesheet" href="more-information.css" />
   </head>
   <body>
-    <main>
+    <main class="main-profile" id="main-profile">
       <section class="info">
         <div class="img">
           <div class="avartar">
@@ -64,8 +74,121 @@
           </div>
         </div>
       </section>
+      <section class="career-goals">
+        <div class="title-career-goals text-uppercase border-bottom-custom">
+          Mục tiêu nghề nghiệp
+        </div>
+        <div class="shot-term-goals">
+          <b>Mục tiêu ngắn hạn</b>
+          <ul>
+            <li>aaaa</li>
+            <li>bbbbbb</li>
+          </ul>
+        </div>
+        <div class="long-term-goals">
+          <b>Mục tiêu dài hạn</b>
+          <ul>
+            <li>aaaa</li>
+            <li>bbbbbb</li>
+          </ul>
+        </div>
+      </section>
+      <section class="education">
+        <div class="education-title text-uppercase border-bottom-custom">
+          Học vấn
+        </div>
+        <div class="education-info">
+          <div class="education-name">
+            <b>FPT POLYTECHNIC</b>
+          </div>
+          <div class="major">
+            <b>SOFTWARE APPLICATION / JAVA</b>
+          </div>
+          <div class="year-learn">2021 - 2024</div>
+          <div class="point">
+            GPA:
+            <p>3.71</p>
+          </div>
+        </div>
+      </section>
+      <section class="skills">
+        <div class="skills-title border-bottom-custom text-uppercase">
+          Kĩ năng
+        </div>
+        <div class="skills-name">
+          <div class="soft-skills">
+            <b>Kĩ năng mềm</b>
+            <ul>
+              <li>aaaa</li>
+              <li>bbbbbb</li>
+            </ul>
+          </div>
+          <div class="professional-skills">
+            <b>Kĩ năng chuyên môn</b>
+            <ul>
+              <li>aaaa</li>
+              <li>bbbbbb</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="experience">
+        <div class="experience-title text-uppercase border-bottom-custom">
+          Kinh nghiệm
+        </div>
+        <div class="experience-info">
+          <div class="company-name">FPT</div>
+          <div>
+            <div class="job-title">DEVELOPER</div>
+            <div class="time-on-job">09/2021 - 09/2024</div>
+          </div>
+        </div>
+        <div class="experience-info">
+          <div class="company-name">FPT</div>
+          <div>
+            <div class="job-title">DEVELOPER</div>
+            <div class="time-on-job">09/2021 - 09/2024</div>
+          </div>
+        </div>
+      </section>
+      <section class="project">
+        <div class="project-title text-uppercase border-bottom-custom">
+          Project
+        </div>
+        <div class="project-info">
+          <div class="time-on">
+            <div class="job-title">DEVELOPER</div>
+            <div class="working-time">2021 - 2024</div>
+          </div>
+          <div class="project-description">
+            <div class="project-title"><b>ĐẶT LỊCH</b></div>
+            <div class="project-body">ádasder345erew</div>
+          </div>
+        </div>
+      </section>
+      <section class="more-information">
+        <section class="certificate">
+          <div class="certificate-title text-uppercase border-bottom-custom">
+            Certificate
+          </div>
+          <div></div>
+        </section>
+        <section class="hobist">
+          <div class="hobist-title text-uppercase border-bottom-custom">
+            hobist
+          </div>
+          <div class="hobist-info">
+            <ul>
+              <li>ĐÁ BÓNG</li>
+              <li>CẦU LÔNG</li>
+              <li>BƠI</li>
+            </ul>
+          </div>
+        </section>
+      </section>
       <footer></footer>
     </main>
+    <button onclick="printPDF()" class="printPDF">Print PDF</button>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -81,5 +204,6 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
+    <script src="App.js"></script>
   </body>
 </html>

@@ -1,88 +1,34 @@
-body {
-  display: flex;
-  justify-content: center;
-}
 main {
   max-width: 900px;
   width: 100%;
   border: 1px dashed black;
-  padding: 15px;
+  padding: 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
-.info {
+/* .text-uppercase {
+  text-transform: uppercase;
+} */
+.main-profile {
   display: grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 120px;
-  grid-template-areas: "image basic-info";
   gap: 20px;
 }
-.img {
-  grid-area: image;
-  /* background-color: red; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.border-bottom-custom {
+  border-bottom: 1px solid rgb(150, 146, 146);
+  padding: 5px;
+}
+footer {
+  background-color: rgb(19, 129, 19);
+  height: 50px;
+  width: calc(100% + 40px); /* Mở rộng chiều rộng */
   position: relative;
+  left: -20px; /* Đẩy sang trái để căn chỉnh với main */
+  border-radius: 10px 10px 5px 5px;
 }
-.avartar {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  box-shadow: 1px 4px 15px rgb(112, 104, 104);
-  overflow: hidden;
-}
-
-.image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  object-position: center;
-}
-.img ::after,
-.img ::before {
-  position: absolute;
-  content: "";
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 3px solid black;
-}
-
-.img ::after {
-  top: 0;
-  left: 0;
-  border-top: 1px solid rgb(112, 104, 104);
-  border-left: 1px solid rgb(112, 104, 104);
-}
-.img ::before {
-  bottom: 0;
-  right: 0;
-  border-right: 1px solid rgb(112, 104, 104);
-  border-bottom: 1px solid rgb(112, 104, 104);
-}
-.basic-info {
-  grid-area: basic-info;
-  /* padding: 0 10px 0 10px; */
-}
-.name {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 2px solid black;
-}
-.contact {
-  padding-top: 7px;
-  font-size: 12px;
-  color: rgb(53, 30, 30);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 20px);
-  gap: 2px 10px;
-}
-.contact div {
-  margin-bottom: 20px;
-}
-.contact div p {
-  display: inline-block;
+.printPDF {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
