@@ -1,0 +1,13 @@
+.more-information {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 40px;
+}
+.hobist-info ul {
+  list-style-type: none;
+}
+.hobist-info ul li::before {
+  content: "\f510";
+  font-family: "Font Awesome 5 Brands";
+  padding-right: 10px;
+}

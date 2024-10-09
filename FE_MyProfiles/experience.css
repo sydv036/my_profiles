@@ -1,0 +1,7 @@
+.experience-info {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  padding: 12px;
+  border-bottom: 1px dashed black;
+  border-radius: 4px 10px;
+}
