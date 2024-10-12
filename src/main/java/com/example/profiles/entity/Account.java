@@ -17,23 +17,24 @@ import java.util.Set;
 @Setter
 @Builder
 @ToString
-@SQLDelete(sql = "Update Account set flag = 1 where citizenCard= ?")
-@SQLSelect(sql = "SELECT * FROM Account ac WHERE ac.flag = 0")
+@SQLDelete(sql = "Update AccountRequest set flag = 1 where citizenCard= ?")
+@SQLSelect(sql = "SELECT * FROM AccountRequest ac WHERE ac.flag = 0")
 public class Account {
     @Id
-    @Column(columnDefinition = "varchar(12)", nullable = false)
+    @Column(columnDefinition = "varchar(12)", nullable = false, unique = true)
     private String citizenCard;
     @Column(columnDefinition = "nvarchar(150)", nullable = false)
     private String fullName;
     private LocalDate birthDate;
     @Column(columnDefinition = "varchar(100)")
     private String email;
-    @Column(columnDefinition = "varchar(10)", nullable = false,unique = true)
+    @Column(columnDefinition = "varchar(10)", nullable = false, unique = true)
     private String phoneNumber;
     @Column(columnDefinition = "varchar(5000)")
     private String adress;
     @Column(columnDefinition = "Longtext")
     private String image;
+    private String link;
     @Column(columnDefinition = "bit", nullable = false)
     private Integer flag;
 
@@ -45,4 +46,17 @@ public class Account {
 
     @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<EducationAccount> educationAccounts;
+
+    @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Experience> experiences;
+
+    @OneToOne
+    @JoinColumn(name = "JobTitleApplyID")
+    private JobTitleApply JobTitleApply;
+
+    @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Project> projects;
+
+    @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<TargetAccount> targetAccounts;
 }

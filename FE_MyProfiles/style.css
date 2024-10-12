@@ -1,10 +1,22 @@
+body {
+  background: linear-gradient(#74ebd5, #acb6e5);
+}
+header {
+  max-height: 50px;
+  height: 40px;
+  background-color: rgba(12, 12, 12, 0.5);
+  margin-bottom: 20px;
+}
 main {
   max-width: 900px;
   width: 100%;
-  border: 1px dashed black;
+  /* border: 1px dashed black; */
   padding: 20px;
   margin: 0 auto;
   box-sizing: border-box;
+  background-color: white;
+  height: auto;
+  border-radius: 10px;
 }
 /* .text-uppercase {
   text-transform: uppercase;
@@ -19,16 +31,11 @@ main {
   border-bottom: 1px solid rgb(150, 146, 146);
   padding: 5px;
 }
-footer {
-  background-color: rgb(19, 129, 19);
-  height: 50px;
-  width: calc(100% + 40px); /* Mở rộng chiều rộng */
-  position: relative;
-  left: -20px; /* Đẩy sang trái để căn chỉnh với main */
-  border-radius: 10px 10px 5px 5px;
-}
+
 .printPDF {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  position: sticky;
+  right: 100px;
+  border: none;
+  background: none;
+  color: white;
 }
