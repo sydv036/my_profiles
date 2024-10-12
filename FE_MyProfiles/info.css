@@ -29,6 +29,11 @@
   height: 100px;
   object-fit: cover;
   object-position: center;
+  transition: transform 0.3s ease-in;
+}
+.image:hover {
+  transform: scale(2);
+  /* transition: transform 0.3s ease; */
 }
 .img ::after,
 .img ::before {
@@ -54,7 +59,6 @@
 }
 .basic-info {
   grid-area: basic-info;
-  /* padding: 0 10px 0 10px; */
 }
 .name {
   display: flex;

@@ -23,6 +23,9 @@ public class Certificate extends BaseEntity {
 
     private LocalDate duration;
 
+    @Column(columnDefinition = "LongText", nullable = true)
+    private String certificateImage;
+
     @Column(columnDefinition = "bit")
     private Integer status;
 
