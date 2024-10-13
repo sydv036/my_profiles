@@ -1,5 +1,6 @@
 package com.example.profiles.core.personally.dtos.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -13,7 +14,9 @@ import java.time.LocalDate;
 public class EducationResponse {
     private String educationID;
     private String educationName;
+    @JsonFormat(pattern = "MM-yyyy")
     private LocalDate startDate;
+    @JsonFormat(pattern = "MM-yyyy")
     private LocalDate endDate;
     private Float point;
     private String transcript;
