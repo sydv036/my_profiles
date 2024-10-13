@@ -1,6 +1,6 @@
 package com.example.profiles.core.admin.service.impl;
 
-import com.example.profiles.core.admin.repository.IAccountRepository;
+import com.example.profiles.core.admin.repository.IAccountAdminRepository;
 import com.example.profiles.core.admin.service.IAccountService;
 import com.example.profiles.entity.Account;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 public class AccountServiceImpl implements IAccountService {
 
     @Autowired
-    private IAccountRepository accountRepository;
+    private IAccountAdminRepository accountRepository;
 
     @Override
     public List<Account> getAccounts() throws Exception {

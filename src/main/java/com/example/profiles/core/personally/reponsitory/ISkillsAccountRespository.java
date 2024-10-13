@@ -1,4 +1,4 @@
-package com.example.profiles.core.personally.responsitory;
+package com.example.profiles.core.personally.reponsitory;
 
 import com.example.profiles.core.personally.dtos.response.SkillsResponse;
 import com.example.profiles.repository.SkillAccountRepository;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ISkillsAccountResponsitory extends SkillAccountRepository {
+public interface ISkillsAccountRespository extends SkillAccountRepository {
 
     @Query(value = """
                     SELECT new com.example.profiles.core.personally.dtos.response.SkillsResponse(

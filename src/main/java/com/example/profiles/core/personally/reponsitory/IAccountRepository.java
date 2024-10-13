@@ -1,4 +1,4 @@
-package com.example.profiles.core.personally.responsitory;
+package com.example.profiles.core.personally.reponsitory;
 
 import com.example.profiles.core.personally.dtos.response.ProfileResponse;
 import com.example.profiles.repository.AccountRepository;
@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IAccountReponsitory extends AccountRepository {
+public interface IAccountRepository extends AccountRepository {
 
     @Query(value = """
                     SELECT new com.example.profiles.core.personally.dtos.response.ProfileResponse(

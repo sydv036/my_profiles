@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -23,7 +24,11 @@ public class ProfileResponse {
     private String image;
     private String link;
     private Integer flag;
-    private List<SkillsResponse> skillsResponses;
+    private List<SkillsResponse> skills;
+    private List<EducationResponse> education;
+    private List<ProjectResponse> project;
+    private List<ExperienceResponse> experience;
+    private List<TargetResponse> target;
 
 //    @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
 //    private Set<CertificateAccount> certificateAccounts;
@@ -54,16 +59,5 @@ public class ProfileResponse {
         this.flag = flag;
     }
 
-    public ProfileResponse(String citizenCard, String fullName, LocalDate birthDate, String email, String phoneNumber, String adress, String image, String link, Integer flag, List<SkillsResponse> skillsResponses) {
-        this.citizenCard = citizenCard;
-        this.fullName = fullName;
-        this.birthDate = birthDate;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.adress = adress;
-        this.image = image;
-        this.link = link;
-        this.flag = flag;
-        this.skillsResponses = skillsResponses;
-    }
+
 }

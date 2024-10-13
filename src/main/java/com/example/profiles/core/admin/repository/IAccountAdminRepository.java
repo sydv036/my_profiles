@@ -4,5 +4,5 @@ import com.example.profiles.repository.AccountRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IAccountRepository extends AccountRepository {
+public interface IAccountAdminRepository extends AccountRepository {
 }
