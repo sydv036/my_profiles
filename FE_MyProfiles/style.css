@@ -26,10 +26,16 @@ main {
   grid-template-columns: 1fr;
   grid-template-rows: 120px;
   gap: 20px;
+  position: relative;
 }
 .border-bottom-custom {
   border-bottom: 1px solid rgb(150, 146, 146);
   padding: 5px;
+  margin-bottom: 12px;
+}
+
+.padding-custom {
+  padding: 0 8px 0 8px;
 }
 
 .printPDF {
@@ -38,4 +44,10 @@ main {
   border: none;
   background: none;
   color: white;
+}
+.show-more {
+  cursor: pointer;
+}
+.show-more:hover {
+  color: red;
 }

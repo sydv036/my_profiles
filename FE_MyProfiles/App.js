@@ -1,10 +1,10 @@
 $(() => {
   const API = "http://localhost:8081/api/v1/";
+  var dataCertificateResponse;
 
-  $(".printPDF").click(() => {
-    alert("Đang thực hiện chức năng!");
-  });
   getProfile();
+  handleShowImg(".showImgCertificate", "certificate");
+  handleShowImg(".showImgEducation", "education");
 
   function getProfile() {
     $.ajax({
@@ -14,6 +14,7 @@ $(() => {
       success: function (response) {
         if (response.statusCode === 200) {
           const data = response.data;
+          dataResponse = data.certificate;
           //Basic Info
           let htmlBasicInfo = $(".basic-info");
           const info = `
@@ -44,7 +45,7 @@ $(() => {
             </div>
             <div class="link">
               <i class="fas fa-link"></i>
-              <a href="#">${data.link}</a>
+              <a href="${data.link}" target="_blank">${data.link}</a>
             </div>
           </div>
           `;
@@ -72,7 +73,7 @@ $(() => {
           data.education.forEach((items) => {
             const education = `
               <div class="education-name">
-                <b>${items.educationName}</b>
+                <b class="show-more showImgEducation">${items.educationName}</b>
               </div>
               <div class="major">
                 <b>${items.major}</b>
@@ -105,10 +106,10 @@ $(() => {
 
           //certificat
           let htmlCertificate = $(".certificate-info");
-          data.certificate.forEach((items) => {
+          data.certificate.forEach((items, index) => {
             const certificateInfo = `
                   <div>
-                    <b>${items.certificateName}</b>
+                    <b class="show-more showImgCertificate" data-id="${items.certificateID}">${items.certificateName}</b>
                     <p>${items.duration}</p>
                   </div>
               `;
@@ -124,4 +125,35 @@ $(() => {
       },
     });
   }
+
+  $(".printPDF").click(() => {
+    alert("Chức năng đang hoàn thiện!");
+  });
+
+  function handleShowImg(eventClass, eventType) {
+    $(document).on("click", eventClass, function () {
+      const idCertificate = $(this).data("id");
+      $(".main-show-img").css("display", "none");
+
+      let imgName;
+      if (eventType === "certificate") {
+        imgName = dataResponse.find((items) => {
+          return items.certificateID == idCertificate;
+        })?.certificateImage;
+      } else if (eventType === "education") {
+        imgName = "education";
+      }
+
+      if (imgName !== "" || imgName.trim() !== "") {
+        $(".main-show-img").slideDown("slow");
+        $(".img-show-more").attr("src", "data:image/png;base64," + imgName);
+      } else {
+        alert("Ảnh chưa được cập nhật......");
+      }
+    });
+  }
+
+  $(document).on("click", ".cancel-img", function () {
+    $(".main-show-img").css("display", "none");
+  });
 });

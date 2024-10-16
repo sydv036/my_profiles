@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="experience.css" />
     <link rel="stylesheet" href="project.css" />
     <link rel="stylesheet" href="more-information.css" />
+    <link rel="stylesheet" href="show-img.css" />
   </head>
   <body>
     <header class="d-flex justify-content-end">
@@ -52,11 +53,11 @@
         <div class="title-career-goals text-uppercase border-bottom-custom">
           Mục tiêu nghề nghiệp
         </div>
-        <div class="shot-term-goals">
+        <div class="shot-term-goals padding-custom">
           <b>Mục tiêu ngắn hạn</b>
           <ul class="shot-goal"></ul>
         </div>
-        <div class="long-term-goals">
+        <div class="long-term-goals padding-custom">
           <b>Mục tiêu dài hạn</b>
           <ul class="long-goal"></ul>
         </div>
@@ -65,18 +66,18 @@
         <div class="education-title text-uppercase border-bottom-custom">
           Học vấn
         </div>
-        <div class="education-info"></div>
+        <div class="education-info padding-custom"></div>
       </section>
       <section class="skills">
         <div class="skills-title border-bottom-custom text-uppercase">
           Kĩ năng
         </div>
-        <div class="skills-name">
+        <div class="skills-name padding-custom">
           <div class="soft-skills">
             <b>Kĩ năng mềm</b>
             <ul class="soft-skill-info"></ul>
           </div>
-          <div class="professional-skills">
+          <div class="professional-skills padding-custom">
             <b>Kĩ năng chuyên môn</b>
             <ul class="professional-skill-info"></ul>
           </div>
@@ -86,14 +87,14 @@
         <div class="experience-title text-uppercase border-bottom-custom">
           Kinh nghiệm
         </div>
-        <div class="experience-info">
+        <div class="experience-info mb-3 padding-custom">
           <div class="company-name">FPT</div>
           <div>
             <div class="job-title">DEVELOPER</div>
             <div class="time-on-job">09/2021 - 09/2024</div>
           </div>
         </div>
-        <div class="experience-info">
+        <div class="experience-info padding-custom">
           <div class="company-name">FPT</div>
           <div>
             <div class="job-title">DEVELOPER</div>
@@ -101,11 +102,11 @@
           </div>
         </div>
       </section>
-      <section class="project">
+      <section class="project pb-2">
         <div class="project-title text-uppercase border-bottom-custom">
           Project
         </div>
-        <div class="project-info">
+        <div class="project-info padding-custom">
           <div class="time-on">
             <div class="job-title">DEVELOPER</div>
             <div class="working-time">2021 - 2024</div>
@@ -121,13 +122,13 @@
           <div class="certificate-title text-uppercase border-bottom-custom">
             Certificate
           </div>
-          <div class="certificate-info pt-1"></div>
+          <div class="certificate-info pt-1 padding-custom"></div>
         </section>
         <section class="hobist">
           <div class="hobist-title text-uppercase border-bottom-custom">
             hobist
           </div>
-          <div class="hobist-info pt-2">
+          <div class="hobist-info">
             <ul>
               <li>ĐÁ BÓNG</li>
               <li>CẦU LÔNG</li>
@@ -137,6 +138,13 @@
         </section>
       </section>
     </main>
+    <div class="main-show-img">
+      <img class="img-show-more" alt="" />
+      <button class="cancel-img">
+        <i class="fas fa-window-close" style="color: #eb0505"></i>
+      </button>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
