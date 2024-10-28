@@ -14,7 +14,7 @@ public interface IEducationAccountRepository extends EducationAccountRepository 
     @Query(value = """
                     select new com.example.profiles.core.personally.dtos.response.EducationResponse
                         (
-                      edu.id ,edu.educationName,edu.startDate,edu.endDate,edu.point,edu.transcript,edu.status
+                      edu.id ,edu.educationName,edu.major,edu.startDate,edu.endDate,edu.point,edu.transcript,edu.status
                         )                
                         from EducationAccount eduac
                          left join  Education edu on eduac.education.id = edu.id

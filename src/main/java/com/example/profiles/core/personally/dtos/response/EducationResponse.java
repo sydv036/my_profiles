@@ -14,6 +14,7 @@ import java.time.LocalDate;
 public class EducationResponse {
     private String educationID;
     private String educationName;
+    private String major;
     @JsonFormat(pattern = "MM-yyyy")
     private LocalDate startDate;
     @JsonFormat(pattern = "MM-yyyy")

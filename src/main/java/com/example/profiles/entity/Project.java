@@ -15,7 +15,7 @@ public class Project extends BaseEntity {
     public Project() {
         super("PRJ");
     }
-
+    private String projectName;
     private String jobTitle;
     private LocalDate fromDate;
     private LocalDate toDate;

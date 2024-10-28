@@ -21,11 +21,11 @@ import java.util.Set;
 @SQLSelect(sql = "SELECT * FROM AccountRequest ac WHERE ac.flag = 0")
 public class Account {
     @Id
-    @Column(columnDefinition = "varchar(12)", nullable = false, unique = true)
+    @Column(columnDefinition = "varchar(13)", nullable = false, unique = true)
     private String citizenCard;
     @Column(columnDefinition = "nvarchar(150)", nullable = false)
     private String fullName;
-    private LocalDate birthDate;
+    private String birthDate;
     @Column(columnDefinition = "varchar(100)")
     private String email;
     @Column(columnDefinition = "varchar(10)", nullable = false, unique = true)
@@ -35,6 +35,7 @@ public class Account {
     @Column(columnDefinition = "Longtext")
     private String image;
     private String link;
+    private String gender;
     @Column(columnDefinition = "bit", nullable = false)
     private Integer flag;
 

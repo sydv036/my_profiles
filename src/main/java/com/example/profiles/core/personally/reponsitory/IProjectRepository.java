@@ -13,6 +13,7 @@ public interface IProjectRepository extends ProjectRepository {
 
     @Query(value = """
                     select prj.id        as id,
+                           prj.project_name as projectName,
                            prj.job_title as jobTitle,
                            prj.from_date as fromDate,
                            prj.to_date   as toDate,

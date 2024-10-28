@@ -30,10 +30,11 @@
   object-fit: cover;
   object-position: center;
   transition: transform 0.3s ease-in;
+  position: relative;
 }
 .image:hover {
   transform: scale(2);
-  /* transition: transform 0.3s ease; */
+  transition: transform 0.3s ease;
 }
 .img ::after,
 .img ::before {
@@ -48,8 +49,8 @@
 .img ::after {
   top: 0;
   left: 0;
-  border-top: 1px solid rgb(112, 104, 104);
-  border-left: 1px solid rgb(112, 104, 104);
+  /* border-top: 1px solid rgb(112, 104, 104);
+  border-left: 1px solid rgb(112, 104, 104); */
 }
 .img ::before {
   bottom: 0;

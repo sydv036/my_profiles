@@ -1,0 +1,38 @@
+input {
+  border: none;
+  outline: none;
+}
+.time-on-job {
+  display: flex;
+  flex-direction: row;
+}
+input :focus {
+  border: 1px soid red;
+}
+.avartar .image-update {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease-in;
+}
+.avartar .image-update:hover {
+  transform: scale(1.2);
+  opacity: 0.4;
+}
+
+.avartar .camera {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 25px;
+}
+.icon-custom {
+  color: rgb(38, 57, 230);
+  cursor: pointer;
+}
+.icon-custom:hover {
+  color: brown;
+}

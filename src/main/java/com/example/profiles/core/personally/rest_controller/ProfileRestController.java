@@ -6,6 +6,7 @@ import com.example.profiles.core.personally.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin("*")
 public class ProfileRestController {
 
     @Autowired
@@ -34,6 +36,9 @@ public class ProfileRestController {
     @Autowired
     private ITargetAccountService targetAccountService;
 
+    @Autowired
+    private ICertificateAccountService certificateAccountService;
+
     @GetMapping("/profile")
     public ResponseEntity<?> getProfile() throws Exception {
         try {
@@ -44,12 +49,14 @@ public class ProfileRestController {
             List<ProjectResponse> projectResponseList = projectService.getProjectByCitizenCard(citizenCard);
             List<ExperienceResponse> experienceResponseList = experienceService.getExperienceByCitizenCard(citizenCard);
             List<TargetResponse> targetResponseList = targetAccountService.getTargetByCitizenCard(citizenCard);
+            List<CertificateResponse> certificateResponseList = certificateAccountService.getCertificateByCitizenCard(citizenCard);
 
             profileResponse.setSkills(skillsResponseList);
             profileResponse.setEducation(educationResponseList);
             profileResponse.setProject(projectResponseList);
             profileResponse.setExperience(experienceResponseList);
             profileResponse.setTarget(targetResponseList);
+            profileResponse.setCertificate(certificateResponseList);
             return ResponseEntity.ok(new BaseReponse<>(HttpStatus.OK.value(), "Successfully", profileResponse));
         } catch (Exception e) {
             return ResponseEntity.ok(new BaseReponse<>(HttpStatus.NOT_FOUND.value(), "Profile NotFound", null));
