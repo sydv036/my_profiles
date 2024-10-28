@@ -18,13 +18,13 @@ import java.util.Set;
 public class ProfileResponse {
     private String citizenCard;
     private String fullName;
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate birthDate;
+    private String birthDate;
     private String email;
     private String phoneNumber;
     private String adress;
     private String image;
     private String link;
+    private String gender;
     private Integer flag;
     private String jobTitleApply;
     private List<SkillsResponse> skills;
@@ -34,7 +34,7 @@ public class ProfileResponse {
     private List<TargetResponse> target;
     private List<CertificateResponse> certificate;
 
-    public ProfileResponse(String citizenCard, String fullName, LocalDate birthDate, String email, String phoneNumber, String adress, String image, String link, Integer flag, String jobTitleApply) {
+    public ProfileResponse(String citizenCard, String fullName, String birthDate, String email, String phoneNumber, String adress, String image, String link, String gender, Integer flag, String jobTitleApply) {
         this.citizenCard = citizenCard;
         this.fullName = fullName;
         this.birthDate = birthDate;
@@ -43,6 +43,7 @@ public class ProfileResponse {
         this.adress = adress;
         this.image = image;
         this.link = link;
+        this.gender = gender;
         this.flag = flag;
         this.jobTitleApply = jobTitleApply;
     }

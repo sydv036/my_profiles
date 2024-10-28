@@ -26,28 +26,34 @@
     <link rel="stylesheet" href="project.css" />
     <link rel="stylesheet" href="more-information.css" />
     <link rel="stylesheet" href="show-img.css" />
+    <link rel="stylesheet" href="update-profile.css" />
   </head>
   <body>
     <header class="d-flex justify-content-center align-items-center">
       <button class="printPDF">
-        <i class="fas fa-pen-alt"></i>
-        <a href="update-profile.html">Chỉnh sửa CV</a>
+        <i class="fas fa-pen-alt"></i> <a href="index.html">Xem CV</a>
       </button>
       <button class="printPDF" onclick="window.print()">
         <i class="fas fa-file-pdf"></i> Print PDF
       </button>
+      <button class="printPDF updateCV">Cập nhật CV</button>
     </header>
     <main class="main-profile" id="main-profile">
       <section class="info">
-        <div class="img">
+        <div class="">
           <div class="avartar">
             <img
-              class="image"
-              src="img/z3631010166743_f17b0678659b773c0dba2939a6a10983.jpg"
+              class="image-update"
+              src="https://firebasestorage.googleapis.com/v0/b/my-profiles-c2713.appspot.com/o/images%2F123.jpg?alt=media&token=4505f62c-7a97-464b-a11b-e95a75ae6d8a"
               alt=""
             />
+            <div class="camera">
+              <i class="fas fa-camera"></i>
+            </div>
+            <input type="file" hidden id="imgHandle" ref="imgHandle" />
           </div>
         </div>
+
         <div class="basic-info"></div>
       </section>
       <section class="career-goals">
@@ -55,12 +61,22 @@
           Mục tiêu nghề nghiệp
         </div>
         <div class="shot-term-goals padding-custom">
-          <b>Mục tiêu ngắn hạn</b>
-          <ul class="shot-goal"></ul>
+          <b
+            >Mục tiêu ngắn hạn
+            <i class="fas fa-plus-circle icon-custom icon-shot-term-goals">
+              Add New</i
+            ></b
+          >
+          <div class="shot-goal row"></div>
         </div>
         <div class="long-term-goals padding-custom">
-          <b>Mục tiêu dài hạn</b>
-          <ul class="long-goal"></ul>
+          <b
+            >Mục tiêu dài hạn
+            <i class="fas fa-plus-circle icon-custom icon-long-term-goals"
+              >Add New</i
+            ></b
+          >
+          <div class="long-goal row"></div>
         </div>
       </section>
       <section class="education">
@@ -75,20 +91,35 @@
         </div>
         <div class="skills-name padding-custom">
           <div class="soft-skills">
-            <b>Kĩ năng mềm</b>
-            <ul class="soft-skill-info"></ul>
+            <b
+              >Kĩ năng mềm
+              <i class="fas fa-plus-circle icon-custom icon-soft-skill"
+                >Add New</i
+              ></b
+            >
+            <div class="soft-skill-info row"></div>
           </div>
           <div class="professional-skills padding-custom">
-            <b>Kĩ năng chuyên môn</b>
-            <ul class="professional-skill-info"></ul>
+            <b
+              >Kĩ năng chuyên môn
+              <i class="fas fa-plus-circle icon-custom icon-profess-skill"
+                >Add New</i
+              >
+            </b>
+            <div class="professional-skill-info row"></div>
           </div>
         </div>
       </section>
       <section class="experience">
         <div class="experience-title text-uppercase border-bottom-custom">
           Kinh nghiệm
+          <i
+            class="fas fa-plus-circle icon-custom text-capitalize icon-experience"
+            >Add New</i
+          >
         </div>
-        <div class="experience-info mb-3 padding-custom"></div>
+
+        <div class="experience-info-update mb-3 padding-custom"></div>
       </section>
       <section class="project pb-2">
         <div class="project-title text-uppercase border-bottom-custom">
@@ -140,10 +171,13 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script> -->
 
-    <script src="App.js"></script>
-    <script src="PrintPDF.js"></script>
+    <script src="update.js"></script>
+    <!-- <script type="module" src="firebase-config.js"></script> -->
+    <!-- <script type="module" src="imageHandle.js"></script> -->
+    <script type="module" src="updateCV.js"></script>
+    <!-- <script type="module" src="updateGoal.js"></script> -->
   </body>
 </html>

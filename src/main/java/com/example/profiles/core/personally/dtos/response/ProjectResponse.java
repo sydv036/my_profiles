@@ -13,6 +13,9 @@ public interface ProjectResponse {
     @Value("#{target.id}")
     String getProjectID();
 
+    @Value("#{target.projectName}")
+    String getProjectName();
+
     @Value("#{target.jobTitle}")
     String getJobTitle();
 

@@ -104,7 +104,22 @@ $(() => {
             }
           });
 
-          //certificat
+          //Experience
+          let htmlExperience = $(".experience-info");
+          data.experience.forEach((item) => {
+            console.log("helo");
+
+            const experience = `
+                <div class="company-name">${item.companyName}</div>
+                <div>
+                    <div class="job-title">${item.jobTitle}</div>
+                    <div class="time-on-job">${item.fromDate} - ${item.toDate} </div>
+                </div>
+            `;
+            htmlExperience.append(experience);
+          });
+
+          //certificate
           let htmlCertificate = $(".certificate-info");
           data.certificate.forEach((items, index) => {
             const certificateInfo = `
@@ -114,6 +129,22 @@ $(() => {
                   </div>
               `;
             htmlCertificate.append(certificateInfo);
+          });
+
+          //project
+          let htmlProject = $(".project-info");
+          data.project.forEach((item) => {
+            const projectInfo = `
+                <div class="time-on">
+                 <div class="job-title">${item.jobTitle}</div>
+                 <div class="working-time">${item.fromDate} - ${item.toDate}</div>
+               </div>
+               <div class="project-description mb-2">
+                 <div class="project-title"><b>${item.projectName}</b></div>
+                 <div class="project-body">${item.description}</div>
+               </div>
+             `;
+            htmlProject.append(projectInfo);
           });
           console.log(data);
           return;
@@ -125,10 +156,6 @@ $(() => {
       },
     });
   }
-
-  $(".printPDF").click(() => {
-    alert("Chức năng đang hoàn thiện!");
-  });
 
   function handleShowImg(eventClass, eventType) {
     $(document).on("click", eventClass, function () {
