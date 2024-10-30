@@ -36,3 +36,29 @@ input :focus {
 .icon-custom:hover {
   color: brown;
 }
+.certificate-form {
+  margin-bottom: 15px;
+}
+.modal-dialog-custom {
+  max-width: 800px;
+  width: 90%;
+}
+.modal-body-certificate {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-input-certificate {
+  gap: 10px;
+}
+.icon-add-img-certificate {
+  font-size: 50px;
+  cursor: pointer;
+}
+.img-add-certificate {
+  object-fit: cover;
+  object-position: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

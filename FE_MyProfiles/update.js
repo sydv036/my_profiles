@@ -125,27 +125,29 @@ $(() => {
           let htmlCertificate = $(".certificate-info");
           data.certificate.forEach((items, index) => {
             const certificateInfo = `
-                    <div>
-                      <b class="show-more showImgCertificate" data-id="${items.certificateID}">${items.certificateName}</b>
-                      <input value="${items.duration}"/>
+                    <div class="certificate-form row">
+                      <b class="col-9 " data-id="${items.certificateID}" >${items.certificateName}</b>
+                      <p class="duration-custom col-3" >${items.duration} </p>
                     </div>
                 `;
             htmlCertificate.append(certificateInfo);
           });
 
           //project
-          let htmlProject = $(".project-info");
+          let htmlProject = $(".project-info-custom");
           data.project.forEach((item) => {
             const projectInfo = `
-        
-                <div class="time-on">
+              <div class='project-form row'>
+                <div class="time-on col-6 ">
                   <input class="job-title" value="${item.jobTitle}"/>
-                  <div class="working-time"><input value="${item.fromDate}"/> - <input value="${item.toDate}"/></div>
+                  <div class="working-time row"><input class="col-3" value="${item.fromDate}"/> - <input class="col-3" value="${item.toDate}"/></div>
                 </div>
-                <div class="project-description mb-2">
+                <div class="project-description mb-2 col-6">
                   <div class="project-title"><input value="${item.projectName}"/></div>
                   <input class="project-body" value="${item.description}"/>
                 </div>
+              </div>
+                
         
              
             `;
