@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="more-information.css" />
     <link rel="stylesheet" href="show-img.css" />
     <link rel="stylesheet" href="update-profile.css" />
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="d-flex justify-content-center align-items-center">
@@ -82,8 +86,11 @@
       <section class="education">
         <div class="education-title text-uppercase border-bottom-custom">
           Học vấn
+          <i class="fas fa-plus-circle icon-custom text-capitalize icon-add-edu"
+            >Add New</i
+          >
         </div>
-        <div class="education-info padding-custom"></div>
+        <div class="education-info-custom padding-custom"></div>
       </section>
       <section class="skills">
         <div class="skills-title border-bottom-custom text-uppercase">
@@ -137,8 +144,6 @@
             Certificate
             <i
               class="fas fa-plus-circle icon-custom text-capitalize icon-add-certificate"
-              data-bs-toggle="modal"
-              data-bs-target="#addCertificate"
               >Add New</i
             >
           </div>
@@ -164,10 +169,10 @@
         <i class="fas fa-window-close" style="color: #eb0505"></i>
       </button>
     </div>
-    <!-- Modal add certificate-->
+    <!-- Modal quill-->
     <div
       class="modal fade"
-      id="addCertificate"
+      id="quillModal"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -175,7 +180,9 @@
       <div class="modal-dialog modal-dialog-centered modal-dialog-custom">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Certificate</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Thông tin project
+            </h1>
             <button
               type="button"
               class="btn-close"
@@ -185,32 +192,7 @@
           </div>
           <div class="modal-body">
             <div class="modal-body-certificate">
-              <div class="d-flex form-input-certificate">
-                <div class="form-control">
-                  <label for="">Certificate Name</label>
-                  <input type="text" id="certificateName" class="input-group" />
-                </div>
-                <div class="form-control">
-                  <label for="">Duration</label>
-                  <input
-                    type="text"
-                    id="certificateDuration"
-                    class="input-group"
-                  />
-                </div>
-              </div>
-
-              <div
-                class="d-flex justify-content-center align-items-center"
-                style="gap: 20px"
-              >
-                <i
-                  class="fas fa-camera-retro icon-add-img-certificate"
-                  id="handaleAddImgCertificate"
-                ></i>
-                <img class="img-add-certificate" alt="" />
-                <input type="file" hidden id="inputAddImgCertificate" />
-              </div>
+              <div id="quill-custom"></div>
             </div>
           </div>
           <div class="modal-footer">
@@ -221,8 +203,8 @@
             >
               Hủy
             </button>
-            <button type="button" class="btn btn-primary add-cert">
-              Thêm mới
+            <button type="button" class="btn btn-primary add-project-info">
+              Cập nhật
             </button>
           </div>
         </div>
@@ -253,5 +235,7 @@
     <!-- <script type="module" src="imageHandle.js"></script> -->
     <script type="module" src="updateCV.js"></script>
     <!-- <script type="module" src="updateGoal.js"></script> -->
+    <script src="quill.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   </body>
 </html>

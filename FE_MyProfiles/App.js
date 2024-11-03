@@ -173,7 +173,7 @@ $(() => {
 
       if (imgName !== "" || imgName.trim() !== "") {
         $(".main-show-img").slideDown("slow");
-        $(".img-show-more").attr("src", "data:image/png;base64," + imgName);
+        $(".img-show-more").attr("src", imgName);
       } else {
         alert("Ảnh chưa được cập nhật......");
       }

@@ -62,3 +62,6 @@ input :focus {
   height: 100px;
   border-radius: 50%;
 }
+#quill-custom {
+  height: 375px;
+}

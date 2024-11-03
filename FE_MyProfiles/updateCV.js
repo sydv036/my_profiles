@@ -1,5 +1,5 @@
 import { uploadImage } from "./imageUpload.js";
-import { readAccountRequest } from "./updateInfo.js";
+import { readAccountRequest, updateInformation } from "./updateInfo.js";
 import {
   readGoalRequest,
   createShotGoal,
@@ -11,8 +11,9 @@ import {
   createProfessionalSkill,
 } from "./updateSkill.js";
 import { readExperienceRequest, createExperience } from "./updateExperience.js";
-import { createProject } from "./updateProject.js";
+import { createProject, handleQuill } from "./updateProject.js";
 import { readCertificate, createCertificate } from "./updateCertificate.js";
+import { createEducation } from "./updateEducation.js";
 
 $(() => {
   createShotGoal();
@@ -21,7 +22,10 @@ $(() => {
   createProfessionalSkill();
   createExperience();
   createProject();
+  handleQuill();
   createCertificate();
+  createEducation();
+  updateInformation();
   $(".updateCV").click(() => {
     console.table(readAccountRequest());
     console.log(readGoalRequest());

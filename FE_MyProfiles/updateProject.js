@@ -11,10 +11,13 @@ function createProject() {
                   </div>
                   <div class="project-description mb-2 col-6">
                     <div class="project-title"><input value="Đồ án tốt nghiệp"/></div>
-                    <input class="project-body" value="Thông tin dự án"/>
+                    <div class="project-body">Thông tin dự án</div>
                   </div>
               </div>
       `
   );
 }
-export { createProject };
+function handleQuill() {
+  $(document).on("click", ".project-body", function () {});
+}
+export { createProject, handleQuill };
