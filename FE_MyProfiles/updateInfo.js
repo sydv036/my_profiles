@@ -1,4 +1,4 @@
-import { handleInput } from "./common.js";
+import { handleInput, callApiPost } from "./common.js";
 
 var fileImg;
 $(".image-update").click(() => {
@@ -30,14 +30,14 @@ function readAccountRequest() {
 
 function updateInformation() {
   handleInput(".name input", ".name", "citizen-card", function (dataRequest) {
-    console.log(JSON.stringify(dataRequest));
+    callApiPost("/api/v1/admin/information", dataRequest);
   });
   handleInput(
     ".contact input",
     ".contact",
     "citizen-card",
     function (dataRequest) {
-      console.log(dataRequest);
+      callApiPost("/api/v1/admin/information", dataRequest);
     }
   );
 }

@@ -1,5 +1,6 @@
 package com.example.profiles.core.admin.service.impl;
 
+import com.example.profiles.common.GenObjectCommon;
 import com.example.profiles.core.admin.dtos.request.DataRequest;
 import com.example.profiles.core.admin.repository.IAccountAdminRepository;
 import com.example.profiles.core.admin.service.IAccountService;
@@ -29,13 +30,12 @@ public class AccountServiceImpl implements IAccountService {
     public Boolean saveOrUpdate(DataRequest dataRequest) throws Exception {
         try {
             Account account = accountRepository.findAccountByCitizenCard(dataRequest.getId());
-            Field[] fields = account.getClass().getDeclaredFields();
-            for( Field field : fields ) {
-                System.out.println(field.getName());
+            if (account == null) {
+                return false;
             }
-//            Account accountSave = accountRepository.save(account);
-//            return accountSave != null;
-            return  true;
+            account = new GenObjectCommon<>(Account.class).genObject(account, dataRequest);
+            Account accountSave = accountRepository.save(account);
+            return accountSave != null;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

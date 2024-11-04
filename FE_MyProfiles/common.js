@@ -13,4 +13,20 @@ function handleInput(classInput, classParent, dataName, callback) {
     callback(new DataRequest(id, attrName, valueNew));
   });
 }
-export { create, handleInput };
+let API = "http://localhost:8081";
+function callApiPost(url, dataRequest) {
+  $.ajax({
+    url: API + url,
+    method: "POST",
+    dataType: "json",
+    data: JSON.stringify(dataRequest),
+    contentType: "application/json",
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (error) {
+      console.log(error.message);
+    },
+  });
+}
+export { create, handleInput, callApiPost };
