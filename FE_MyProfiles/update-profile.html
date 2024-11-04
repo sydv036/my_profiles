@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="more-information.css" />
     <link rel="stylesheet" href="show-img.css" />
     <link rel="stylesheet" href="update-profile.css" />
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="d-flex justify-content-center align-items-center">
@@ -82,8 +86,11 @@
       <section class="education">
         <div class="education-title text-uppercase border-bottom-custom">
           Học vấn
+          <i class="fas fa-plus-circle icon-custom text-capitalize icon-add-edu"
+            >Add New</i
+          >
         </div>
-        <div class="education-info padding-custom"></div>
+        <div class="education-info-custom padding-custom"></div>
       </section>
       <section class="skills">
         <div class="skills-title border-bottom-custom text-uppercase">
@@ -124,13 +131,21 @@
       <section class="project pb-2">
         <div class="project-title text-uppercase border-bottom-custom">
           Project
+          <i
+            class="fas fa-plus-circle icon-custom text-capitalize icon-add-project"
+            >Add New</i
+          >
         </div>
-        <div class="project-info padding-custom"></div>
+        <div class="project-info-custom padding-custom"></div>
       </section>
       <section class="more-information">
         <section class="certificate">
           <div class="certificate-title text-uppercase border-bottom-custom">
             Certificate
+            <i
+              class="fas fa-plus-circle icon-custom text-capitalize icon-add-certificate"
+              >Add New</i
+            >
           </div>
           <div class="certificate-info pt-1 padding-custom"></div>
         </section>
@@ -153,6 +168,47 @@
       <button class="cancel-img">
         <i class="fas fa-window-close" style="color: #eb0505"></i>
       </button>
+    </div>
+    <!-- Modal quill-->
+    <div
+      class="modal fade"
+      id="quillModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Thông tin project
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body-certificate">
+              <div id="quill-custom"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary close-modal"
+              data-bs-dismiss="modal"
+            >
+              Hủy
+            </button>
+            <button type="button" class="btn btn-primary add-project-info">
+              Cập nhật
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
@@ -179,5 +235,7 @@
     <!-- <script type="module" src="imageHandle.js"></script> -->
     <script type="module" src="updateCV.js"></script>
     <!-- <script type="module" src="updateGoal.js"></script> -->
+    <script src="quill.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   </body>
 </html>

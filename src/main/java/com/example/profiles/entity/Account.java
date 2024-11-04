@@ -60,4 +60,20 @@ public class Account {
 
     @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<TargetAccount> targetAccounts;
+
+
+    public String show() {
+        return "Account{" +
+                "citizenCard='" + citizenCard + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", adress='" + adress + '\'' +
+                ", image='" + image + '\'' +
+                ", link='" + link + '\'' +
+                ", gender='" + gender + '\'' +
+                ", flag=" + flag +
+                '}';
+    }
 }

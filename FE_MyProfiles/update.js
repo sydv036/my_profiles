@@ -19,12 +19,12 @@ $(() => {
           //Basic Info
           let htmlBasicInfo = $(".basic-info");
           const info = `
-              <div class="name">
+              <div class="name" data-citizen-card="${data.citizenCard}">
                 <input type="hidden" name="citizenCard" value="${data.citizenCard}">
-                <input type="text" name="fullName" class="text-uppercase" value="${data.fullName}"/>
-                <input type="text" name="jobTitleApply" class="text-uppercase" value="${data.jobTitleApply}" />
+                <input type="text" name="fullName"  class="text-uppercase" value="${data.fullName}"/>
+                <input type="text" name="jobTitleApply"  class="text-uppercase" value="${data.jobTitleApply}" />
               </div>
-              <div class="contact">
+              <div class="contact" data-citizen-card="${data.citizenCard}">
                   <div class="birth-day">
                     <i class="fas fa-calendar-week"></i>
                     <input type="text" name="birthDate" value="${data.birthDate}"/>
@@ -71,20 +71,22 @@ $(() => {
           });
 
           //Education
-          let htmlEducationInfo = $(".education-info");
+          let htmlEducationInfo = $(".education-info-custom");
           data.education.forEach((items) => {
             const education = `
+            <div class="education-info mb-3">
                 <div class="education-name">
-                  <b class="show-more showImgEducation">${items.educationName}</b>
+                  <input class="" data-id="${items.educationID}" value="${items.educationName}"/>
                 </div>
                 <div class="major">
                   <input value="${items.major}" />
                 </div>
-                <div class="year-learn row"><input value="${items.startDate}"/>  -  <input value="${items.endDate}"/></div>
+                <div class="year-learn row"><input class="col-4" value="${items.startDate}"/>    <input class="col-4" value="${items.endDate}"/></div>
                 <div class="point">
                   GPA:
                   <input value="${items.point}"/>
-                </div>
+                </div>    
+            </div>
               `;
             htmlEducationInfo.append(education);
           });
@@ -125,27 +127,29 @@ $(() => {
           let htmlCertificate = $(".certificate-info");
           data.certificate.forEach((items, index) => {
             const certificateInfo = `
-                    <div>
-                      <b class="show-more showImgCertificate" data-id="${items.certificateID}">${items.certificateName}</b>
-                      <input value="${items.duration}"/>
+                    <div class="certificate-form row">
+                      <input class="col-9 " data-id="${items.certificateID}" value="${items.certificateName}"/>
+                      <input class="duration-custom col-3" value="${items.duration}" />
                     </div>
                 `;
             htmlCertificate.append(certificateInfo);
           });
 
           //project
-          let htmlProject = $(".project-info");
+          let htmlProject = $(".project-info-custom");
           data.project.forEach((item) => {
             const projectInfo = `
-        
-                <div class="time-on">
+              <div class='project-form row'>
+                <div class="time-on col-6 ">
                   <input class="job-title" value="${item.jobTitle}"/>
-                  <div class="working-time"><input value="${item.fromDate}"/> - <input value="${item.toDate}"/></div>
+                  <div class="working-time row"><input class="col-3" value="${item.fromDate}"/> - <input class="col-3" value="${item.toDate}"/></div>
                 </div>
-                <div class="project-description mb-2">
+                <div class="project-description mb-2 col-6">
                   <div class="project-title"><input value="${item.projectName}"/></div>
-                  <input class="project-body" value="${item.description}"/>
+                  <div class="project-body" >${item.description}</div>
                 </div>
+              </div>
+                
         
              
             `;
