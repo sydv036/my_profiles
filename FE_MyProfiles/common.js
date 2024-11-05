@@ -13,6 +13,13 @@ function handleInput(classInput, classParent, dataName, callback) {
     callback(new DataRequest(id, attrName, valueNew));
   });
 }
+function handleInputSingle(classInput, dataName, callback) {
+  $(document).on("change", classInput, function () {
+    let id = $(this).data(dataName);
+    let valueNew = $(this).val();
+    callback(new DataRequest(id, null, valueNew));
+  });
+}
 let API = "http://localhost:8081";
 function callApiPost(url, dataRequest) {
   $.ajax({
@@ -29,4 +36,4 @@ function callApiPost(url, dataRequest) {
     },
   });
 }
-export { create, handleInput, callApiPost };
+export { create, handleInput, callApiPost, handleInputSingle };

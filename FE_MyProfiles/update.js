@@ -22,7 +22,7 @@ $(() => {
               <div class="name" data-citizen-card="${data.citizenCard}">
                 <input type="hidden" name="citizenCard" value="${data.citizenCard}">
                 <input type="text" name="fullName"  class="text-uppercase" value="${data.fullName}"/>
-                <input type="text" name="jobTitleApply"  class="text-uppercase" value="${data.jobTitleApply}" />
+                <input type="text" name="jobTitleApplly"  class="text-uppercase" value="${data.jobTitleApply}" />
               </div>
               <div class="contact" data-citizen-card="${data.citizenCard}">
                   <div class="birth-day">
@@ -57,7 +57,7 @@ $(() => {
           let htmlShotTermGoal = $(".shot-goal");
           let htmlLongTermGoal = $(".long-goal");
           data.target.forEach((items) => {
-            if (items.targetTypeName == "SHOT") {
+            if (items.targetTypeName == 1) {
               const itemShotTermGoal = `
                     <input class="col-12" data-id="${items.targetID}" value="${items.targetName}"/>
                 `;

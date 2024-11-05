@@ -19,7 +19,7 @@ public class TargetType extends BaseEntity {
         super("TGT");
     }
 
-    private String targetTypeName;
+    private int targetTypeName;
 
     @OneToMany(mappedBy = "targetType", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Target> targets;

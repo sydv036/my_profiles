@@ -4,6 +4,7 @@ import {
   readGoalRequest,
   createShotGoal,
   createLongGoal,
+  updateGoal,
 } from "./updateGoal.js";
 import {
   readSkillRequest,
@@ -26,6 +27,7 @@ $(() => {
   createCertificate();
   createEducation();
   updateInformation();
+  updateGoal();
   $(".updateCV").click(() => {
     console.table(readAccountRequest());
     console.log(readGoalRequest());

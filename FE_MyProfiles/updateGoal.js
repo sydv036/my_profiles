@@ -1,4 +1,9 @@
-import { create } from "./common.js";
+import {
+  create,
+  callApiPost,
+  handleInput,
+  handleInputSingle,
+} from "./common.js";
 function readGoalRequest() {
   let shotGoalHTML = $(".shot-goal input");
   let shotGoalDataRequest = [];
@@ -32,4 +37,9 @@ function createLongGoal() {
     "<input class='col-12' value='Mục tiêu dài hạn của bạn' />"
   );
 }
-export { readGoalRequest, createShotGoal, createLongGoal };
+function updateGoal() {
+  handleInputSingle(".shot-goal input", "id", function (callback) {
+    callApiPost("/api/v1/admin/updateTarge/1", callback);
+  });
+}
+export { readGoalRequest, createShotGoal, createLongGoal, updateGoal };

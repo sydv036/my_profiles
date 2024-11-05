@@ -55,7 +55,7 @@ $(() => {
           let htmlShotTermGoal = $(".shot-goal");
           let htmlLongTermGoal = $(".long-goal");
           data.target.forEach((items) => {
-            if (items.targetTypeName == "SHOT") {
+            if (items.targetTypeName == 1) {
               const itemShotTermGoal = `
                   <li>${items.targetName}</li>
               `;

@@ -36,6 +36,7 @@ public class Account {
     private String image;
     private String link;
     private String gender;
+    private String jobTitleApplly;
     @Column(columnDefinition = "bit", nullable = false)
     private Integer flag;
 
