@@ -59,7 +59,7 @@ $(() => {
           data.target.forEach((items) => {
             if (items.targetTypeName == 1) {
               const itemShotTermGoal = `
-                    <input class="col-12" data-id="${items.targetID}" value="${items.targetName}"/>
+                    <input  class="col-12 input-shot-goal" data-id="${items.targetID}" value="${items.targetName}"/>
                 `;
               htmlShotTermGoal.append(itemShotTermGoal);
             } else {

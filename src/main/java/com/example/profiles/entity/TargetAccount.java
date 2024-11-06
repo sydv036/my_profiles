@@ -6,28 +6,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "TargetAccounts")
 @Getter
 @Setter
-@AllArgsConstructor
-@Builder
+@NoArgsConstructor
 public class TargetAccount extends BaseEntity {
-    public TargetAccount() {
-        super("TGA");
-    }
 
     @ManyToOne
-    @JoinColumn(name = "targetID")
+    @JoinColumn(name = "targetID",nullable = false)
     private Target target;
 
     @ManyToOne
-    @JoinColumn(name = "accountID")
+    @JoinColumn(name = "accountID",nullable = false)
     private Account account;
 
+    public TargetAccount(Target target, Account account) {
+        super("TGA");
+        this.target = target;
+        this.account = account;
+    }
 }

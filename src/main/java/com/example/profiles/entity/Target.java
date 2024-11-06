@@ -10,12 +10,8 @@ import java.util.Set;
 @Table(name = "Targets")
 @Getter
 @Setter
-@AllArgsConstructor
-@Builder
+@NoArgsConstructor
 public class Target extends BaseEntity {
-    public Target() {
-        super("TAR");
-    }
 
     private String targetName;
 
@@ -26,4 +22,10 @@ public class Target extends BaseEntity {
     @OneToMany(mappedBy = "target", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<TargetAccount> targetAccounts;
 
+
+    public Target(String targetName, TargetType targetType) {
+        super("TAR");
+        this.targetName = targetName;
+        this.targetType = targetType;
+    }
 }

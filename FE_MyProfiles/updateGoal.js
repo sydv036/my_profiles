@@ -41,5 +41,8 @@ function updateGoal() {
   handleInputSingle(".shot-goal input", "id", function (callback) {
     callApiPost("/api/v1/admin/updateTarge/1", callback);
   });
+  handleInputSingle(".long-goal input", "id", function (callback) {
+    callApiPost("/api/v1/admin/updateTarge/0", callback);
+  });
 }
 export { readGoalRequest, createShotGoal, createLongGoal, updateGoal };
