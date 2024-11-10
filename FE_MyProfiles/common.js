@@ -32,7 +32,7 @@ function callApiPost(url, dataRequest) {
       console.log(response);
     },
     error: function (error) {
-      console.log(error.message);
+      console.log(error.responseJSON);
     },
   });
 }

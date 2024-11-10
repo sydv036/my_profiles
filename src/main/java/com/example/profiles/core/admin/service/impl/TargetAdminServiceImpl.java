@@ -1,6 +1,7 @@
 package com.example.profiles.core.admin.service.impl;
 
 import com.example.profiles.base.BaseReponse;
+import com.example.profiles.common.LogCommon;
 import com.example.profiles.core.admin.dtos.request.DataRequest;
 import com.example.profiles.core.admin.repository.IAccountAdminRepository;
 import com.example.profiles.core.admin.repository.ITargetAccountAdminRepository;
@@ -41,15 +42,17 @@ public class TargetAdminServiceImpl extends HandleException implements ITargetAd
     @Override
     @Transactional
     public boolean saveOrUpdate(DataRequest dataRequest, int typeTarget) throws CustomException {
+        LogCommon.startLog("");
         try {
             Target targetSave = null;
             TargetAccount targetAccountSave = null;
             TargetType targetType = getTargetTypeByEnum(typeTarget);
             if (targetType == null) {
+                LogCommon.endLog("Target type not found");
                 return false;
             }
             Account account = accountAdminRepository.findAccountByCitizenCard("040203027904q");
-            if (account == null) {
+            if (Optional.ofNullable(account).isEmpty()) {
                 throw new CustomException(HttpStatus.NOT_FOUND, "Do not get data for information");
             }
             if (dataRequest.getId() == null || dataRequest.getId().isEmpty()) {
@@ -59,9 +62,9 @@ public class TargetAdminServiceImpl extends HandleException implements ITargetAd
                 TargetAccount targetAccount = new TargetAccount(target, account);
                 targetAccountSave = targetAccountAdminRepository.save(targetAccount);
                 if (targetSave == null || targetAccountSave == null) {
-//                    Rollback data
                     throw new CustomException(HttpStatus.BAD_REQUEST, "Do not save data for information");
                 }
+                LogCommon.endLog("Target save successfully!");
                 return true;
             }
 
@@ -70,11 +73,15 @@ public class TargetAdminServiceImpl extends HandleException implements ITargetAd
                 targetSearchById.get().setTargetType(targetType);
                 targetSearchById.get().setTargetName(dataRequest.getValueNew());
                 targetSave = targetAdminRepository.saveAndFlush(targetSearchById.get());
-                return targetSave != null;
+                return !Optional.ofNullable(targetSave).isEmpty();
             }
             throw new CustomException(HttpStatus.BAD_REQUEST, "Do not save data for information");
-        } catch (Exception e) {
-            throw new CustomException(HttpStatus.SERVICE_UNAVAILABLE, e.getMessage().toString());
+        } catch (CustomException e) {
+            LogCommon.logError("Exception: " + e.getMessage());
+            throw e;
+        }
+        finally {
+            LogCommon.endLog("");
         }
 
 
