@@ -13,5 +13,5 @@ public class SkillsResponse {
     private String skillsID;
     private String SkillsName;
     private String skillsTypeID;
-    private String skillsTypeName;
+    private int skillsTypeName;
 }

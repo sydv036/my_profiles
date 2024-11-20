@@ -13,6 +13,13 @@ function handleInput(classInput, classParent, dataName, callback) {
     callback(new DataRequest(id, attrName, valueNew));
   });
 }
+function handleInputSingle(classInput, dataName, callback) {
+  $(document).on("change", classInput, function () {
+    let id = $(this).data(dataName);
+    let valueNew = $(this).val();
+    callback(new DataRequest(id, null, valueNew));
+  });
+}
 let API = "http://localhost:8081";
 function callApiPost(url, dataRequest) {
   $.ajax({
@@ -25,8 +32,35 @@ function callApiPost(url, dataRequest) {
       console.log(response);
     },
     error: function (error) {
-      console.log(error.message);
+      console.log(error.responseJSON);
     },
   });
 }
-export { create, handleInput, callApiPost };
+function handleImg(
+  classHandler,
+  classReplaceHandler,
+  classImgFill,
+  onSelectFile
+) {
+  $("." + classHandler).click(function () {
+    $("." + classReplaceHandler).click();
+  });
+  $("." + classReplaceHandler).change(function () {
+    let file = $(this)[0].files[0];
+    if (!file) {
+      reject("Không có file nào được chọn");
+      return;
+    }
+    let fileType = file.type.split("/")[0];
+    if (fileType !== "image") {
+      alert("Không phải là ảnh! Hãy chọn ảnh điiiiii");
+      return;
+    }
+    let url = URL.createObjectURL(file);
+    $("." + classImgFill).attr("src", url);
+    if (typeof onSelectFile === "function") {
+      onSelectFile(file);
+    }
+  });
+}
+export { create, handleInput, callApiPost, handleInputSingle, handleImg };

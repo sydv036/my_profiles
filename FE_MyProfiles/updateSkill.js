@@ -1,22 +1,4 @@
-import { create } from "./common.js";
-function readSkillRequest() {
-  let htmlSoftSkill = $(".soft-skill-info input");
-  let softSkillDataRequest = [];
-  htmlSoftSkill.each(function () {
-    let id = $(this).data("id");
-    let value = $(this).val();
-    softSkillDataRequest.push({ id: id, value: value });
-  });
-
-  let htmlProfessionalSkill = $(".professional-skill-info input");
-  let professionalSkillDataRequest = [];
-  htmlProfessionalSkill.each(function () {
-    let id = $(this).data("id");
-    let value = $(this).val();
-    professionalSkillDataRequest.push({ id: id, value: value });
-  });
-  return { softSkillDataRequest, professionalSkillDataRequest };
-}
+import { create, handleInputSingle, callApiPost } from "./common.js";
 function createSoftSkill() {
   create(
     "icon-soft-skill",
@@ -31,4 +13,16 @@ function createProfessionalSkill() {
     '<input class="col-12" value="Kĩ năng chuyên môn của bạn" />'
   );
 }
-export { readSkillRequest, createSoftSkill, createProfessionalSkill };
+function updateSkill() {
+  handleInputSingle(
+    ".professional-skill-info input",
+    "id",
+    function (callback) {
+      callApiPost("/api/v1/admin/updateSkill/0", callback);
+    }
+  );
+  handleInputSingle(".soft-skill-info input", "id", function (callback) {
+    callApiPost("/api/v1/admin/updateSkill/1", callback);
+  });
+}
+export { createSoftSkill, createProfessionalSkill, updateSkill };

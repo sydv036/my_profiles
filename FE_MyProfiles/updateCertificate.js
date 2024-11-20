@@ -1,5 +1,4 @@
-import { handleAddImgCert } from "./handleImgCert.js";
-import { create } from "./common.js";
+import { callApiPost, create, handleImg, handleInput } from "./common.js";
 function readCertificate() {
   let id = $(".cert-name-add").data("img");
   console.log("cert:", id);
@@ -21,6 +20,7 @@ function readCertificate() {
 //     $(".close-modal").click();
 //   });
 // }
+
 function createCertificate() {
   create(
     "icon-add-certificate",
@@ -33,4 +33,28 @@ function createCertificate() {
     `
   );
 }
-export { readCertificate, createCertificate };
+
+let fileImg;
+handleImg(
+  "chosse-file-certificate",
+  "file-cert-new",
+  "fill-img-select",
+  function (file) {
+    fileImg = file;
+  }
+);
+
+function updateCertificate() {
+  $(".createCert").click(function () {
+    console.log("img", fileImg);
+  });
+  handleInput(
+    ".certificate-form input",
+    ".certificate-form",
+    "id",
+    function (data) {
+      callApiPost("/api/v1/admin/updateCert", data);
+    }
+  );
+}
+export { readCertificate, createCertificate, updateCertificate };

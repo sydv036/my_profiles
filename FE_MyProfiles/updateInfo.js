@@ -11,22 +11,6 @@ $("#imgHandle").change(function (event) {
     fileImg = file;
   }
 });
-function readAccountRequest() {
-  let accountRequest = {};
-
-  $(".name input")
-    .serializeArray()
-    .forEach((item) => {
-      accountRequest[item.name] = item.value;
-    });
-  $(".contact input")
-    .serializeArray()
-    .forEach(function (item) {
-      accountRequest[item.name] = item.value;
-    });
-  accountRequest["image"] = "123";
-  return accountRequest;
-}
 
 function updateInformation() {
   handleInput(".name input", ".name", "citizen-card", function (dataRequest) {
@@ -42,4 +26,4 @@ function updateInformation() {
   );
 }
 
-export { readAccountRequest, updateInformation };
+export { updateInformation };

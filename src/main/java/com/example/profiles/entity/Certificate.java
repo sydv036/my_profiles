@@ -15,13 +15,13 @@ import java.util.Set;
 @Setter
 public class Certificate extends BaseEntity {
     public Certificate() {
-        super("CFC");
+        super("CER");
     }
 
     @Column(columnDefinition = "varchar(150)", unique = true)
     private String certificateName;
 
-    private LocalDate duration;
+    private String duration;
 
     @Column(columnDefinition = "LongText", nullable = true)
     private String certificateImage;
@@ -32,7 +32,8 @@ public class Certificate extends BaseEntity {
     @OneToMany(mappedBy = "certificate", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<CertificateAccount> certificateAccounts;
 
-    public Certificate(String certificateName, LocalDate duration, Integer status) {
+    public Certificate(String certificateName, String duration, Integer status) {
+        super("CER");
         this.certificateName = certificateName;
         this.duration = duration;
         this.status = status;

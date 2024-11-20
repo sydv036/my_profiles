@@ -1,6 +1,8 @@
 input {
   border: none;
   outline: none;
+  width: auto; /* Chưa có hiệu quả với CSS thuần */
+  min-width: 200px;
 }
 .time-on-job {
   display: flex;
@@ -64,4 +66,22 @@ input :focus {
 }
 #quill-custom {
   height: 375px;
+}
+.chosse-file-certificate {
+  border: 1px dashed rgb(129, 128, 128);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  max-height: 150px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(12, 92, 211);
+}
+.chosse-file-certificate img {
+  width: 100px;
+  height: 100px;
+  object-position: center;
+  object-fit: cover;
 }

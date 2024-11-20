@@ -38,5 +38,5 @@ public class TargetResponse {
     private String targetID;
     private String targetName;
     private String targetTypeID;
-    private String targetTypeName;
+    private int targetTypeName;
 }

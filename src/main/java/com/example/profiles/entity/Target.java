@@ -2,8 +2,7 @@ package com.example.profiles.entity;
 
 import com.example.profiles.base.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
@@ -11,10 +10,8 @@ import java.util.Set;
 @Table(name = "Targets")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Target extends BaseEntity {
-    public Target() {
-        super("TAR");
-    }
 
     private String targetName;
 
@@ -24,4 +21,11 @@ public class Target extends BaseEntity {
 
     @OneToMany(mappedBy = "target", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<TargetAccount> targetAccounts;
+
+
+    public Target(String targetName, TargetType targetType) {
+        super("TAR");
+        this.targetName = targetName;
+        this.targetType = targetType;
+    }
 }

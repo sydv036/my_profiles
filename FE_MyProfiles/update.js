@@ -22,7 +22,7 @@ $(() => {
               <div class="name" data-citizen-card="${data.citizenCard}">
                 <input type="hidden" name="citizenCard" value="${data.citizenCard}">
                 <input type="text" name="fullName"  class="text-uppercase" value="${data.fullName}"/>
-                <input type="text" name="jobTitleApply"  class="text-uppercase" value="${data.jobTitleApply}" />
+                <input type="text" name="jobTitleApplly"  class="text-uppercase" value="${data.jobTitleApply}" />
               </div>
               <div class="contact" data-citizen-card="${data.citizenCard}">
                   <div class="birth-day">
@@ -57,9 +57,9 @@ $(() => {
           let htmlShotTermGoal = $(".shot-goal");
           let htmlLongTermGoal = $(".long-goal");
           data.target.forEach((items) => {
-            if (items.targetTypeName == "SHOT") {
+            if (items.targetTypeName == 1) {
               const itemShotTermGoal = `
-                    <input class="col-12" data-id="${items.targetID}" value="${items.targetName}"/>
+                    <input  class="col-12 input-shot-goal" data-id="${items.targetID}" value="${items.targetName}"/>
                 `;
               htmlShotTermGoal.append(itemShotTermGoal);
             } else {
@@ -95,7 +95,7 @@ $(() => {
           let htmlSoftSkills = $(".soft-skill-info");
           let htmlProfessionalSkills = $(".professional-skill-info");
           data.skills.forEach((items) => {
-            if (items.skillsTypeName == "PROFESSIONAL_SKILLS") {
+            if (items.skillsTypeName == 0) {
               const professionallySkill = `
                    <input class="col-12" data-id="${items.skillsID}"   value="${items.skillsName} " />
                     `;
@@ -127,9 +127,9 @@ $(() => {
           let htmlCertificate = $(".certificate-info");
           data.certificate.forEach((items, index) => {
             const certificateInfo = `
-                    <div class="certificate-form row">
-                      <input class="col-9 " data-id="${items.certificateID}" value="${items.certificateName}"/>
-                      <input class="duration-custom col-3" value="${items.duration}" />
+                    <div class="certificate-form row" data-id="${items.certificateID}">
+                      <input class="col-9 " name="certificateName"  value="${items.certificateName}"/>
+                      <input class="duration-custom col-3" name="duration" value="${items.duration}" />
                     </div>
                 `;
             htmlCertificate.append(certificateInfo);

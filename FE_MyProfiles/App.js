@@ -55,7 +55,7 @@ $(() => {
           let htmlShotTermGoal = $(".shot-goal");
           let htmlLongTermGoal = $(".long-goal");
           data.target.forEach((items) => {
-            if (items.targetTypeName == "SHOT") {
+            if (items.targetTypeName == 1) {
               const itemShotTermGoal = `
                   <li>${items.targetName}</li>
               `;
@@ -91,7 +91,7 @@ $(() => {
           let htmlSoftSkills = $(".soft-skill-info");
           let htmlProfessionalSkills = $(".professional-skill-info");
           data.skills.forEach((items) => {
-            if (items.skillsTypeName == "PROFESSIONAL_SKILLS") {
+            if (items.skillsTypeName == 0) {
               const professionallySkill = `
                   <li>${items.skillsName}</li>
                   `;

@@ -1,18 +1,14 @@
 import { uploadImage } from "./imageUpload.js";
-import { readAccountRequest, updateInformation } from "./updateInfo.js";
+import { updateInformation } from "./updateInfo.js";
+import { createShotGoal, createLongGoal, updateGoal } from "./updateGoal.js";
 import {
-  readGoalRequest,
-  createShotGoal,
-  createLongGoal,
-} from "./updateGoal.js";
-import {
-  readSkillRequest,
   createSoftSkill,
   createProfessionalSkill,
+  updateSkill,
 } from "./updateSkill.js";
-import { readExperienceRequest, createExperience } from "./updateExperience.js";
+import { createExperience } from "./updateExperience.js";
 import { createProject, handleQuill } from "./updateProject.js";
-import { readCertificate, createCertificate } from "./updateCertificate.js";
+import { createCertificate, updateCertificate } from "./updateCertificate.js";
 import { createEducation } from "./updateEducation.js";
 
 $(() => {
@@ -26,11 +22,7 @@ $(() => {
   createCertificate();
   createEducation();
   updateInformation();
-  $(".updateCV").click(() => {
-    console.table(readAccountRequest());
-    console.log(readGoalRequest());
-    console.log(readSkillRequest());
-    console.log(readExperienceRequest());
-    readCertificate();
-  });
+  updateGoal();
+  updateSkill();
+  updateCertificate();
 });

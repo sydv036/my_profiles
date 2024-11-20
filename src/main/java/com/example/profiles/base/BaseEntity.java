@@ -21,6 +21,7 @@ public class BaseEntity {
 
     public BaseEntity(String keyID) {
         this.id = GenPrimaryKey.getPrimaryKey(keyID);
+        System.out.println("Gen ID:"+ id);
     }
 
 }

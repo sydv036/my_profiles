@@ -22,12 +22,12 @@ public class SkillType extends BaseEntity {
         super("SKT");
     }
 
-    private String skillTypeName;
+    private int skillTypeName;
 
     @OneToMany(mappedBy = "skillType", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Skill> skills;
 
-    public SkillType(String skillTypeName) {
+    public SkillType(int skillTypeName) {
         this.skillTypeName = skillTypeName;
     }
 

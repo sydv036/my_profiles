@@ -5,7 +5,7 @@ import com.example.profiles.entity.Account;
 
 import java.util.List;
 
-public interface IAccountService {
+public interface IAccountAdminService {
     List<Account> getAccounts() throws Exception;
 
     Boolean saveOrUpdate(DataRequest dataRequest) throws Exception;

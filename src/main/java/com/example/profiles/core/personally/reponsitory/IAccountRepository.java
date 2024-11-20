@@ -11,10 +11,9 @@ public interface IAccountRepository extends AccountRepository {
 
     @Query(value = """
                     SELECT new com.example.profiles.core.personally.dtos.response.ProfileResponse(
-                        ac.citizenCard, ac.fullName, ac.birthDate,ac.email,ac.phoneNumber,ac.adress,ac.image,ac.link,ac.gender,ac.flag,jtt.jobTitleApplly
+                        ac.citizenCard, ac.fullName, ac.birthDate,ac.email,ac.phoneNumber,ac.adress,ac.image,ac.link,ac.gender,ac.flag,ac.jobTitleApplly
                     )
                     FROM Account ac
-                    join JobTitleApply jtt on ac.JobTitleApply.id = jtt.id
                     where ac.citizenCard = :citizenCard
             """)
     ProfileResponse getProfileByCitizenCard(@Param("citizenCard") String citizenCard);

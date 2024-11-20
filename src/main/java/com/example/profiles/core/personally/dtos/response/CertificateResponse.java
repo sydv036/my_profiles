@@ -20,8 +20,7 @@ public interface CertificateResponse {
     String getCertificateName();
 
     @Value("#{target.duration}")
-    @JsonFormat(pattern = "MM-yyyy")
-    LocalDate getDuration();
+    String getDuration();
 
     @Value("#{target.certificateImage}")
     String getCertificateImage();
