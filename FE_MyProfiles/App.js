@@ -91,7 +91,7 @@ $(() => {
           let htmlSoftSkills = $(".soft-skill-info");
           let htmlProfessionalSkills = $(".professional-skill-info");
           data.skills.forEach((items) => {
-            if (items.skillsTypeName == "PROFESSIONAL_SKILLS") {
+            if (items.skillsTypeName == 0) {
               const professionallySkill = `
                   <li>${items.skillsName}</li>
                   `;

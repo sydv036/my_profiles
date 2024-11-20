@@ -95,7 +95,7 @@ $(() => {
           let htmlSoftSkills = $(".soft-skill-info");
           let htmlProfessionalSkills = $(".professional-skill-info");
           data.skills.forEach((items) => {
-            if (items.skillsTypeName == "PROFESSIONAL_SKILLS") {
+            if (items.skillsTypeName == 0) {
               const professionallySkill = `
                    <input class="col-12" data-id="${items.skillsID}"   value="${items.skillsName} " />
                     `;
@@ -127,9 +127,9 @@ $(() => {
           let htmlCertificate = $(".certificate-info");
           data.certificate.forEach((items, index) => {
             const certificateInfo = `
-                    <div class="certificate-form row">
-                      <input class="col-9 " data-id="${items.certificateID}" value="${items.certificateName}"/>
-                      <input class="duration-custom col-3" value="${items.duration}" />
+                    <div class="certificate-form row" data-id="${items.certificateID}">
+                      <input class="col-9 " name="certificateName"  value="${items.certificateName}"/>
+                      <input class="duration-custom col-3" name="duration" value="${items.duration}" />
                     </div>
                 `;
             htmlCertificate.append(certificateInfo);

@@ -27,6 +27,7 @@ public class Skill extends BaseEntity {
     private Set<SkillAccount> skillAccounts;
 
     public Skill(String skillName, SkillType skillType) {
+        super("SKL");
         this.skillName = skillName;
         this.skillType = skillType;
     }

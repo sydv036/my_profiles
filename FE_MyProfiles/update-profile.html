@@ -143,7 +143,9 @@
           <div class="certificate-title text-uppercase border-bottom-custom">
             Certificate
             <i
-              class="fas fa-plus-circle icon-custom text-capitalize icon-add-certificate"
+              class="fas fa-plus-circle icon-custom text-capitalize"
+              data-bs-toggle="modal"
+              data-bs-target="#modalCertificate"
               >Add New</i
             >
           </div>
@@ -210,6 +212,70 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal Certificate start-->
+    <div
+      class="modal fade"
+      id="modalCertificate"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Add New Certificate
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="">Certificate Name</label>
+              <input
+                type="text"
+                class="certificate-name form-control"
+                id="CertificateName"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="">Duration</label>
+              <input type="text" class="duration form-control" id="duration" />
+            </div>
+
+            <div class="mb-3 chosse-file-certificate">
+              <img
+                src="https://placehold.co/100"
+                class="fill-img-select"
+                alt=""
+              />
+              <i class="fas fa-cloud-upload-alt">
+                Chosse a file or drag it here.</i
+              >
+            </div>
+            <input type="file" class="file-cert-new" hidden />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary createCert">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Certificate end-->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

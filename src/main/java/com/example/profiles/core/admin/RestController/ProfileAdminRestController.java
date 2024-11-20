@@ -1,8 +1,11 @@
 package com.example.profiles.core.admin.RestController;
 
 import com.example.profiles.base.BaseReponse;
+import com.example.profiles.common.MessageCommon;
 import com.example.profiles.core.admin.dtos.request.DataRequest;
 import com.example.profiles.core.admin.service.IAccountAdminService;
+import com.example.profiles.core.admin.service.ICertificateAdminService;
+import com.example.profiles.core.admin.service.ISkillAdminService;
 import com.example.profiles.core.admin.service.ITargetAdminService;
 import com.example.profiles.exception.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,12 @@ public class ProfileAdminRestController {
 
     @Autowired
     private ITargetAdminService targetAdminService;
+
+    @Autowired
+    private ISkillAdminService skillAdminService;
+
+    @Autowired
+    private ICertificateAdminService certificateAdminService;
 
     @PostMapping("/information")
     public ResponseEntity<?> saveProfile(@RequestBody DataRequest dataRequest) throws Exception {
@@ -40,9 +49,39 @@ public class ProfileAdminRestController {
         try {
             boolean isUpdateSuccessfully = targetAdminService.saveOrUpdate(dataRequest, Integer.parseInt(type));
             if (!isUpdateSuccessfully) {
-                return ResponseEntity.badRequest().body(new BaseReponse<>(HttpStatus.BAD_REQUEST.value(), "Bad request", null));
+                return ResponseEntity.badRequest().body(new BaseReponse<>(HttpStatus.BAD_REQUEST.value(), MessageCommon.getMessageByKey("MES003T"), null));
             }
-            return ResponseEntity.ok(new BaseReponse<>(HttpStatus.CREATED.value(), "Successfully saved profile", null));
+            return ResponseEntity.ok(new BaseReponse<>(HttpStatus.CREATED.value(), MessageCommon.getMessageByKey("MES002T"), null));
+
+        } catch (CustomException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new BaseReponse<>(e.getHttpStatus().value(), "Error: " + e.getMessage(), null));
+        }
+    }
+
+    @PostMapping("/updateSkill/{type}")
+    public ResponseEntity<?> updateSkill(@RequestBody DataRequest dataRequest, @PathVariable("type") String type) throws Exception {
+        try {
+            boolean isUpdateSuccessfully = skillAdminService.saveOrUpdate(dataRequest, Integer.parseInt(type));
+            if (!isUpdateSuccessfully) {
+                return ResponseEntity.badRequest().body(new BaseReponse<>(HttpStatus.BAD_REQUEST.value(), MessageCommon.getMessageByKey("MES003T"), null));
+            }
+            return ResponseEntity.ok(new BaseReponse<>(HttpStatus.CREATED.value(), MessageCommon.getMessageByKey("MES002T"), null));
+
+        } catch (CustomException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new BaseReponse<>(e.getHttpStatus().value(), "Error: " + e.getMessage(), null));
+        }
+    }
+
+    @PostMapping("/updateCert")
+    public ResponseEntity<?> updateCertificate(@RequestBody DataRequest dataRequest) throws Exception {
+        try {
+            boolean isUpdateSuccessfully = certificateAdminService.saveOrUpdateCertificate(dataRequest);
+            if (!isUpdateSuccessfully) {
+                return ResponseEntity.badRequest().body(new BaseReponse<>(HttpStatus.BAD_REQUEST.value(), MessageCommon.getMessageByKey("MES003T"), null));
+            }
+            return ResponseEntity.ok(new BaseReponse<>(HttpStatus.CREATED.value(), MessageCommon.getMessageByKey("MES002T"), null));
 
         } catch (CustomException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

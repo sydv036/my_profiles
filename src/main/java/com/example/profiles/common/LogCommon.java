@@ -14,14 +14,14 @@ public class LogCommon {
         LOGGER_ERROR.error(message);
     }
 
-    public static void startLog(String message) {
+    public static void startLog() {
         String methodName = getCurrentMethodName();
-        LOGGER_INFO.info(String.format("START %s - %s", methodName, message));
+        LOGGER_INFO.info(String.format("START %s", methodName));
     }
 
-    public static void endLog(String message) {
+    public static void endLog() {
         String methodName = getCurrentMethodName();
-        LOGGER_INFO.info(String.format("End %s - %s", methodName, message));
+        LOGGER_INFO.info(String.format("End %s ", methodName));
     }
 
     private static String getCurrentMethodName() {

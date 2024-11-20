@@ -36,4 +36,31 @@ function callApiPost(url, dataRequest) {
     },
   });
 }
-export { create, handleInput, callApiPost, handleInputSingle };
+function handleImg(
+  classHandler,
+  classReplaceHandler,
+  classImgFill,
+  onSelectFile
+) {
+  $("." + classHandler).click(function () {
+    $("." + classReplaceHandler).click();
+  });
+  $("." + classReplaceHandler).change(function () {
+    let file = $(this)[0].files[0];
+    if (!file) {
+      reject("Không có file nào được chọn");
+      return;
+    }
+    let fileType = file.type.split("/")[0];
+    if (fileType !== "image") {
+      alert("Không phải là ảnh! Hãy chọn ảnh điiiiii");
+      return;
+    }
+    let url = URL.createObjectURL(file);
+    $("." + classImgFill).attr("src", url);
+    if (typeof onSelectFile === "function") {
+      onSelectFile(file);
+    }
+  });
+}
+export { create, handleInput, callApiPost, handleInputSingle, handleImg };

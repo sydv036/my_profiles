@@ -25,4 +25,9 @@ public class SkillAccount extends BaseEntity {
     @JoinColumn(name = "accountID", nullable = true)
     private Account account;
 
+    public SkillAccount(Skill skill, Account account) {
+        super("SKA");
+        this.skill = skill;
+        this.account = account;
+    }
 }
