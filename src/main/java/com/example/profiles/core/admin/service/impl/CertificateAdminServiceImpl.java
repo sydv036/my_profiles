@@ -51,6 +51,7 @@ public class CertificateAdminServiceImpl implements ICertificateAdminService {
                 certificateSave = certificateAdminRepository.saveAndFlush(certificate);
                 return Optional.ofNullable(certificateSave).isPresent();
             }
+
             throw new CustomException(HttpStatus.BAD_REQUEST, MessageCommon.getMessageByKey("MES003T"));
         } catch (CustomException e) {
             LogCommon.logError(e.getMessage());

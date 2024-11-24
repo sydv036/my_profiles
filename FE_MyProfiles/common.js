@@ -1,4 +1,5 @@
 import { DataRequest } from "./DataRequest.js";
+import { uploadImage } from "./imageUpload.js";
 
 function create(classClick, classAdd, value) {
   $(document).on("click", "." + classClick, function () {
@@ -30,9 +31,11 @@ function callApiPost(url, dataRequest) {
     contentType: "application/json",
     success: function (response) {
       console.log(response);
+      return response.statusCode;
     },
     error: function (error) {
       console.log(error.responseJSON);
+      return response.statusCode;
     },
   });
 }
@@ -48,7 +51,7 @@ function handleImg(
   $("." + classReplaceHandler).change(function () {
     let file = $(this)[0].files[0];
     if (!file) {
-      reject("Không có file nào được chọn");
+      alert("Không có file nào được chọn");
       return;
     }
     let fileType = file.type.split("/")[0];
@@ -63,4 +66,32 @@ function handleImg(
     }
   });
 }
-export { create, handleInput, callApiPost, handleInputSingle, handleImg };
+function handleObjectFormDataImg(classClick, classFormData, file) {
+  console.log(file);
+  $("." + classClick).click(async function () {
+    let obj = {};
+    let selectInput = $("." + classFormData);
+
+    // Duyệt qua các input và lấy giá trị
+    selectInput.find("input[name]").each(function () {
+      const name = $(this).attr("name");
+      const value = $(this).val();
+      obj[name] = value;
+    });
+
+    try {
+      const img = await uploadImage(file);
+      obj["img"] = img;
+    } catch (error) {
+      console.error("Lỗi trong quá trình upload ảnh:", error);
+    }
+  });
+}
+export {
+  create,
+  handleInput,
+  callApiPost,
+  handleInputSingle,
+  handleImg,
+  handleObjectFormDataImg,
+};

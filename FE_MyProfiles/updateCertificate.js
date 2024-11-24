@@ -1,25 +1,15 @@
-import { callApiPost, create, handleImg, handleInput } from "./common.js";
+import {
+  callApiPost,
+  create,
+  handleImg,
+  handleInput,
+  handleObjectFormDataImg,
+} from "./common.js";
+import { uploadImage } from "./imageUpload.js";
 function readCertificate() {
   let id = $(".cert-name-add").data("img");
   console.log("cert:", id);
 }
-// function createCertificate() {
-//   let file = handleAddImgCert();
-//   $(".add-cert").click(() => {
-//     let name = $("#certificateName").val();
-//     let duration = $("#certificateDuration").val();
-//     let htmlCertificate = `
-//         <div class="certificate-form row">
-//             <b class="col-9 cert-name-add" data-img="${file}"  >${name}</b>
-//             <p class="duration-custom col-3" >${duration} </p>
-//         </div>
-//     `;
-//     $(".certificate-info").append(htmlCertificate);
-//     console.log(file);
-
-//     $(".close-modal").click();
-//   });
-// }
 
 function createCertificate() {
   create(
@@ -45,9 +35,31 @@ handleImg(
 );
 
 function updateCertificate() {
-  $(".createCert").click(function () {
-    console.log("img", fileImg);
-  });
+  handleObjectFormDataImg("createCert", "formDataCert", fileImg);
+
+  // $(".createCert").click(async function () {
+  //   let obj = {};
+  //   let selectInput = $(".formDataCert");
+
+  //   // Duyệt qua các input và lấy giá trị
+  //   selectInput.find("input[name]").each(function () {
+  //     const name = $(this).attr("name");
+  //     const value = $(this).val();
+  //     obj[name] = value;
+  //   });
+
+  //   try {
+  //     const img = await uploadImage(fileImg);
+  //     obj["certificateImage"] = img;
+  //     console.log(obj);
+  //     console.log(JSON.stringify(obj));
+
+  //     callApiPost("/api/v1/admin/createCert", obj);
+  //   } catch (error) {
+  //     console.error("Lỗi trong quá trình upload ảnh:", error);
+  //   }
+  // });
+
   handleInput(
     ".certificate-form input",
     ".certificate-form",
