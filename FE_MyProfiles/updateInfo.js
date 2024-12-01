@@ -13,17 +13,12 @@ $("#imgHandle").change(function (event) {
 });
 
 function updateInformation() {
-  handleInput(".name input", ".name", "citizen-card", function (dataRequest) {
+  handleInput("name ", "name", "citizen-card", function (dataRequest) {
     callApiPost("/api/v1/admin/information", dataRequest);
   });
-  handleInput(
-    ".contact input",
-    ".contact",
-    "citizen-card",
-    function (dataRequest) {
-      callApiPost("/api/v1/admin/information", dataRequest);
-    }
-  );
+  handleInput("contact div", "contact", "citizen-card", function (dataRequest) {
+    callApiPost("/api/v1/admin/information", dataRequest);
+  });
 }
 
 export { updateInformation };

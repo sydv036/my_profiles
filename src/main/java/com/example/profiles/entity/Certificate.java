@@ -2,6 +2,7 @@ package com.example.profiles.entity;
 
 
 import com.example.profiles.base.BaseEntity;
+import com.example.profiles.enums.CertificateEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,9 +17,10 @@ import java.util.Set;
 public class Certificate extends BaseEntity {
     public Certificate() {
         super("CER");
+        this.status = CertificateEnum.EXPIRED.ordinal();
     }
 
-    @Column(columnDefinition = "varchar(150)", unique = true)
+    @Column(columnDefinition = "varchar(150)")
     private String certificateName;
 
     private String duration;

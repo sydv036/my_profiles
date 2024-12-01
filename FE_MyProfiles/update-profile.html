@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="more-information.css" />
     <link rel="stylesheet" href="show-img.css" />
     <link rel="stylesheet" href="update-profile.css" />
+    <link rel="stylesheet" href="image.css" />
     <link
       href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
       rel="stylesheet"
@@ -234,18 +235,24 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body formDataCert">
             <div class="mb-3">
               <label for="">Certificate Name</label>
               <input
                 type="text"
                 class="certificate-name form-control"
                 id="CertificateName"
+                name="certificateName"
               />
             </div>
             <div class="mb-3">
               <label for="">Duration</label>
-              <input type="text" class="duration form-control" id="duration" />
+              <input
+                type="text"
+                name="duration"
+                class="duration form-control"
+                id="duration"
+              />
             </div>
 
             <div class="mb-3 chosse-file-certificate">

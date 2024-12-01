@@ -7,6 +7,7 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-s
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Email sibe0
 const firebaseConfig = {
   apiKey: "AIzaSyCChmLqR9rKEFq8701DmP1tIdZbV9edtrk",
   authDomain: "my-profiles-c2713.firebaseapp.com",

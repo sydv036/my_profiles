@@ -8,7 +8,7 @@ import {
 } from "./updateSkill.js";
 import { createExperience } from "./updateExperience.js";
 import { createProject, handleQuill } from "./updateProject.js";
-import { createCertificate, updateCertificate } from "./updateCertificate.js";
+import { updateCertificate } from "./updateCertificate.js";
 import { createEducation } from "./updateEducation.js";
 
 $(() => {
@@ -19,7 +19,6 @@ $(() => {
   createExperience();
   createProject();
   handleQuill();
-  createCertificate();
   createEducation();
   updateInformation();
   updateGoal();

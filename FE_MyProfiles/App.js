@@ -170,13 +170,9 @@ $(() => {
       } else if (eventType === "education") {
         imgName = "education";
       }
-
-      if (imgName !== "" || imgName.trim() !== "") {
-        $(".main-show-img").slideDown("slow");
-        $(".img-show-more").attr("src", imgName);
-      } else {
-        alert("Ảnh chưa được cập nhật......");
-      }
+      imgName = imgName ? imgName : "https://placehold.co/700X500";
+      $(".main-show-img").slideDown("slow");
+      $(".img-show-more").attr("src", imgName);
     });
   }
 
