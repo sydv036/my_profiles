@@ -14,14 +14,10 @@ function createProfessionalSkill() {
   );
 }
 function updateSkill() {
-  handleInputSingle(
-    ".professional-skill-info input",
-    "id",
-    function (callback) {
-      callApiPost("/api/v1/admin/updateSkill/0", callback);
-    }
-  );
-  handleInputSingle(".soft-skill-info input", "id", function (callback) {
+  handleInputSingle("professional-skill-info ", "id", function (callback) {
+    callApiPost("/api/v1/admin/updateSkill/0", callback);
+  });
+  handleInputSingle("soft-skill-info ", "id", function (callback) {
     callApiPost("/api/v1/admin/updateSkill/1", callback);
   });
 }

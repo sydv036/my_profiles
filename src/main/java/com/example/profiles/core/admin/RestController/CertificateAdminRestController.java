@@ -36,11 +36,17 @@ public class CertificateAdminRestController {
 
     @PostMapping("/createCert")
     public ResponseEntity<?> createCert(@RequestBody CertificateAdminRequest certificateAdminRequest) {
-        System.out.println(certificateAdminRequest.toString());
+        try {
+            boolean isUpdateSuccessfully = certificateAdminService.createCertificate(certificateAdminRequest);
+            if (!isUpdateSuccessfully) {
+                return ResponseEntity.badRequest().body(new BaseReponse<>(HttpStatus.BAD_REQUEST.value(), MessageCommon.getMessageByKey("MES003T"), null));
+            }
+            return ResponseEntity.ok(new BaseReponse<>(HttpStatus.CREATED.value(), MessageCommon.getMessageByKey("MES002T"), null));
 
-
-        return ResponseEntity.ok(new BaseReponse<>(HttpStatus.CREATED.value(), MessageCommon.getMessageByKey("MES002T"), null));
-
+        } catch (CustomException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new BaseReponse<>(e.getHttpStatus().value(), "Error: " + e.getMessage(), null));
+        }
     }
 
 }

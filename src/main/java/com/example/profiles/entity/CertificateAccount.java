@@ -27,6 +27,7 @@ public class CertificateAccount extends BaseEntity {
     private Account account;
 
     public CertificateAccount(Certificate certificate, Account account) {
+        super("CFA");
         this.certificate = certificate;
         this.account = account;
     }

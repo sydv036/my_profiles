@@ -59,12 +59,12 @@ $(() => {
           data.target.forEach((items) => {
             if (items.targetTypeName == 1) {
               const itemShotTermGoal = `
-                    <input  class="col-12 input-shot-goal" data-id="${items.targetID}" value="${items.targetName}"/>
+                    <input type="text"  class="col-12 input-shot-goal" data-id="${items.targetID}" value="${items.targetName}"/>
                 `;
               htmlShotTermGoal.append(itemShotTermGoal);
             } else {
               const itemLongTermGoal = `
-                    <input class="col-12" data-id="${items.targetID}"  value="${items.targetName}"/>
+                    <input type="text" class="col-12" data-id="${items.targetID}"  value="${items.targetName}"/>
                 `;
               htmlLongTermGoal.append(itemLongTermGoal);
             }
@@ -76,15 +76,15 @@ $(() => {
             const education = `
             <div class="education-info mb-3">
                 <div class="education-name">
-                  <input class="" data-id="${items.educationID}" value="${items.educationName}"/>
+                  <input type="text" class="" data-id="${items.educationID}" value="${items.educationName}"/>
                 </div>
                 <div class="major">
-                  <input value="${items.major}" />
+                  <input type="text" value="${items.major}" />
                 </div>
                 <div class="year-learn row"><input class="col-4" value="${items.startDate}"/>    <input class="col-4" value="${items.endDate}"/></div>
                 <div class="point">
                   GPA:
-                  <input value="${items.point}"/>
+                  <input type="text" value="${items.point}"/>
                 </div>    
             </div>
               `;
@@ -97,12 +97,12 @@ $(() => {
           data.skills.forEach((items) => {
             if (items.skillsTypeName == 0) {
               const professionallySkill = `
-                   <input class="col-12" data-id="${items.skillsID}"   value="${items.skillsName} " />
+                   <input type="text" class="col-12" data-id="${items.skillsID}"   value="${items.skillsName} " />
                     `;
               htmlProfessionalSkills.append(professionallySkill);
             } else {
               const softSkill = `
-                   <input class="col-12" data-id="${items.skillsID}" value="${items.skillsName} " />
+                   <input type="text" class="col-12" data-id="${items.skillsID}" value="${items.skillsName} " />
                     `;
               htmlSoftSkills.append(softSkill);
             }
@@ -113,9 +113,9 @@ $(() => {
           data.experience.forEach((item) => {
             const experience = `
                   <div class="experience-info">
-                    <input data-id=""${item.experienceID} name="companyName" value="${item.companyName}" class="company-name" />
+                    <input type="text" data-id=""${item.experienceID} name="companyName" value="${item.companyName}" class="company-name" />
                     <div>
-                        <input name="jobTitle" class="job-title" value="${item.jobTitle}"/>
+                        <input type="text" name="jobTitle" class="job-title" value="${item.jobTitle}"/>
                         <div class="time-on-job "><input name="fromDate" value="${item.fromDate}"/> - <input name="toDate" value="${item.toDate}"/> </div>
                     </div> 
                   </div>   
@@ -126,15 +126,34 @@ $(() => {
           //certificate
           let htmlCertificate = $(".certificate-info");
           data.certificate.forEach((items, index) => {
+            const img = items.certificateImage
+              ? items.certificateImage
+              : "https://placehold.co/100";
             const certificateInfo = `
                     <div class="certificate-form row" data-id="${items.certificateID}">
-                      <input class="col-9 " name="certificateName"  value="${items.certificateName}"/>
-                      <input class="duration-custom col-3" name="duration" value="${items.duration}" />
+                    <div class=""col-6>
+                      <input type="text"  class="col-9" name="certificateName"  value="${items.certificateName}"/>
+                      <input type="text" class="duration-custom col-3"  name="duration" value="${items.duration}" />
+                    </div>
+                    <div>
+                      <div class="img-container">
+                        <img
+                        src="${img}"
+                        class="common-img  h100 w100 img-cert_edit"
+                        alt=""
+                        />
+                        <div class="icon-overlay">
+                          <i class="fas fa-pen"></i>
+                        </div>
+                      </div>                    
+                    </div>
                     </div>
                 `;
             htmlCertificate.append(certificateInfo);
           });
-
+          htmlCertificate.append(
+            ` <input name="certificateImage" class="file_img-cert" type="file" hidden />`
+          );
           //project
           let htmlProject = $(".project-info-custom");
           data.project.forEach((item) => {
