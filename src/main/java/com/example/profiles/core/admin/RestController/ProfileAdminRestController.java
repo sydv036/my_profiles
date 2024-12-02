@@ -37,7 +37,7 @@ public class ProfileAdminRestController {
     @PostMapping("/information")
     public ResponseEntity<?> saveProfile(@RequestBody DataRequest dataRequest) throws Exception {
         try {
-            boolean isUpdateSuccessfully = accountAdminService.saveOrUpdate(dataRequest);
+            boolean isUpdateSuccessfully = accountAdminService.saveOrUpdateAccount(dataRequest);
             if (!isUpdateSuccessfully) {
                 return ResponseEntity.badRequest().body(new BaseReponse<>(HttpStatus.BAD_REQUEST.value(), "Bad request", null));
             }

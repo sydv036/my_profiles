@@ -112,11 +112,11 @@ $(() => {
           let htmlExperience = $(".experience-info-update");
           data.experience.forEach((item) => {
             const experience = `
-                  <div class="experience-info">
-                    <input type="text" data-id=""${item.experienceID} name="companyName" value="${item.companyName}" class="company-name" />
+                  <div class="experience-info" data-id="${item.experienceID} ">
+                    <input type="text" name="companyName" value="${item.companyName}" class="company-name" />
                     <div>
                         <input type="text" name="jobTitle" class="job-title" value="${item.jobTitle}"/>
-                        <div class="time-on-job "><input name="fromDate" value="${item.fromDate}"/> - <input name="toDate" value="${item.toDate}"/> </div>
+                        <div class="time-on-job "><input type="text"  name="fromDate" value="${item.fromDate}"/> - <input type="text"  name="toDate" value="${item.toDate}"/> </div>
                     </div> 
                   </div>   
             `;

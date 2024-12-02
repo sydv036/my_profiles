@@ -1,13 +1,4 @@
-import { create } from "./common.js";
-function readExperienceRequest() {
-  let htmlExperience = $(".experience-info-update .experience-info ");
-  let experienceDataRequest = [];
-  htmlExperience.each(function (item) {
-    htmlExperience[item].querySelectorAll("input").forEach((data) => {
-      experienceDataRequest.push(data.defaultValue);
-    });
-  });
-}
+import { create, callApiPost, handleInput } from "./common.js";
 function createExperience() {
   create(
     "icon-experience",
@@ -22,4 +13,10 @@ function createExperience() {
    `
   );
 }
-export { readExperienceRequest, createExperience };
+function updateExperience() {
+  handleInput("experience-info", "experience-info", "id", function (data) {
+    callApiPost("/api/v1/admin/updateExperience", data);
+  });
+}
+
+export { createExperience, updateExperience };

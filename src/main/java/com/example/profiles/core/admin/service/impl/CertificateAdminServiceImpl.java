@@ -48,14 +48,7 @@ public class CertificateAdminServiceImpl implements ICertificateAdminService {
             }
             if (Optional.ofNullable(dataRequest.getId()).isPresent()) {
                 Certificate certificate = certificateAdminRepository.findById(dataRequest.getId()).get();
-                try {
-                    certificate = new GenObjectCommon<>(Certificate.class).genObject(certificate, dataRequest);
-                } catch (NoSuchFieldException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    throw new CustomException(HttpStatus.REQUEST_HEADER_FIELDS_TOO_LARGE, e.getMessage());
-
-                }
+                certificate = new GenObjectCommon<>(Certificate.class).genObject(certificate, dataRequest);
                 certificateSave = certificateAdminRepository.saveAndFlush(certificate);
                 return Optional.ofNullable(certificateSave).isPresent();
             }

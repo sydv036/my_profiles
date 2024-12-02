@@ -8,5 +8,7 @@ import java.util.List;
 public interface IAccountAdminService {
     List<Account> getAccounts() throws Exception;
 
-    Boolean saveOrUpdate(DataRequest dataRequest) throws Exception;
+    Boolean saveOrUpdateAccount(DataRequest dataRequest) throws Exception;
+
+    Account getAccountById(String id);
 }

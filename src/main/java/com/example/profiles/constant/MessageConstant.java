@@ -24,6 +24,8 @@ public class MessageConstant {
         messages.put("MES006T", "Delete operation successfully!");
         messages.put("MES007T", "Delete operation failed!");
         messages.put("MES008T", "Can't connect to database!");
+        messages.put("MES009T", "Get data by id not found!");
+        messages.put("MES010T", "An error occurred while retrieving data!");
         messages.put("MES001S", "Server error!");
 //        Tránh việc thay đổi messages
         MESSAGES = Collections.unmodifiableMap(messages);
