@@ -1,5 +1,7 @@
 package com.example.profiles.core.admin.service.impl;
 
+import com.example.profiles.common.CheckIsNullCommon;
+import com.example.profiles.common.CheckProcessCurdCommon;
 import com.example.profiles.common.LogCommon;
 import com.example.profiles.common.MessageCommon;
 import com.example.profiles.constant.ValueConstant;
@@ -8,11 +10,13 @@ import com.example.profiles.core.admin.repository.IAccountAdminRepository;
 import com.example.profiles.core.admin.repository.ISkillAdminRepository;
 import com.example.profiles.core.admin.repository.ISkillTypeAdminRepository;
 import com.example.profiles.core.admin.repository.ISkillsAccountAdminRepository;
+import com.example.profiles.core.admin.service.IAccountAdminService;
 import com.example.profiles.core.admin.service.ISkillAdminService;
 import com.example.profiles.entity.Account;
 import com.example.profiles.entity.Skill;
 import com.example.profiles.entity.SkillAccount;
 import com.example.profiles.entity.SkillType;
+import com.example.profiles.enums.FlagCurdEnum;
 import com.example.profiles.enums.SkillTypeEnum;
 import com.example.profiles.exception.CustomException;
 import jakarta.transaction.Transactional;
@@ -35,7 +39,7 @@ public class SkillAdminServiceImpl implements ISkillAdminService {
     private ISkillAdminRepository skillAdminRepository;
 
     @Autowired
-    private IAccountAdminRepository accountAdminRepository;
+    private IAccountAdminService accountAdminService;
 
 
     @Override
@@ -45,41 +49,39 @@ public class SkillAdminServiceImpl implements ISkillAdminService {
         try {
             Skill skillSave = null;
             SkillAccount skillAccountSave = null;
-            SkillType skillType = getSkillType(type);
-            if (Optional.ofNullable(skillType).isEmpty()) {
-                throw new CustomException(HttpStatus.NOT_FOUND, MessageCommon.getMessageByKey("MES001T"));
-            }
-            Account account = accountAdminRepository.findAccountByCitizenCard(ValueConstant.CITIZENCARD_CONST);
-            if (Optional.ofNullable(account).isEmpty()) {
-                throw new CustomException(HttpStatus.NOT_FOUND, MessageCommon.getMessageByKey("MES001T"));
-            }
-
             if (Optional.ofNullable(dataRequest.getId()).isEmpty()) {
+                SkillType skillType = getSkillType(type);
+                CheckIsNullCommon.isIdCheck(skillType);
+                Account account = accountAdminService.getAccountById(ValueConstant.CITIZENCARD_CONST);
                 Skill skill = new Skill(dataRequest.getValueNew(), skillType);
                 SkillAccount skillAccount = new SkillAccount(skill, account);
                 skillSave = skillAdminRepository.save(skill);
                 skillAccountSave = skillsAccountAdminRepository.save(skillAccount);
-                if (Optional.ofNullable(skillSave).isPresent() && Optional.ofNullable(skillAccountSave).isPresent()) {
-                    LogCommon.logInfo(MessageCommon.getMessageByKey("MES002T"));
-                    return true;
-                }
-                throw new CustomException(HttpStatus.BAD_REQUEST, MessageCommon.getMessageByKey("MES003T"));
+                return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_CREATE, skillSave) && CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_CREATE, skillAccountSave);
             }
-
-            Optional<Skill> skillGetByID = skillAdminRepository.findById(dataRequest.getId());
-            if (skillGetByID.isPresent()) {
-                skillGetByID.get().setSkillName(dataRequest.getValueNew());
-                skillSave = skillAdminRepository.saveAndFlush(skillGetByID.get());
-                LogCommon.logInfo(MessageCommon.getMessageByKey("MES002T"));
-                return Optional.ofNullable(skillSave).isPresent();
-            }
-            throw new CustomException(HttpStatus.BAD_REQUEST, MessageCommon.getMessageByKey("MES001T"));
-
+            Skill skillGetByID = getSkillById(dataRequest.getId());
+            skillGetByID.setSkillName(dataRequest.getValueNew());
+            skillSave = skillAdminRepository.saveAndFlush(skillGetByID);
+            LogCommon.logInfo(MessageCommon.getMessageByKey("MES002T"));
+            return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_UPDATE, skillSave);
         } catch (CustomException e) {
             LogCommon.logError("Error: " + e.getMessage());
             throw e;
         } finally {
             LogCommon.endLog();
+        }
+    }
+
+    @Override
+    public Skill getSkillById(String id) {
+        try {
+            CheckIsNullCommon.isIdCheck(id);
+            Skill skill = skillAdminRepository.findById(id).get();
+            CheckIsNullCommon.isIdCheck(skill);
+            return skill;
+        } catch (CustomException e) {
+            LogCommon.logError(e.getMessage());
+            throw e;
         }
     }
 

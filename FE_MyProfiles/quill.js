@@ -1,6 +1,11 @@
+import { callApiPost } from "./common.js";
+import { DataRequest } from "./DataRequest.js";
+
 $(() => {
   let quill;
+  let idProject = null;
   $(document).on("click", ".project-body", function () {
+    idProject = $(this).closest(".project-form").data("id");
     if (quill) {
       quill = null;
       $(".modal-body-certificate").html("");
@@ -26,9 +31,13 @@ $(() => {
       theme: "snow",
     });
     quill.clipboard.dangerouslyPasteHTML($(this).html());
-    console.log($(this).html());
   });
-  $(document).on("click", ".add-project-info", function () {
-    console.log(quill.root.innerHTML);
+
+  $(document).on("click", ".btn-prj-description", function () {
+    let description = quill.root.innerHTML;
+    callApiPost(
+      "/api/v1/admin/updateProject",
+      new DataRequest(idProject, "description", description)
+    );
   });
 });

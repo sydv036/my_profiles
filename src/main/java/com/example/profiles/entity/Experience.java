@@ -25,4 +25,24 @@ public class Experience extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "accountID", nullable = true)
     private Account account;
+
+    public Experience(String companyName, String jobTitle, LocalDate fromDate, LocalDate toDate, Account account) {
+        super("EXP");
+        this.companyName = companyName;
+        this.jobTitle = jobTitle;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.account = account;
+    }
+
+    @Override
+    public String toString() {
+        return "Experience{" +
+                "companyName='" + companyName + '\'' +
+                ", jobTitle='" + jobTitle + '\'' +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                ", account=" + account.getCitizenCard() +
+                '}';
+    }
 }

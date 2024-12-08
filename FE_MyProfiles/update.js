@@ -74,18 +74,18 @@ $(() => {
           let htmlEducationInfo = $(".education-info-custom");
           data.education.forEach((items) => {
             const education = `
-            <div class="education-info mb-3">
+            <div class="education-info mb-3" data-id="${items.educationID}">
                 <div class="education-name">
-                  <input type="text" class="" data-id="${items.educationID}" value="${items.educationName}"/>
+                  <input type="text" name="educationName" class="" data-id="${items.educationID}" value="${items.educationName}"/>
                 </div>
                 <div class="major">
-                  <input type="text" value="${items.major}" />
+                  <input type="text" name="major" value="${items.major}" />
                 </div>
-                <div class="year-learn row"><input class="col-4" value="${items.startDate}"/>    <input class="col-4" value="${items.endDate}"/></div>
+                <div class="year-learn row"><input name="startDate" class="col-4" value="${items.startDate}"/>    <input class="col-4" name="endDate" value="${items.endDate}"/></div>
                 <div class="point">
                   GPA:
-                  <input type="text" value="${items.point}"/>
-                </div>    
+                  <input type="text" name="point" value="${items.point}"/>
+                </div>
             </div>
               `;
             htmlEducationInfo.append(education);
@@ -112,11 +112,11 @@ $(() => {
           let htmlExperience = $(".experience-info-update");
           data.experience.forEach((item) => {
             const experience = `
-                  <div class="experience-info">
-                    <input type="text" data-id=""${item.experienceID} name="companyName" value="${item.companyName}" class="company-name" />
+                  <div class="experience-info" data-id="${item.experienceID} ">
+                    <input type="text" name="companyName" value="${item.companyName}" class="company-name" />
                     <div>
                         <input type="text" name="jobTitle" class="job-title" value="${item.jobTitle}"/>
-                        <div class="time-on-job "><input name="fromDate" value="${item.fromDate}"/> - <input name="toDate" value="${item.toDate}"/> </div>
+                        <div class="time-on-job "><input type="text"  name="fromDate" value="${item.fromDate}"/> - <input type="text"  name="toDate" value="${item.toDate}"/> </div>
                     </div> 
                   </div>   
             `;
@@ -158,13 +158,13 @@ $(() => {
           let htmlProject = $(".project-info-custom");
           data.project.forEach((item) => {
             const projectInfo = `
-              <div class='project-form row'>
+              <div class='project-form row' data-id="${item.projectID}">
                 <div class="time-on col-6 ">
-                  <input class="job-title" value="${item.jobTitle}"/>
-                  <div class="working-time row"><input class="col-3" value="${item.fromDate}"/> - <input class="col-3" value="${item.toDate}"/></div>
+                  <input type='text' name="jobTitle" class="job-title" value="${item.jobTitle}"/>
+                  <div class="working-time row"><input type='text' name="fromDate" class="col-3" value="${item.fromDate}"/> - <input type='text'name="toDate"  class="col-3" value="${item.toDate}"/></div>
                 </div>
                 <div class="project-description mb-2 col-6">
-                  <div class="project-title"><input value="${item.projectName}"/></div>
+                  <div class="project-title"><input type='text' name='projectName' value="${item.projectName}"/></div>
                   <div class="project-body" >${item.description}</div>
                 </div>
               </div>

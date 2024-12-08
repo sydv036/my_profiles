@@ -67,7 +67,7 @@ input :focus {
 #quill-custom {
   height: 375px;
 }
-.chosse-file-certificate {
+.chosse-file {
   border: 1px dashed rgb(129, 128, 128);
   display: flex;
   justify-content: center;
@@ -79,7 +79,7 @@ input :focus {
   gap: 10px;
   color: rgb(12, 92, 211);
 }
-.chosse-file-certificate img {
+.chosse-file img {
   width: 100px;
   height: 100px;
   object-position: center;

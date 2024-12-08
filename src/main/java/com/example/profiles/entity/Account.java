@@ -28,7 +28,7 @@ public class Account {
     private String birthDate;
     @Column(columnDefinition = "varchar(100)")
     private String email;
-    @Column(columnDefinition = "varchar(1000)", nullable = false, unique = true)
+    @Column(columnDefinition = "varchar(100)", nullable = false, unique = true)
     private String phoneNumber;
     @Column(columnDefinition = "varchar(5000)")
     private String adress;

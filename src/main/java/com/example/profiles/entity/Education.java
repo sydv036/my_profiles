@@ -20,8 +20,8 @@ public class Education extends BaseEntity {
 
     @Column(columnDefinition = "varchar(150)", nullable = false)
     private String educationName;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private String startDate;
+    private String endDate;
     private Float point;
     private String major;
     @Column(columnDefinition = "longtext")
@@ -33,7 +33,7 @@ public class Education extends BaseEntity {
     private Set<EducationAccount> educationAccounts;
 
 
-    public Education(String educationName, LocalDate startDate, LocalDate endDate, Float point, String major, String transcript, Integer status) {
+    public Education(String educationName, String startDate, String endDate, Float point, String major, String transcript, Integer status) {
         this.educationName = educationName;
         this.startDate = startDate;
         this.endDate = endDate;

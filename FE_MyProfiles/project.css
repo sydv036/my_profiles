@@ -2,3 +2,8 @@
   display: grid;
   grid-template-columns: 420px 1fr;
 }
+.project-body {
+  overflow: hidden;
+  /* word-wrap: break-word;  */
+  overflow-wrap: break-word;
+}
