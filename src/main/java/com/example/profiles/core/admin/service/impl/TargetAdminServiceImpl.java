@@ -1,5 +1,7 @@
 package com.example.profiles.core.admin.service.impl;
 
+import com.example.profiles.common.CheckIsNullCommon;
+import com.example.profiles.common.CheckProcessCurdCommon;
 import com.example.profiles.common.LogCommon;
 import com.example.profiles.common.MessageCommon;
 import com.example.profiles.constant.ValueConstant;
@@ -8,11 +10,13 @@ import com.example.profiles.core.admin.repository.IAccountAdminRepository;
 import com.example.profiles.core.admin.repository.ITargetAccountAdminRepository;
 import com.example.profiles.core.admin.repository.ITargetAdminRepository;
 import com.example.profiles.core.admin.repository.ITargetTypeAdminRepository;
+import com.example.profiles.core.admin.service.IAccountAdminService;
 import com.example.profiles.core.admin.service.ITargetAdminService;
 import com.example.profiles.entity.Account;
 import com.example.profiles.entity.Target;
 import com.example.profiles.entity.TargetAccount;
 import com.example.profiles.entity.TargetType;
+import com.example.profiles.enums.FlagCurdEnum;
 import com.example.profiles.enums.TargetTypeNameEnum;
 import com.example.profiles.exception.CustomException;
 import com.example.profiles.exception.HandleException;
@@ -36,7 +40,7 @@ public class TargetAdminServiceImpl extends HandleException implements ITargetAd
     private ITargetTypeAdminRepository targetTypeAdminRepository;
 
     @Autowired
-    private IAccountAdminRepository accountAdminRepository;
+    private IAccountAdminService accountAdminService;
 
     @Override
     @Transactional
@@ -46,33 +50,20 @@ public class TargetAdminServiceImpl extends HandleException implements ITargetAd
             Target targetSave = null;
             TargetAccount targetAccountSave = null;
             TargetType targetType = getTargetTypeByEnum(typeTarget);
-            if (Optional.ofNullable(targetType).isEmpty()) {
-                throw new CustomException(HttpStatus.NOT_FOUND, MessageCommon.getMessageByKey("MES001T"));
-            }
-            Account account = accountAdminRepository.findAccountByCitizenCard(ValueConstant.CITIZENCARD_CONST);
-            if (Optional.ofNullable(account).isEmpty()) {
-                throw new CustomException(HttpStatus.NOT_FOUND, MessageCommon.getMessageByKey("MES001T"));
-            }
+            CheckIsNullCommon.isIdCheck(targetType);
             if (Optional.ofNullable(dataRequest.getId()).isEmpty()) {
-
+                Account account = accountAdminService.getAccountById(ValueConstant.CITIZENCARD_CONST);
                 Target target = new Target(dataRequest.getValueNew(), targetType);
                 targetSave = targetAdminRepository.save(target);
                 TargetAccount targetAccount = new TargetAccount(target, account);
                 targetAccountSave = targetAccountAdminRepository.save(targetAccount);
-                if (Optional.ofNullable(targetSave).isEmpty() || Optional.ofNullable(targetAccountSave).isEmpty()) {
-                    throw new CustomException(HttpStatus.BAD_REQUEST, MessageCommon.getMessageByKey("MES003T"));
-                }
-                LogCommon.logInfo(MessageCommon.getMessageByKey("MES002T"));
-                return true;
+                return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_CREATE, targetSave) && CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_CREATE, targetAccountSave);
             }
+            Target targetSearchById = getTargetById(dataRequest.getId());
+            targetSearchById.setTargetName(dataRequest.getValueNew());
+            targetSave = targetAdminRepository.saveAndFlush(targetSearchById);
+            return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_UPDATE, targetSave);
 
-            Optional<Target> targetSearchById = targetAdminRepository.findById(dataRequest.getId());
-            if (targetSearchById.isPresent()) {
-                targetSearchById.get().setTargetName(dataRequest.getValueNew());
-                targetSave = targetAdminRepository.saveAndFlush(targetSearchById.get());
-                return Optional.ofNullable(targetSave).isPresent();
-            }
-            throw new CustomException(HttpStatus.BAD_REQUEST, MessageCommon.getMessageByKey("MES003T"));
         } catch (CustomException e) {
             LogCommon.logError("Exception: " + e.getMessage());
             throw e;
@@ -81,6 +72,19 @@ public class TargetAdminServiceImpl extends HandleException implements ITargetAd
         }
 
 
+    }
+
+    @Override
+    public Target getTargetById(String id) {
+        try {
+            CheckIsNullCommon.isIdCheck(id);
+            Target target = targetAdminRepository.findById(id).get();
+            CheckIsNullCommon.isIdCheck(target);
+            return target;
+        } catch (CustomException e) {
+            LogCommon.logError(e.getMessage());
+            throw e;
+        }
     }
 
     private TargetType getTargetTypeByEnum(int targetType) {

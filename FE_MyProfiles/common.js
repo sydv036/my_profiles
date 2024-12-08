@@ -1,9 +1,12 @@
 import { DataRequest } from "./DataRequest.js";
 import { uploadImage } from "./imageUpload.js";
 
-function create(classClick, classAdd, value) {
+function create(classClick, classAdd, value, callback) {
   $(document).on("click", "." + classClick, function () {
     $("." + classAdd).append(value);
+    if (typeof callback === "function") {
+      callback();
+    }
   });
 }
 function handleInput(classInput, classParent, dataName, callback) {
@@ -118,8 +121,8 @@ function handleImgWithList(
   });
 }
 function handleObjectFormDataImg(
-  classHandler,
-  classReplaceHandler,
+  classImgHandler,
+  classImgReplaceHandler,
   classImgFill,
   classClick,
   classFormData,
@@ -128,8 +131,8 @@ function handleObjectFormDataImg(
 ) {
   let file = null;
   handleImg(
-    classHandler,
-    classReplaceHandler,
+    classImgHandler,
+    classImgReplaceHandler,
     classImgFill,
     function (fileImg) {
       file = fileImg;

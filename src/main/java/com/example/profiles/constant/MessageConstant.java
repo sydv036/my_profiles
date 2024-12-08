@@ -26,7 +26,13 @@ public class MessageConstant {
         messages.put("MES008T", "Can't connect to database!");
         messages.put("MES009T", "Get data by id not found!");
         messages.put("MES010T", "An error occurred while retrieving data!");
+        messages.put("MES011T", "Object is null or empty! An error occurred while retrieving data!");
+        messages.put("MES012T", "Get operation successfully!");
+        messages.put("MES013T", "Get operation failed!");
+        messages.put("MES014T", "Unknown error!");
+        messages.put("MES015T", "Process operation failed!");
         messages.put("MES001S", "Server error!");
+
 //        Tránh việc thay đổi messages
         MESSAGES = Collections.unmodifiableMap(messages);
     }

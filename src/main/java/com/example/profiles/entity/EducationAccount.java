@@ -24,4 +24,10 @@ public class EducationAccount extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "accountID", nullable = true)
     private Account account;
+
+    public EducationAccount(Education education, Account account) {
+        super("EDA");
+        this.education = education;
+        this.account = account;
+    }
 }

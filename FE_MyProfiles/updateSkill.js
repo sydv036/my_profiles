@@ -3,14 +3,14 @@ function createSoftSkill() {
   create(
     "icon-soft-skill",
     "soft-skill-info",
-    '<input class="col-12" value="Kĩ năng mềm của bạn" />'
+    '<input type="text" class="col-12" value="Kĩ năng mềm của bạn" />'
   );
 }
 function createProfessionalSkill() {
   create(
     "icon-profess-skill",
     "professional-skill-info",
-    '<input class="col-12" value="Kĩ năng chuyên môn của bạn" />'
+    '<input type="text" class="col-12" value="Kĩ năng chuyên môn của bạn" />'
   );
 }
 function updateSkill() {

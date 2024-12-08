@@ -11,7 +11,7 @@ public class LogCommon {
     }
 
     public static void logError(String message) {
-        LOGGER_ERROR.error(message);
+        LOGGER_ERROR.error("Error: " + message);
     }
 
     public static void startLog() {
@@ -31,6 +31,8 @@ public class LogCommon {
         3: là getCurrentMethodName
         4: phương thức gọi
          */
+//        StackTraceElement element = traceElements[2];
+//        return element.getClassName() +" -> " + element.getMethodName();
         return traceElements[3].getMethodName();
     }
 }

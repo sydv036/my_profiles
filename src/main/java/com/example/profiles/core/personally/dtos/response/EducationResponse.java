@@ -15,10 +15,10 @@ public class EducationResponse {
     private String educationID;
     private String educationName;
     private String major;
-    @JsonFormat(pattern = "MM-yyyy")
-    private LocalDate startDate;
-    @JsonFormat(pattern = "MM-yyyy")
-    private LocalDate endDate;
+//    @JsonFormat(pattern = "MM-yyyy")
+    private String startDate;
+//    @JsonFormat(pattern = "MM-yyyy")
+    private String endDate;
     private Float point;
     private String transcript;
     private Integer status;

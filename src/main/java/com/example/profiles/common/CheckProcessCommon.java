@@ -10,10 +10,10 @@ public class CheckProcessCommon {
             if (!isProcess) {
                 return ResponseEntity.badRequest().body(new BaseReponse<>(HttpStatus.BAD_REQUEST.value(), "Bad request", null));
             }
-            return ResponseEntity.ok(new BaseReponse<>(HttpStatus.CREATED.value(), "Successfully saved profile", null));
+            return ResponseEntity.ok(new BaseReponse<>(HttpStatus.OK.value(), "Process Successfully!", null));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new BaseReponse<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Error: " + e.getMessage(), null));
+                    .body(new BaseReponse<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Process Error: " + e.getMessage(), null));
         }
     }
 }

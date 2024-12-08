@@ -7,9 +7,9 @@ import {
   updateSkill,
 } from "./updateSkill.js";
 import { createExperience, updateExperience } from "./updateExperience.js";
-import { createProject, handleQuill } from "./updateProject.js";
+import { createProject, updateProject } from "./updateProject.js";
 import { updateCertificate } from "./updateCertificate.js";
-import { createEducation } from "./updateEducation.js";
+import { updateEducation } from "./updateEducation.js";
 
 $(() => {
   createShotGoal();
@@ -18,11 +18,11 @@ $(() => {
   createProfessionalSkill();
   createExperience();
   createProject();
-  handleQuill();
-  createEducation();
   updateInformation();
   updateGoal();
   updateSkill();
   updateCertificate();
   updateExperience();
+  updateProject();
+  updateEducation();
 });

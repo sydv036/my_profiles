@@ -87,7 +87,10 @@
       <section class="education">
         <div class="education-title text-uppercase border-bottom-custom">
           Học vấn
-          <i class="fas fa-plus-circle icon-custom text-capitalize icon-add-edu"
+          <i
+            class="fas fa-plus-circle icon-custom text-capitalize icon-add-edu"
+            data-bs-toggle="modal"
+            data-bs-target="#modalEducation"
             >Add New</i
           >
         </div>
@@ -206,7 +209,7 @@
             >
               Hủy
             </button>
-            <button type="button" class="btn btn-primary add-project-info">
+            <button type="button" class="btn btn-primary btn-prj-description">
               Cập nhật
             </button>
           </div>
@@ -255,7 +258,7 @@
               />
             </div>
 
-            <div class="mb-3 chosse-file-certificate">
+            <div class="mb-3 chosse-file chosse-file-certificate">
               <img
                 src="https://placehold.co/100"
                 class="fill-img-select"
@@ -283,7 +286,79 @@
       </div>
     </div>
     <!-- Modal Certificate end-->
+    <!-- Modal Education start-->
+    <div
+      class="modal fade"
+      id="modalEducation"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Add New Education
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body formDataEdu">
+            <div class="mb-3">
+              <label for="">Education Name</label>
+              <input type="text" class="form-control" name="educationName" />
+            </div>
+            <div class="mb-3">
+              <label for="">Major</label>
+              <input type="text" name="major" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label for="">Point</label>
+              <input type="text" name="point" class="form-control" />
+            </div>
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label for="">Start Date</label>
+                <input type="text" name="startDate" class="form-control" />
+              </div>
+              <div class="mb-3 col-6">
+                <label for="">End Date</label>
+                <input type="text" name="endDate" class="form-control" />
+              </div>
+            </div>
 
+            <div class="mb-3 chosse-file chosse-file-edu">
+              <img
+                src="https://placehold.co/100"
+                class="fill-img-edu-select"
+                alt=""
+              />
+              <i class="fas fa-cloud-upload-alt">
+                Select a scoreboard image or drag it here.</i
+              >
+            </div>
+            <input type="file" class="file-edu-new" hidden />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary createEdu">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Education end-->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -308,7 +383,7 @@
     <!-- <script type="module" src="imageHandle.js"></script> -->
     <script type="module" src="updateCV.js"></script>
     <!-- <script type="module" src="updateGoal.js"></script> -->
-    <script src="quill.js"></script>
+    <script type="module" src="quill.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   </body>
 </html>
