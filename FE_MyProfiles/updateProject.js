@@ -26,7 +26,6 @@ function createProject() {
         data[key] = value;
       });
       data["description"] = "Thông tin dự án";
-      console.log(data);
       callApiPost("/api/v1/admin/saveProject", data);
     }
   );

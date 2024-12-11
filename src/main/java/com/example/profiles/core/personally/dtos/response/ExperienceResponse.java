@@ -21,10 +21,10 @@ public interface ExperienceResponse {
     String getJobTitle();
 
     @Value("#{target.fromDate}")
-    @JsonFormat(pattern = "MM-yyyy")
-    LocalDate getFromDate();
+//    @JsonFormat(pattern = "MM-yyyy")
+    String getFromDate();
 
     @Value("#{target.toDate}")
-    @JsonFormat(pattern = "MM-yyyy")
-    LocalDate getToDate();
+//    @JsonFormat(pattern = "MM-yyyy")
+    String getToDate();
 }

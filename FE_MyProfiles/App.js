@@ -16,6 +16,10 @@ $(() => {
           const data = response.data;
           dataResponse = data;
           //Basic Info
+          const avatar = data.image
+            ? data.image
+            : "https://placehold.co/100X100";
+          $(".avartar img").attr("src", avatar);
           let htmlBasicInfo = $(".basic-info");
           const info = `
             <div class="name">

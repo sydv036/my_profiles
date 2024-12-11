@@ -11,26 +11,32 @@ input {
 input :focus {
   border: 1px soid red;
 }
-.avartar .image-update {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  object-position: center;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease-in;
-}
-.avartar .image-update:hover {
-  transform: scale(1.2);
-  opacity: 0.4;
-}
 
+.avartar {
+  position: relative;
+  overflow: hidden;
+}
 .avartar .camera {
   position: absolute;
-  color: rgb(255, 255, 255);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  font-size: 20px;
+  opacity: 0;
   cursor: pointer;
-  font-size: 25px;
+  transition: opacity 0.3s ease;
 }
+.avartar:hover .camera {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
 .icon-custom {
   color: rgb(38, 57, 230);
   cursor: pointer;

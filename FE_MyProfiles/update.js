@@ -16,6 +16,10 @@ $(() => {
         if (response.statusCode === 200) {
           const data = response.data;
           dataResponse = data.certificate;
+          const avatar = data.image
+            ? data.image
+            : "https://placehold.co/100X100";
+          $(".avartar img").attr("src", avatar);
           //Basic Info
           let htmlBasicInfo = $(".basic-info");
           const info = `
