@@ -85,7 +85,7 @@ $(() => {
                 <div class="major">
                   <input type="text" name="major" value="${items.major}" />
                 </div>
-                <div class="year-learn row"><input name="startDate" class="col-4" value="${items.startDate}"/>    <input class="col-4" name="endDate" value="${items.endDate}"/></div>
+                <div class="year-learn row"><input type="text"  name="startDate" class="col-4" value="${items.startDate}"/>    <input type="text"  class="col-4" name="endDate" value="${items.endDate}"/></div>
                 <div class="point">
                   GPA:
                   <input type="text" name="point" value="${items.point}"/>

@@ -1,0 +1,10 @@
+.project_info {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+}
+.project_description {
+  overflow: hidden;
+  /* word-wrap: break-word;  */
+  /* overflow-wrap: break-word; */
+  color: red;
+}

@@ -1,0 +1,50 @@
+.common-img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+.h100 {
+  height: 100px;
+  max-height: 100px;
+}
+.w100 {
+  width: 100px;
+  max-width: 100px;
+}
+
+.w500 {
+  width: 500px;
+  max-width: 550px;
+}
+.h700 {
+  height: 700px;
+  max-height: 700px;
+}
+.border-radius-50 {
+  border-radius: 50%;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+.flex-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.border-bottom {
+  border-bottom: 2px solid black;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-direction-row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

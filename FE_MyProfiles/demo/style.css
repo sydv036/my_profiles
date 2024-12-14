@@ -1,0 +1,14 @@
+body {
+  background: linear-gradient(#74ebd5, #acb6e5);
+}
+main {
+  width: 900px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  word-wrap: break-word;
+}
