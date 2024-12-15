@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="demo/skill.css" />
     <link rel="stylesheet" href="demo/experiences.css" />
     <link rel="stylesheet" href="demo/project.css" />
+    <link rel="stylesheet" href="demo/more-information.css" />
+    <link rel="stylesheet" href="demo/image.css" />
   </head>
   <body>
     <header class="flex-center">
@@ -54,17 +56,10 @@
       <section class="experience"></section>
       <section class="project"></section>
       <section class="more-information">
-        <section class="certificate">
-          <div class="certificate-title text-uppercase border-bottom-custom">
-            Certificate
-          </div>
-          <div class="certificate-info pt-1 padding-custom"></div>
-        </section>
+        <section class="certificate"></section>
         <section class="hobist">
-          <div class="hobist-title text-uppercase border-bottom-custom">
-            hobist
-          </div>
-          <div class="hobist-info">
+          <div class="hobist_title text-uppercase border-bottom">hobist</div>
+          <div class="hobist_info">
             <ul>
               <li>ĐÁ BÓNG</li>
               <li>CẦU LÔNG</li>
@@ -74,11 +69,20 @@
         </section>
       </section>
     </main>
-    <div class="main-show-img">
-      <img class="img-show-more" alt="" />
-      <button class="cancel-img">
-        <i class="fas fa-window-close" style="color: #eb0505"></i>
-      </button>
+    <div class="image-show w700 h500">
+      <img
+        class="image-show_image common-img w700 h500"
+        src="https://placehold.co/700X500"
+        alt=""
+      />
+      <div class="more-function">
+        <button class="image-show_btn-download">
+          <i class="fas fa-download"></i>
+        </button>
+        <button class="image-show_btn-cancel">
+          <i class="fas fa-window-close" style="color: #eb0505"></i>
+        </button>
+      </div>
     </div>
 
     <script

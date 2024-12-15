@@ -3,8 +3,9 @@
   grid-template-columns: 420px 1fr;
 }
 .project_description {
-  overflow: hidden;
-  /* word-wrap: break-word;  */
-  /* overflow-wrap: break-word; */
-  color: red;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
 }

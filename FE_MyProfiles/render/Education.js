@@ -7,7 +7,7 @@ function renderEducation(data) {
   data.education.forEach((items) => {
     const education = `
         <div class="education_name">
-          <b class="show-more showImgEducation" data-id="${items.educationID}">${items.educationName}</b>
+          <b class="text-hover showImgEducation" data-id="${items.educationID}">${items.educationName}</b>
         </div>
         <div class="major">
           <b>${items.major}</b>
