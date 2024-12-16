@@ -24,7 +24,7 @@ function updateInformation() {
   handleImg(
     "avartar .camera",
     "imgHandle",
-    "image-update",
+    "avartar_update",
     async function (file) {
       const urlImg = await uploadImage(file);
       console.log(urlImg);

@@ -52,3 +52,7 @@
   color: red;
   cursor: pointer;
 }
+
+.margin-bottom {
+  margin-bottom: 8px;
+}

@@ -28,7 +28,7 @@ function renderProfessionallySkills(data) {
 function renderTitleSkills() {
   const skill = $(".skills");
   skill.append(`
-    <div class="skills_title border-bottom text-uppercase">
+    <div class="skills_title border-bottom text-uppercase margin-bottom ">
           Kĩ năng
     </div>
     <div class="skills_name padding-custom">

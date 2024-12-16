@@ -17,7 +17,7 @@ function renderCertificate(data) {
 function renderCertificateTitle() {
   const title = $(".certificate");
   title.append(`
-    <div class="certificate_title text-uppercase border-bottom">
+    <div class="certificate_title text-uppercase border-bottom margin-bottom ">
       Certificate
     </div>
     <div class="certificate_info pt-1 padding-custom"></div>

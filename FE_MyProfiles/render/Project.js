@@ -21,7 +21,7 @@ function renderProject(data) {
 function renderProjectTitle() {
   const title = $(".project");
   title.append(`
-    <div class="project_title text-uppercase border-bottom">Project</div>
+    <div class="project_title text-uppercase border-bottom margin-bottom ">Project</div>
     <div class="project_info padding-custom"></div>
   `);
 }

@@ -1,15 +1,38 @@
 input {
   border: none;
   outline: none;
-  width: auto; /* Chưa có hiệu quả với CSS thuần */
   min-width: 200px;
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
 }
 .time-on-job {
   display: flex;
   flex-direction: row;
 }
-input :focus {
-  border: 1px soid red;
+input:focus {
+  position: absolute;
+  z-index: 9999;
+  outline: 0 rgb(192, 192, 191);
+  width: 300px;
+  height: 100px;
+  max-width: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Overlay làm mờ các phần tử bên dưới */
+input:focus::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: -1;
 }
 
 .avartar {
