@@ -3,6 +3,7 @@ package com.example.profiles.core.admin.service.impl;
 import com.example.profiles.common.*;
 import com.example.profiles.constant.ValueConstant;
 import com.example.profiles.core.admin.dtos.request.DataRequest;
+import com.example.profiles.core.admin.dtos.request.ExperienceAdminRequest;
 import com.example.profiles.core.admin.repository.IAccountAdminRepository;
 import com.example.profiles.core.admin.repository.IExperienceAdminRepository;
 import com.example.profiles.core.admin.service.IAccountAdminService;
@@ -12,6 +13,7 @@ import com.example.profiles.entity.Experience;
 import com.example.profiles.enums.FlagCurdEnum;
 import com.example.profiles.exception.CustomException;
 import jakarta.transaction.Transactional;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,29 @@ public class ExperienceAdminServiceImpl implements IExperienceAdminService {
 
     @Autowired
     private IAccountAdminService accountAdminService;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+    @Override
+    @Transactional
+    public boolean createExperience(ExperienceAdminRequest experienceAdminRequest) {
+        LogCommon.startLog();
+        try {
+            CheckIsNullCommon.isIdCheck(experienceAdminRequest);
+            Account account = accountAdminService.getAccountById(ValueConstant.CITIZENCARD_CONST);
+            Experience experience = modelMapper.map(experienceAdminRequest, Experience.class);
+            experience.setAccount(account);
+            Object objExpSave = experienceAdminRepository.saveAndFlush(experience);
+            return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_CREATE, objExpSave);
+        } catch (CustomException e) {
+            LogCommon.logError(e.getMessage());
+            throw e;
+        } finally {
+            LogCommon.endLog();
+        }
+
+    }
 
     @Override
     @Transactional
@@ -52,9 +77,9 @@ public class ExperienceAdminServiceImpl implements IExperienceAdminService {
         LogCommon.startLog();
         try {
             id = (String) CheckIsNullCommon.isIdCheck(id);
-            Optional<Experience> experience = experienceAdminRepository.findById(id);
-            experience = (Optional<Experience>) CheckIsNullCommon.isIdCheck(experience);
-            return experience.get();
+            Experience experience = experienceAdminRepository.getExperienceByID(id);
+            CheckIsNullCommon.isIdCheck(experience);
+            return experience;
         } catch (CustomException e) {
             LogCommon.logError(e.getMessage());
             throw e;

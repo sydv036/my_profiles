@@ -3,6 +3,7 @@ package com.example.profiles.entity;
 
 import com.example.profiles.base.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @Table(name = "Experiences")
 @Getter
 @Setter
+
 public class Experience extends BaseEntity {
     public Experience() {
         super("EXP");
@@ -20,13 +22,13 @@ public class Experience extends BaseEntity {
     @Column(columnDefinition = "varchar(150)")
     private String companyName;
     private String jobTitle;
-    private LocalDate fromDate;
-    private LocalDate toDate;
+    private String fromDate;
+    private String toDate;
     @ManyToOne
     @JoinColumn(name = "accountID", nullable = true)
     private Account account;
 
-    public Experience(String companyName, String jobTitle, LocalDate fromDate, LocalDate toDate, Account account) {
+    public Experience(String companyName, String jobTitle, String fromDate, String toDate, Account account) {
         super("EXP");
         this.companyName = companyName;
         this.jobTitle = jobTitle;

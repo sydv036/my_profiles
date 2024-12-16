@@ -160,6 +160,16 @@ function handleObjectFormDataImg(
     }
   });
 }
+function isCheckNullList(list_data, data_name) {
+  if (list_data === null) {
+    return;
+  }
+  console.log("list_data." + data_name + ".length");
+
+  if ("list_data." + data_name + ".length" === 0) {
+    return;
+  }
+}
 export {
   create,
   handleInput,
@@ -168,4 +178,5 @@ export {
   handleInputSingle,
   handleImg,
   handleObjectFormDataImg,
+  isCheckNullList,
 };

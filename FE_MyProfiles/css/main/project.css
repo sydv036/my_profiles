@@ -1,0 +1,11 @@
+.project_info {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+}
+.project_description {
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
