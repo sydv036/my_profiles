@@ -22,14 +22,14 @@ function updateCertificate() {
     }
   );
 
-  handleInput("certificate-form ", "certificate-form", "id", function (data) {
+  handleInput("certificate_form ", "certificate_form", "id", function (data) {
     callApiPost("/api/v1/admin/updateCert", data);
   });
 
   handleImgWithList(
     "img-container",
     "file_img-cert",
-    "certificate-form",
+    "certificate_form",
     "id",
     async function (file, idCert, attrName) {
       if (!file) {

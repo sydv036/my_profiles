@@ -2,7 +2,7 @@ import { create, callApiPost, handleInput } from "./common.js";
 function createExperience() {
   create(
     "icon-experience",
-    "experience-info-update",
+    "experience_info",
     `<div class="experience-info">
         <input type="text"  name="companyName" value="VIETTEL" class="company-name" />
         <div>
@@ -13,7 +13,7 @@ function createExperience() {
    `,
     function () {
       const inputValue = $(
-        ".experience-info-update .experience-info:last input[type='text']"
+        ".experience_info .experience_form:last input[type='text']"
       );
       const data = {};
       inputValue.each(function () {
@@ -22,12 +22,13 @@ function createExperience() {
         data[key] = value;
       });
       console.log(data);
-      callApiPost("/api/v1/admin/createExperience", data);
+
+      // callApiPost("/api/v1/admin/createExperience", data);
     }
   );
 }
 function updateExperience() {
-  handleInput("experience-info", "experience-info", "id", function (data) {
+  handleInput("experience_form", "experience_form", "id", function (data) {
     callApiPost("/api/v1/admin/updateExperience", data);
   });
 }

@@ -28,9 +28,14 @@ import {
 //   // );
 // }
 function updateEducation() {
-  handleInput("education-info", "education-info", "id", function (data) {
-    callApiPost("/api/v1/admin/updateEducation", data);
-  });
+  handleInput(
+    "education-info_form",
+    "education-info_form",
+    "id",
+    function (data) {
+      callApiPost("/api/v1/admin/updateEducation", data);
+    }
+  );
   handleObjectFormDataImg(
     "chosse-file-edu",
     "file-edu-new",

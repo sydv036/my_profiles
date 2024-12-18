@@ -1,0 +1,9 @@
+.education-info_form div .major input {
+  min-width: 300px;
+  width: 300px;
+}
+.education_info_form {
+  display: flex;
+  flex-direction: 2 column;
+  /* flex-direction: column-reverse; */
+}
