@@ -5,6 +5,7 @@ import com.example.profiles.core.admin.service.IHandelImageService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,8 +24,13 @@ public class HandelImageServiceImpl implements IHandelImageService {
             URLConnection connection = url.openConnection();
             InputStream inputStream = connection.getInputStream();
             byte[] bytes = StreamUtils.copyToByteArray(inputStream);
-            String filePath = "C:/Downloads";
-            try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
+//            String filePath = "C:/Downloads";
+            File directory = new File("C:/Downloads/img");
+            if (!directory.exists()) {
+                directory.mkdirs(); // Tạo thư mục nếu chưa tồn tại
+            }
+
+            try (FileOutputStream fileOutputStream = new FileOutputStream(directory)) {
                 fileOutputStream.write(bytes);
             }
         } catch (Exception e) {

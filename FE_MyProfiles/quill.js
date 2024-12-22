@@ -4,8 +4,8 @@ import { DataRequest } from "./DataRequest.js";
 $(() => {
   let quill;
   let idProject = null;
-  $(document).on("click", ".project-body", function () {
-    idProject = $(this).closest(".project-form").data("id");
+  $(document).on("click", ".project_body", function () {
+    idProject = $(this).closest(".project_info").data("id");
     if (quill) {
       quill = null;
       $(".modal-body-certificate").html("");

@@ -2,6 +2,7 @@ package com.example.profiles.entity;
 
 
 import com.example.profiles.base.BaseEntity;
+import com.example.profiles.enums.FlagEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public class Experience extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "accountID", nullable = true)
     private Account account;
+    private Integer flag = FlagEnum.ACTIVE.ordinal();;
 
     public Experience(String companyName, String jobTitle, String fromDate, String toDate, Account account) {
         super("EXP");
@@ -35,6 +37,7 @@ public class Experience extends BaseEntity {
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.account = account;
+        this.flag = FlagEnum.ACTIVE.ordinal();
     }
 
     @Override

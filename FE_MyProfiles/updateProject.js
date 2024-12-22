@@ -2,22 +2,27 @@ import { create, handleInput, callApiPost } from "./common.js";
 function createProject() {
   create(
     "icon-add-project",
-    "project-info-custom",
+    "project_form",
     `
-              <div class='project-form row'>
-                  <div class="time-on col-6 ">
+              <div class='project_info '>
+                  <div class="time-on  ">
                     <input type='text' name="jobTitle" class="job-title" value="Chức vụ"/>
-                    <div class="working-time row"><input type='text' name="fromDate" class="col-3" value="10/2024"/> - <input type='text' name="toDate"  class="col-3" value="12/2024"/></div>
+                    <div class="working-time ">
+                      <input type='text' name="fromDate" class="" value="10/2021"/>
+                      <input type='text' name="toDate"  class="" value="12/2024"/>
+                    </div>
                   </div>
-                  <div class="project-description mb-2 col-6">
-                    <div class="project-title"><input name='projectName' value="Đồ án tốt nghiệp"/></div>
-                    <div class="project-body">Thông tin dự án</div>
+                  <div class="project_description mb-2 col-6">
+                    <div class="project_title">
+                      <input type='text' name='projectName' value="Dự án của bạn"/>
+                    </div>
+                    <div class="project_body">Thông tin dự án</div>
                   </div>
               </div>
       `,
     function () {
       const inputValue = $(
-        ".project-info-custom .project-form:last input[type='text']"
+        ".project_form .project_info:last input[type='text']"
       );
       const data = {};
       inputValue.each(function () {
@@ -32,7 +37,7 @@ function createProject() {
 }
 
 function updateProject() {
-  handleInput("project-form", "project-form", "id", function (data) {
+  handleInput("project_info", "project_info", "id", function (data) {
     callApiPost("/api/v1/admin/updateProject", data);
   });
 }

@@ -1,4 +1,4 @@
-function renderCareerGoal(data) {
+function renderCareerGoalUpdate(data) {
   data.target.forEach((items) => {
     if (items.targetTypeName == 1) {
       renderShotTermGoalUpdate(items);
@@ -21,4 +21,4 @@ function renderLongCareerGoalUpdate(data) {
 `;
   htmlLongTermGoal.append(itemLongTermGoal);
 }
-export { renderCareerGoal };
+export { renderCareerGoalUpdate };

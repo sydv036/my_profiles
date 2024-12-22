@@ -1,0 +1,8 @@
+/* .education-info_form div .major input {
+  min-width: 300px;
+  width: 300px;
+} */
+.education_form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
