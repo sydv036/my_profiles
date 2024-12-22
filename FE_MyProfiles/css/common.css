@@ -88,3 +88,25 @@
 .img-container:hover .icon-overlay {
   opacity: 1;
 }
+.icon-custom {
+  color: rgb(38, 57, 230);
+  cursor: pointer;
+}
+.icon-custom:hover {
+  color: brown;
+}
+#quill-custom {
+  height: 375px;
+}
+.chosse-file {
+  border: 1px dashed rgb(129, 128, 128);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  max-height: 150px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(12, 92, 211);
+}

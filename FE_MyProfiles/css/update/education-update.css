@@ -1,9 +1,8 @@
-.education-info_form div .major input {
+/* .education-info_form div .major input {
   min-width: 300px;
   width: 300px;
-}
-.education_info_form {
-  display: flex;
-  flex-direction: 2 column;
-  /* flex-direction: column-reverse; */
+} */
+.education_form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }

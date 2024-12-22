@@ -2,8 +2,8 @@ function renderEducationUpdate(data) {
   let htmlEducationInfo = $(".education_info");
   data.education.forEach((items) => {
     const education = `
-        <div class="education-info_form mb-3" data-id="${items.educationID}">
-            <div class="education-name">
+        <div class="education_form mb-3" data-id="${items.educationID}">
+            <div class="education_name">
               <input type="text" name="educationName" class="" data-id="${items.educationID}" value="${items.educationName}"/>
             </div>
             <div class="major">

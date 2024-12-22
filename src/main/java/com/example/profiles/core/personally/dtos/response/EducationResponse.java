@@ -19,7 +19,7 @@ public class EducationResponse {
     private String startDate;
 //    @JsonFormat(pattern = "MM-yyyy")
     private String endDate;
-    private Float point;
+    private String point;
     private String transcript;
     private Integer status;
 }
