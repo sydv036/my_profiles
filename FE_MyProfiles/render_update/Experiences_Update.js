@@ -2,7 +2,7 @@ function renderExperienceUpdate(data) {
   let htmlExperience = $(".experience_info");
   data.experience.forEach((item) => {
     const experience = `
-            <div class="experience_form" data-id="${item.experienceID} ">
+            <div class="experience_form form_delete" data-id="${item.experienceID} ">
               <input type="text" name="companyName" value="${item.companyName}" class="company-name" />
               <div>
                   <input type="text" name="jobTitle" class="job-title" value="${item.jobTitle}"/>

@@ -7,10 +7,15 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLSelect;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDate;
 
 @Entity
+@SQLDelete(sql = "update experiences set flag = 1 where id = ?")
+@Where(clause = "flag = 0")
 @Table(name = "Experiences")
 @Getter
 @Setter
@@ -28,7 +33,7 @@ public class Experience extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "accountID", nullable = true)
     private Account account;
-    private Integer flag = FlagEnum.ACTIVE.ordinal();;
+    private Integer flag;
 
     public Experience(String companyName, String jobTitle, String fromDate, String toDate, Account account) {
         super("EXP");

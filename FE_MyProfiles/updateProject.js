@@ -4,7 +4,7 @@ function createProject() {
     "icon-add-project",
     "project_form",
     `
-              <div class='project_info '>
+              <div class='project_info form_delete'>
                   <div class="time-on  ">
                     <input type='text' name="jobTitle" class="job-title" value="Chức vụ"/>
                     <div class="working-time ">

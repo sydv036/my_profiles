@@ -6,6 +6,7 @@ input {
   position: relative;
   z-index: 1;
   transition: all 0.3s ease-in-out;
+  background: none;
 }
 .time-on-job {
   display: flex;
@@ -23,6 +24,7 @@ input:focus:not(.formDataCert input):not(.formDataEdu input) {
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   border: none;
   border-radius: 10px;
+  background: lightseagreen;
 }
 
 /* Overlay làm mờ các phần tử bên dưới */

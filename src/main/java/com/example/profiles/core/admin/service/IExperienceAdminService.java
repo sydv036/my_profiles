@@ -10,5 +10,7 @@ public interface IExperienceAdminService {
 
     boolean updateExperience(DataRequest dataRequest);
 
+    boolean deleteExperience(String id);
+
     Experience getExperienceByID(String id);
 }
