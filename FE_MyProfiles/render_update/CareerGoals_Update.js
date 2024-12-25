@@ -10,7 +10,9 @@ function renderCareerGoalUpdate(data) {
 function renderShotTermGoalUpdate(data) {
   let htmlShotTermGoal = $(".shot-goal");
   const itemShotTermGoal = `
+  <div class="input_wapper">
     <input type="text" class="col-12 input-shot-goal" data-id="${data.targetID}" value="${data.targetName}"/>
+  </div>  
 `;
   htmlShotTermGoal.append(itemShotTermGoal);
 }

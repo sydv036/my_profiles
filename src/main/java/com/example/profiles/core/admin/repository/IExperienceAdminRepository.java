@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-
+//@SQLSelect(sql = "SELECT  * FROM Experience where flag = 0")
 public interface IExperienceAdminRepository extends JpaRepository<Experience, String> {
     @Query(value = """
                         select new com.example.profiles.entity.Experience(

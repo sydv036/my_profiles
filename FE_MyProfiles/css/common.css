@@ -110,3 +110,60 @@
   gap: 10px;
   color: rgb(12, 92, 211);
 }
+
+.form_delete {
+  position: relative;
+}
+.form_delete:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 0px;
+  border: 3px solid #752c2c1d;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  /* overflow: hidden; */
+}
+.form_delete:hover::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  content: "\f510";
+  font-size: 30px;
+  font-family: "Font Awesome 5 Brands";
+  cursor: pointer;
+  animation: 2s icon_delete infinite;
+  z-index: 9999;
+}
+.input_wapper {
+  position: relative;
+}
+.input_wapper:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 0px;
+  border: 3px solid #752c2c1d;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  width: 98%;
+  background: none;
+  display: inline;
+}
+.input_wapper:hover::after {
+  position: absolute;
+  content: "\f510";
+  font-family: "Font Awesome 5 Brands";
+  font-size: 20px;
+  top: 0;
+  right: 2%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 9999;
+  animation: 2s icon_delete infinite;
+}
+@keyframes icon_delete {
+  0% {
+    opacity: 1;
+    color: red;
+  }
+  100% {
+    opacity: 1;
+    color: black;
+  }
+}

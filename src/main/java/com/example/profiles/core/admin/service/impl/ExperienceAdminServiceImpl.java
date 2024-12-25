@@ -72,6 +72,25 @@ public class ExperienceAdminServiceImpl implements IExperienceAdminService {
         }
     }
 
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean deleteExperience(String id) {
+        LogCommon.startLog();
+        try {
+            CheckIsNullCommon.isIdCheck(id);
+            experienceAdminRepository.deleteById(id);
+            return true;
+        } catch (CustomException e) {
+            LogCommon.logError(e.getMessage());
+            throw e;
+        } finally {
+            LogCommon.endLog();
+        }
+    }
+
     @Override
     public Experience getExperienceByID(String id) {
         LogCommon.startLog();

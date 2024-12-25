@@ -374,18 +374,29 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="module" src="App_Update.js"></script>
+    <script type="module" src="updateCV.js"></script>
     <script type="module" src="quill.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script>
+    <script type="module">
       $(() => {
         $(document).on("click", ".experience_form", function (event) {
-          // Kiểm tra xem click có vào phần tử ::after hay không
           const x = event.offsetX;
           const id = $(this).data("id");
           const width = $(this).width();
           if (x > width - 40) {
-            alert("Biểu tượng đã được click!");
+            // alert("Biểu tượng đã được click!");
             // Xử lý sự kiện click tại đây
+            console.log(id);
+            $.ajax({
+              type: "DELETE",
+              url: "http://localhost:8081/api/v1/admin/deleteExperience/" + id,
+              success: function (response) {
+                console.log(response);
+              },
+              error: function (e) {
+                console.log(e);
+              },
+            });
           }
         });
       });

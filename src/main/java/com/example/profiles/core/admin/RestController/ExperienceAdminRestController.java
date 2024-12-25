@@ -30,4 +30,10 @@ public class ExperienceAdminRestController {
         return CheckProcessCommon.isProcess(experienceAdminService.createExperience(experienceAdminRequest));
     }
 
+    @DeleteMapping("/deleteExperience/{id}")
+    public  ResponseEntity<?> deleteExperience(@PathVariable("id") String id){
+        boolean result = experienceAdminService.deleteExperience(id);
+        return  CheckProcessCommon.isProcess(result);
+    }
+
 }

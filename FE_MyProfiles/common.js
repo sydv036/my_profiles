@@ -1,6 +1,6 @@
 import { DataRequest } from "./DataRequest.js";
 import { uploadImage } from "./imageUpload.js";
-
+var API = "http://localhost:8081";
 function create(classClick, classAdd, value, callback) {
   $(document).on("click", "." + classClick, function () {
     $("." + classAdd).append(value);
@@ -34,10 +34,13 @@ function handleInputSingle(classInput, dataName, callback) {
     }
   );
 }
-let API = "http://localhost:8081";
 function callApiPost(url, dataRequest) {
+  const urlCheck = url.substring(0, 1);
+  if (urlCheck === "/") {
+    url = url.slice(1);
+  }
   $.ajax({
-    url: API + url,
+    url: API + "/" + url,
     method: "POST",
     dataType: "json",
     data: JSON.stringify(dataRequest),
@@ -49,6 +52,28 @@ function callApiPost(url, dataRequest) {
     error: function (error) {
       console.log(error.responseJSON);
       return response.statusCode;
+    },
+  });
+}
+function callApiDelete(url, id) {
+  const firstURL = url.substring(0, 1);
+  if (firstURL === "/") {
+    url = url.slice(1);
+  }
+  const lastURL = url.substring(url.length - 1, url.length);
+  if (lastURL === "/") {
+    url = url.slice(0, -1);
+  }
+  console.log(url);
+
+  $.ajax({
+    type: "DELETE",
+    url: API + url + "/" + id,
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (error) {
+      console.log("error", error);
     },
   });
 }
@@ -80,7 +105,6 @@ function handleImg(
     }
   });
 }
-
 function handleImgWithList(
   classHandler,
   classReplaceHandler,
@@ -170,6 +194,27 @@ function isCheckNullList(list_data, data_name) {
     return;
   }
 }
+function handleFunctionDelete(url, typeHandleInputSingle, classParent) {
+  if (typeof typeHandleInputSingle === "boolean") {
+    $(document).on("click", "." + classParent, function (event) {
+      const x = event.offsetX;
+      const width = $(this).width();
+      let id = null;
+      if (typeHandleInputSingle) {
+        id = $(this).children().data("id");
+        if (x > width - 20) {
+          callApiDelete(url, id);
+        }
+        return;
+      }
+      //
+      id = $(this).data("id");
+      if (x > width - 40) {
+        callApiDelete(url, id);
+      }
+    });
+  }
+}
 export {
   create,
   handleInput,
@@ -179,4 +224,5 @@ export {
   handleImg,
   handleObjectFormDataImg,
   isCheckNullList,
+  handleFunctionDelete,
 };

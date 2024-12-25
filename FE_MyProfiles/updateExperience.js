@@ -3,7 +3,7 @@ function createExperience() {
   create(
     "icon-experience",
     "experience_info",
-    `<div class="experience_form">
+    `<div class="experience_form form_delete">
         <input type="text"  name="companyName" value="VIETTEL" class="company-name" />
         <div>
             <input type="text"  name="jobTitle" class="job-title" value="DEVELOPER"/>

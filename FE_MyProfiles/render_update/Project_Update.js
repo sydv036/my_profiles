@@ -2,7 +2,7 @@ function renderProjectUpdate(data) {
   let htmlProject = $(".project_form");
   data.project.forEach((item) => {
     const projectInfo = `
-        <div class='project_info' data-id="${item.projectID}">
+        <div class='project_info form_delete' data-id="${item.projectID}">
           <div class="time-on ">
             <input type='text' name="jobTitle" class="job-title" value="${item.jobTitle}"/>
             <div class="working-time ">
