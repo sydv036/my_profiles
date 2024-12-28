@@ -22,7 +22,7 @@ public interface IExperienceReposiroy extends ExperienceRepository {
                    exp.from_date    as fromDate,
                    exp.to_date      as toDate
             from experiences exp
-            where exp.accountid = :citizenCard
+            where exp.accountid = :citizenCard and exp.flag = 0
             """, nativeQuery = true)
     List<ExperienceResponse> getExperienceByCitizenCard(@Param("citizenCard") String citizenCard);
 }

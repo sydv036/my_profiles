@@ -9,5 +9,7 @@ public interface IProjectAdminService {
 
     boolean updateProject(DataRequest dataRequest);
 
+    boolean deleteProject(String id);
+
     Project getProjectById(String id);
 }

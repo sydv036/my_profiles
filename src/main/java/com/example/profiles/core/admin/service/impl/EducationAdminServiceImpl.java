@@ -73,6 +73,21 @@ public class EducationAdminServiceImpl implements IEducationAdminService {
         }
     }
 
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean deleteEducationAdmin(String id) {
+        try {
+            getEducationById(id);
+            educationAdminRepository.deleteById(id);
+            return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_DELETE, true);
+        } catch (CustomException e) {
+            throw e;
+        }
+    }
+
     @Override
     public Education getEducationById(String id) {
         try {

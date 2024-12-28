@@ -1,3 +1,5 @@
+import { renderCss } from "../common.js";
+
 function renderBasicInfoUpdate(data) {
   const avatar = data.image ? data.image : "https://placehold.co/100X100";
   $(".avartar img").attr("src", avatar);
@@ -6,8 +8,8 @@ function renderBasicInfoUpdate(data) {
   const info = `
       <div class="name border-bottom" data-citizen-card="${data.citizenCard}">
         <input type="hidden" name="citizenCard" value="${data.citizenCard}">
-        <input type="text" name="fullName"  class="text-uppercase" value="${data.fullName}"/>
-        <input type="text" name="jobTitleApplly"  class="text-uppercase" value="${data.jobTitleApply}" />
+        <input type="text" name="fullName"  class="text-uppercase font-size-common color-common" value="${data.fullName}"/>
+        <input type="text" name="jobTitleApplly"  class="text-uppercase font-size-common color-common" value="${data.jobTitleApply}" />
       </div>
       <div class="contact" data-citizen-card="${data.citizenCard}">
           <div class="birth-day">
@@ -37,6 +39,8 @@ function renderBasicInfoUpdate(data) {
       </div>
     `;
   htmlBasicInfo.append(info);
+  renderCss("color-common", "color", data.color);
+  renderCss("font-size-common", "font-size", data.fontSize);
 }
 
 export { renderBasicInfoUpdate };

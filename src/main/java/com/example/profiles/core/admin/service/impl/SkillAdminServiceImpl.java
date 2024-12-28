@@ -27,6 +27,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class SkillAdminServiceImpl implements ISkillAdminService {
 
     @Autowired
@@ -43,7 +44,6 @@ public class SkillAdminServiceImpl implements ISkillAdminService {
 
 
     @Override
-    @Transactional
     public boolean saveOrUpdate(DataRequest dataRequest, int type) {
         LogCommon.startLog();
         try {
@@ -69,6 +69,21 @@ public class SkillAdminServiceImpl implements ISkillAdminService {
             throw e;
         } finally {
             LogCommon.endLog();
+        }
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean deleteSkill(String id) {
+        try {
+            getSkillById(id);
+            skillAdminRepository.deleteById(id);
+            return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_DELETE, true);
+        } catch (CustomException e) {
+            throw e;
         }
     }
 

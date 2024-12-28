@@ -21,5 +21,4 @@ public class EducationResponse {
     private String endDate;
     private String point;
     private String transcript;
-    private Integer status;
 }

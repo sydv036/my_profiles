@@ -18,7 +18,7 @@ public interface ISkillsAccountRespository extends SkillAccountRepository {
                     FROM SkillAccount ska 
                     left join Skill sk on ska.skill.id = sk.id
                     left join SkillType skt on sk.skillType.id = skt.id
-                    where ska.account.citizenCard = :citizenCard
+                    where ska.account.citizenCard = :citizenCard and flag = 0
             """)
     List<SkillsResponse> getSkillsOfProfileByCitizenCard(@Param("citizenCard") String citizenCard);
 }

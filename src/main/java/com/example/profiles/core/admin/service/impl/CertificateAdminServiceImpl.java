@@ -76,11 +76,26 @@ public class CertificateAdminServiceImpl implements ICertificateAdminService {
         }
     }
 
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean deleteCertificate(String id) {
+        try {
+            getCertificateById(id);
+            certificateAdminRepository.deleteById(id);
+            return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_DELETE, true);
+        } catch (CustomException e) {
+            throw e;
+        }
+    }
+
     @Override
     public Certificate getCertificateById(String id) {
         LogCommon.startLog();
         try {
-            id = (String) CheckIsNullCommon.isIdCheck(id);
+            CheckIsNullCommon.isIdCheck(id);
             Certificate certificate = certificateAdminRepository.findById(id).get();
             CheckIsNullCommon.isIdCheck(certificate);
             return certificate;

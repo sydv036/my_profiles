@@ -1,6 +1,7 @@
 import {
   callApiPost,
   create,
+  handleDeleteObj,
   handleImg,
   handleImgWithList,
   handleInput,
@@ -40,6 +41,7 @@ function updateCertificate() {
       callApiPost("/api/v1/admin/updateCert", data);
     }
   );
+  handleDeleteObj("/api/v1/admin/deleteCertificate", false, "certificate_form");
 }
 
 export { updateCertificate };

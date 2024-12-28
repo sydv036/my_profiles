@@ -35,5 +35,13 @@ function renderBasicInfo(data) {
   </div>
   `;
   htmlBasicInfo.append(info);
+  renderColor(data.color);
+  renderFontSize(data.fontSize);
+}
+function renderColor(items) {
+  $(".color-common").css("color", items);
+}
+function renderFontSize(items) {
+  $(".font-size-common").not("i").css("font-size", parseInt(items));
 }
 export { renderBasicInfo };

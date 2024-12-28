@@ -9,5 +9,7 @@ public interface IEducationAdminService {
 
     boolean updateEducationAdmin(DataRequest dataRequest);
 
+    boolean deleteEducationAdmin(String id);
+
     Education getEducationById(String id);
 }

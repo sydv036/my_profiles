@@ -3,7 +3,7 @@ import {
   callApiPost,
   handleInput,
   handleInputSingle,
-  handleFunctionDelete,
+  handleDeleteObj,
 } from "./common.js";
 function createShotGoal() {
   create(
@@ -26,6 +26,6 @@ function updateGoal() {
   handleInputSingle("long-goal ", "id", function (callback) {
     callApiPost("/api/v1/admin/updateTarge/0", callback);
   });
-  handleFunctionDelete("/api/v1/admin/delete/", true, "input_wapper");
+  handleDeleteObj("/api/v1/admin/deleteTarget/", true, "career_goal_delete");
 }
 export { createShotGoal, createLongGoal, updateGoal };

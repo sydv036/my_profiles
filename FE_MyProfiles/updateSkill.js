@@ -1,4 +1,9 @@
-import { create, handleInputSingle, callApiPost } from "./common.js";
+import {
+  create,
+  handleInputSingle,
+  callApiPost,
+  handleDeleteObj,
+} from "./common.js";
 function createSoftSkill() {
   create(
     "icon-soft-skill",
@@ -20,5 +25,6 @@ function updateSkill() {
   handleInputSingle("soft_skill_info ", "id", function (callback) {
     callApiPost("/api/v1/admin/updateSkill/1", callback);
   });
+  handleDeleteObj("/api/v1/admin/deleteSkill", true, "skill_delete");
 }
 export { createSoftSkill, createProfessionalSkill, updateSkill };

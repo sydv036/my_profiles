@@ -124,7 +124,7 @@
 .form_delete:hover::after {
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 0;
   transform: translate(-50%, -50%);
   content: "\f510";
   font-size: 30px;
