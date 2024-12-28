@@ -20,7 +20,7 @@ function renderExperiences(data) {
 function renderExperiencesTitle() {
   const title = $(".experience");
   title.append(`
-    <div class="experience_title text-uppercase border-bottom margin-bottom ">
+    <div class="experience_title text-uppercase border-bottom margin-bottom font-size-common color-common">
           Kinh nghiệm
     </div>
     <div class="experience_info mb-3 padding-custom"></div>

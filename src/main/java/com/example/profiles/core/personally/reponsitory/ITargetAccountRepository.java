@@ -26,7 +26,7 @@ public interface ITargetAccountRepository extends TargetAccountRepository {
                 from TargetAccount tga
                 left join Target tg on tga.target.id = tg.id
                 left join TargetType tgt on tg.targetType.id = tgt.id
-                where tga.account.citizenCard = :citizenCard 
+                where tga.account.citizenCard = :citizenCard and tg.flag = 0
             """)
     List<TargetResponse> getTargetByCitizenCard(@Param("citizenCard") String citizenCard);
 

@@ -38,4 +38,15 @@ public class EducationAdminRestController {
             throw e;
         }
     }
+
+    @DeleteMapping("/deleteEducation/{id}")
+    public ResponseEntity<?> deleteEducation(@PathVariable("id") String id) {
+        try {
+            boolean isCheck = educationAdminService.deleteEducationAdmin(id);
+            return CheckProcessCommon.isProcess(isCheck);
+        } catch (Exception e) {
+            LogCommon.logError(e.getMessage());
+            throw e;
+        }
+    }
 }

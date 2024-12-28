@@ -5,7 +5,7 @@ function renderCertificateUpdate(data) {
       ? items.certificateImage
       : "https://placehold.co/100";
     const certificateInfo = `
-    <div class="certificate_form  " data-id="${items.certificateID}">
+    <div class="certificate_form form_delete " data-id="${items.certificateID}">
         <div class="certificate_basic">
             <input type="text"  class="" name="certificateName"  value="${items.certificateName}"/>
             <input type="text" class="duration-custom"  name="duration" value="${items.duration}" />

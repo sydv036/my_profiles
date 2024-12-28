@@ -64,11 +64,9 @@ function callApiDelete(url, id) {
   if (lastURL === "/") {
     url = url.slice(0, -1);
   }
-  console.log(url);
-
   $.ajax({
     type: "DELETE",
-    url: API + url + "/" + id,
+    url: API + "/" + url + "/" + id,
     success: function (response) {
       console.log(response);
     },
@@ -194,7 +192,7 @@ function isCheckNullList(list_data, data_name) {
     return;
   }
 }
-function handleFunctionDelete(url, typeHandleInputSingle, classParent) {
+function handleDeleteObj(url, typeHandleInputSingle, classParent) {
   if (typeof typeHandleInputSingle === "boolean") {
     $(document).on("click", "." + classParent, function (event) {
       const x = event.offsetX;
@@ -215,6 +213,18 @@ function handleFunctionDelete(url, typeHandleInputSingle, classParent) {
     });
   }
 }
+function renderCss(classApend, attr, value) {
+  if (value === null || value === "") {
+    return;
+  }
+  if (isNaN(value)) {
+    $("." + classApend).css(attr, value);
+  }
+  $("." + classApend).css(attr, parseInt(value));
+  $("." + classApend)
+    .children("i")
+    .css("font-size", "initial");
+}
 export {
   create,
   handleInput,
@@ -224,5 +234,6 @@ export {
   handleImg,
   handleObjectFormDataImg,
   isCheckNullList,
-  handleFunctionDelete,
+  handleDeleteObj,
+  renderCss,
 };

@@ -18,7 +18,7 @@ public interface ICertificateAccountRepository extends CertificateAccountReposit
                    ctf.certificate_image as certificateImage
             from certificate_accounts ctfa
                      left join certificates ctf on ctfa.certificateid = ctf.id
-            where ctfa.accountid = :citizenCard;
+            where ctfa.accountid = :citizenCard and flag = 0;
             """, nativeQuery = true)
     List<CertificateResponse> getCertificateByCitizenCard(@Param("citizenCard") String citizenCard);
 }

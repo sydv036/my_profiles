@@ -9,5 +9,7 @@ public interface ICertificateAdminService {
 
     boolean createCertificate(CertificateAdminRequest certificateAdminRequest);
 
+    boolean deleteCertificate(String id);
+
     Certificate getCertificateById(String id);
 }

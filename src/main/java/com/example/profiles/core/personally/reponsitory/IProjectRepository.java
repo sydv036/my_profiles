@@ -19,7 +19,7 @@ public interface IProjectRepository extends ProjectRepository {
                            prj.to_date   as toDate,
                            prj.description
                     from projects prj
-                    where prj.accountid = :citizenCard
+                    where prj.accountid = :citizenCard and flag = 0
             """, nativeQuery = true)
     List<ProjectResponse> getProjectByCitizenCard(@Param("citizenCard") String citizenCard);
 }

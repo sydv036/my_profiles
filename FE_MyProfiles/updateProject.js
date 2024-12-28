@@ -1,4 +1,4 @@
-import { create, handleInput, callApiPost } from "./common.js";
+import { create, handleInput, callApiPost, handleDeleteObj } from "./common.js";
 function createProject() {
   create(
     "icon-add-project",
@@ -40,6 +40,7 @@ function updateProject() {
   handleInput("project_info", "project_info", "id", function (data) {
     callApiPost("/api/v1/admin/updateProject", data);
   });
+  handleDeleteObj("/api/v1/admin/deleteProject", false, "project_info");
 }
 
 export { createProject, updateProject };

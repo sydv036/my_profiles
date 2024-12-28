@@ -37,12 +37,11 @@
   <body>
     <header class="flex-align-center">
       <button class="printPDF">
-        <i class="fas fa-pen-alt"></i> <a href="demo.html">Xem CV</a>
+        <i class="fas fa-pen-alt"></i>
+        <a href="demo.html" target="_blank">Xem CV</a>
       </button>
-      <button class="printPDF" onclick="window.print()">
-        <i class="fas fa-file-pdf"></i> Print PDF
-      </button>
-      <button class="printPDF updateCV">Cập nhật CV</button>
+      <button class=""><i class="fas fa-font"></i> Phông chữ</button>
+      <button class=""><i class="fas fa-tint"></i> Màu sắc</button>
     </header>
     <main class="main-profile" id="main-profile">
       <section class="info row">
@@ -60,7 +59,7 @@
       </section>
       <section class="career-goals">
         <div
-          class="title-career-goals text-uppercase border-bottom padding-bottom"
+          class="title-career-goals text-uppercase border-bottom padding-bottom font-size-common color-common"
         >
           Mục tiêu nghề nghiệp
         </div>
@@ -85,7 +84,7 @@
       </section>
       <section class="education">
         <div
-          class="education_title text-uppercase border-bottom padding-bottom"
+          class="education_title text-uppercase border-bottom padding-bottom font-size-common color-common"
         >
           Học vấn
           <i
@@ -98,7 +97,9 @@
         <div class="education_info padding-custom"></div>
       </section>
       <section class="skills">
-        <div class="skills_title border-bottom padding-bottom text-uppercase">
+        <div
+          class="skills_title border-bottom padding-bottom text-uppercase font-size-common color-common"
+        >
           Kĩ năng
         </div>
         <div class="skills_name padding-custom">
@@ -124,7 +125,7 @@
       </section>
       <section class="experience">
         <div
-          class="experience_title text-uppercase border-bottom padding-bottom"
+          class="experience_title text-uppercase border-bottom padding-bottom font-size-common color-common"
         >
           Kinh nghiệm
           <i
@@ -135,7 +136,9 @@
         <div class="experience_info mb-3 padding-bottom"></div>
       </section>
       <section class="project pb-2">
-        <div class="project_title text-uppercase border-bottom padding-bottom">
+        <div
+          class="project_title text-uppercase border-bottom padding-bottom font-size-common color-common"
+        >
           Project
           <i
             class="fas fa-plus-circle icon-custom text-capitalize icon-add-project"
@@ -147,7 +150,7 @@
       <section class="more-information">
         <section class="certificate">
           <div
-            class="certificate_title text-uppercase border-bottom padding-bottom"
+            class="certificate_title text-uppercase border-bottom padding-bottom font-size-common color-common"
           >
             Certificate
             <i
@@ -160,7 +163,9 @@
           <div class="certificate_info pt-1 padding-bottom"></div>
         </section>
         <section class="hobist">
-          <div class="hobist_title text-uppercase border-bottom padding-bottom">
+          <div
+            class="hobist_title text-uppercase border-bottom padding-bottom font-size-common color-common"
+          >
             hobist
           </div>
           <div class="hobist_info">
@@ -377,29 +382,5 @@
     <script type="module" src="updateCV.js"></script>
     <script type="module" src="quill.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script type="module">
-      $(() => {
-        $(document).on("click", ".experience_form", function (event) {
-          const x = event.offsetX;
-          const id = $(this).data("id");
-          const width = $(this).width();
-          if (x > width - 40) {
-            // alert("Biểu tượng đã được click!");
-            // Xử lý sự kiện click tại đây
-            console.log(id);
-            $.ajax({
-              type: "DELETE",
-              url: "http://localhost:8081/api/v1/admin/deleteExperience/" + id,
-              success: function (response) {
-                console.log(response);
-              },
-              error: function (e) {
-                console.log(e);
-              },
-            });
-          }
-        });
-      });
-    </script>
   </body>
 </html>

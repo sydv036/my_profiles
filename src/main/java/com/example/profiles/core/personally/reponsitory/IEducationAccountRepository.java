@@ -14,11 +14,11 @@ public interface IEducationAccountRepository extends EducationAccountRepository 
     @Query(value = """
                     select new com.example.profiles.core.personally.dtos.response.EducationResponse
                         (
-                      edu.id ,edu.educationName,edu.major,edu.startDate,edu.endDate,edu.point,edu.transcript,edu.status
+                      edu.id ,edu.educationName,edu.major,edu.startDate,edu.endDate,edu.point,edu.transcript
                         )                
                         from EducationAccount eduac
                          left join  Education edu on eduac.education.id = edu.id
-                        where eduac.account.citizenCard = :citizenCard
+                        where eduac.account.citizenCard = :citizenCard and edu.flag = 0
             """)
     List<EducationResponse> getEducationByCitizenCard(@Param("citizenCard") String citizenCard);
 }

@@ -27,6 +27,8 @@ public class ProfileResponse {
     private String gender;
     private Integer flag;
     private String jobTitleApply;
+    private String color;
+    private String fontSize;
     private List<SkillsResponse> skills;
     private List<EducationResponse> education;
     private List<ProjectResponse> project;

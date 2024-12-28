@@ -1,6 +1,7 @@
 import {
   callApiPost,
   create,
+  handleDeleteObj,
   handleInput,
   handleObjectFormDataImg,
 } from "./common.js";
@@ -20,5 +21,6 @@ function updateEducation() {
       callApiPost("/api/v1/admin/createEducation", data);
     }
   );
+  handleDeleteObj("/api/v1/admin/deleteEducation", false, "education_form");
 }
 export { updateEducation };

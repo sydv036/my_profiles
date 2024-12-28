@@ -1,6 +1,8 @@
 package com.example.profiles.core.personally.rest_controller;
 
 import com.example.profiles.base.BaseReponse;
+import com.example.profiles.constant.FunctionNameConstant;
+import com.example.profiles.constant.ValueConstant;
 import com.example.profiles.core.personally.dtos.response.*;
 import com.example.profiles.core.personally.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +41,13 @@ public class ProfileRestController {
     @Autowired
     private ICertificateAccountService certificateAccountService;
 
+    @Autowired
+    private ISysParamService sysParamService;
+
     @GetMapping("/profile")
     public ResponseEntity<?> getProfile() throws Exception {
         try {
-            ProfileResponse profileResponse = accountSerice.getProfileByCitizenCard("040203027904");
+            ProfileResponse profileResponse = accountSerice.getProfileByCitizenCard(ValueConstant.CITIZENCARD_CONST);
             String citizenCard = profileResponse.getCitizenCard();
             List<SkillsResponse> skillsResponseList = skillAccountService.getSkillsOfProfileByCitizenCard(citizenCard);
             List<EducationResponse> educationResponseList = educationAccountService.getEducationByCitizenCard(citizenCard);
@@ -50,7 +55,11 @@ public class ProfileRestController {
             List<ExperienceResponse> experienceResponseList = experienceService.getExperienceByCitizenCard(citizenCard);
             List<TargetResponse> targetResponseList = targetAccountService.getTargetByCitizenCard(citizenCard);
             List<CertificateResponse> certificateResponseList = certificateAccountService.getCertificateByCitizenCard(citizenCard);
+            String color = sysParamService.getValueByCitizenCardAAndFunctionName(citizenCard, FunctionNameConstant.COLOR);
+            String fontSize = sysParamService.getValueByCitizenCardAAndFunctionName(citizenCard, FunctionNameConstant.FONT_SIZE);
 
+            profileResponse.setColor(color);
+            profileResponse.setFontSize(fontSize);
             profileResponse.setSkills(skillsResponseList);
             profileResponse.setEducation(educationResponseList);
             profileResponse.setProject(projectResponseList);

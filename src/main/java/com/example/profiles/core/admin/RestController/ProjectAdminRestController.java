@@ -35,4 +35,14 @@ public class ProjectAdminRestController {
             throw e;
         }
     }
+
+    @DeleteMapping("/deleteProject/{id}")
+    public ResponseEntity<?> deleteProject(@PathVariable("id") String id) {
+        try {
+            boolean isCheck = projectAdminService.deleteProject(id);
+            return CheckProcessCommon.isProcess(isCheck);
+        } catch (CustomException e) {
+            throw e;
+        }
+    }
 }

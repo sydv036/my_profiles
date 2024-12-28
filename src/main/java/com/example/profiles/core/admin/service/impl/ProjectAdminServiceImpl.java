@@ -64,11 +64,27 @@ public class ProjectAdminServiceImpl implements IProjectAdminService {
         }
     }
 
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean deleteProject(String id) {
+        try {
+            getProjectById(id);
+            projectAdminRepository.deleteById(id);
+            return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_DELETE, true);
+        } catch (CustomException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
     @Override
     public Project getProjectById(String id) {
         LogCommon.startLog();
         try {
-            id = (String) CheckIsNullCommon.isIdCheck(id);
+            CheckIsNullCommon.isIdCheck(id);
             Project project = projectAdminRepository.findById(id).get();
             CheckIsNullCommon.isIdCheck(project);
             LogCommon.logInfo(project.toString());

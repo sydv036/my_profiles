@@ -28,6 +28,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class TargetAdminServiceImpl extends HandleException implements ITargetAdminService {
 
     @Autowired
@@ -43,7 +44,6 @@ public class TargetAdminServiceImpl extends HandleException implements ITargetAd
     private IAccountAdminService accountAdminService;
 
     @Override
-    @Transactional
     public boolean saveOrUpdate(DataRequest dataRequest, int typeTarget) throws CustomException {
         LogCommon.startLog();
         try {
@@ -72,6 +72,22 @@ public class TargetAdminServiceImpl extends HandleException implements ITargetAd
         }
 
 
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean deleteTarget(String id) {
+        try {
+            CheckIsNullCommon.isIdCheck(id);
+            targetAdminRepository.deleteById(id);
+            return CheckProcessCurdCommon.isCheckProcessCurd(FlagCurdEnum.PROCESS_DELETE, true);
+        } catch (CustomException e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     @Override

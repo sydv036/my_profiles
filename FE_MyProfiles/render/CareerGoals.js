@@ -15,7 +15,7 @@ function renderCareeGoal(data) {
 function renderCareeGoalTitle() {
   let htmlTitleCareeGoal = $(".career-goals");
   htmlTitleCareeGoal.append(`
-    <div class="title-career-goals text-uppercase border-bottom margin-bottom ">
+    <div class="title-career-goals text-uppercase border-bottom margin-bottom font-size-common color-common">
           Mục tiêu nghề nghiệp
     </div>
     <div class="shot-term-goals" >

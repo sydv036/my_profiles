@@ -24,7 +24,7 @@ function renderEducation(data) {
 function renderEducationTitle() {
   const title = $(".education");
   title.append(`
-    <div class="education_title text-uppercase border-bottom margin-bottom ">Học vấn</div>
+    <div class="education_title text-uppercase border-bottom margin-bottom font-size-common color-common">Học vấn</div>
     <div class="education_info padding-custom"></div>
   `);
 }

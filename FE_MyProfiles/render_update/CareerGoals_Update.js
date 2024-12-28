@@ -10,7 +10,7 @@ function renderCareerGoalUpdate(data) {
 function renderShotTermGoalUpdate(data) {
   let htmlShotTermGoal = $(".shot-goal");
   const itemShotTermGoal = `
-  <div class="input_wapper">
+  <div class="input_wapper career_goal_delete">
     <input type="text" class="col-12 input-shot-goal" data-id="${data.targetID}" value="${data.targetName}"/>
   </div>  
 `;
@@ -19,8 +19,10 @@ function renderShotTermGoalUpdate(data) {
 function renderLongCareerGoalUpdate(data) {
   let htmlLongTermGoal = $(".long-goal");
   const itemLongTermGoal = `
-    <input type="text" class="col-12" data-id="${data.targetID}"  value="${data.targetName}"/>
-`;
+  <div class="input_wapper career_goal_delete">
+     <input type="text" class="col-12" data-id="${data.targetID}"  value="${data.targetName}"/>
+  </div>
+   `;
   htmlLongTermGoal.append(itemLongTermGoal);
 }
 export { renderCareerGoalUpdate };

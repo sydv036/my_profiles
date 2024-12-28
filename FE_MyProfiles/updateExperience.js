@@ -1,4 +1,4 @@
-import { create, callApiPost, handleInput } from "./common.js";
+import { create, callApiPost, handleInput, handleDeleteObj } from "./common.js";
 function createExperience() {
   create(
     "icon-experience",
@@ -31,10 +31,7 @@ function updateExperience() {
   handleInput("experience_form", "experience_form", "id", function (data) {
     callApiPost("/api/v1/admin/updateExperience", data);
   });
-  // $(document).on("click", ".experience_form", function (event) {
-  //   console.log("oke");
-  //   // const x = e.offsetx;
-  // });
+  handleDeleteObj("/api/v1/admin/deleteExperience", false, "experience_form");
 }
 
 export { createExperience, updateExperience };

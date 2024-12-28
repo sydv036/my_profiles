@@ -1,6 +1,7 @@
 package com.example.profiles.core.admin.RestController;
 
 import com.example.profiles.base.BaseReponse;
+import com.example.profiles.common.CheckProcessCommon;
 import com.example.profiles.common.MessageCommon;
 import com.example.profiles.core.admin.dtos.request.CertificateAdminRequest;
 import com.example.profiles.core.admin.dtos.request.DataRequest;
@@ -47,6 +48,12 @@ public class CertificateAdminRestController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new BaseReponse<>(e.getHttpStatus().value(), "Error: " + e.getMessage(), null));
         }
+    }
+
+    @DeleteMapping("/deleteCertificate/{id}")
+    public ResponseEntity<?> deleteCertificate(@PathVariable("id") String id) {
+        boolean isCheck = certificateAdminService.deleteCertificate(id);
+        return CheckProcessCommon.isProcess(isCheck);
     }
 
 }
