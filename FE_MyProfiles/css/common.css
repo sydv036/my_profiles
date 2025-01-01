@@ -44,6 +44,9 @@
 .border-bottom {
   border-bottom: 2px solid black;
 }
+.border-top {
+  border-top: 1px solid rgb(143, 141, 141);
+}
 .text-uppercase {
   text-transform: uppercase;
 }
@@ -131,7 +134,7 @@
   font-family: "Font Awesome 5 Brands";
   cursor: pointer;
   animation: 2s icon_delete infinite;
-  z-index: 9999;
+  z-index: 2;
 }
 .input_wapper {
   position: relative;
@@ -154,7 +157,7 @@
   right: 2%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  z-index: 9999;
+  /* z-index: 9999; */
   animation: 2s icon_delete infinite;
 }
 @keyframes icon_delete {

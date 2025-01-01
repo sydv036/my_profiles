@@ -11,6 +11,8 @@ main {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   word-wrap: break-word;
+  position: relative;
+  z-index: -1;
 }
 header {
   background-color: rgba(122, 120, 120, 0.5);
@@ -27,4 +29,31 @@ header {
 header button {
   background: none;
   border: none;
+}
+.dropdown-custom {
+  z-index: 9999;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
+  display: none;
+  padding: 20px;
+}
+.dropdown-custom.show {
+  display: block;
+}
+.font-family-custom {
+  display: flex;
+  gap: 20px;
+}
+.font-family-custom .content-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+  width: 200px;
+}
+.previus,
+.next {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }

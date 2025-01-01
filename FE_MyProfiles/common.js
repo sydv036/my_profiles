@@ -224,6 +224,8 @@ function renderCss(classApend, attr, value) {
   $("." + classApend)
     .children("i")
     .css("font-size", "initial");
+  $(".font-size-custom").val(parseInt(value));
+  $(".range label b").text(parseInt(value) + "%");
 }
 export {
   create,

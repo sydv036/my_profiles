@@ -33,6 +33,9 @@
       href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
       rel="stylesheet"
     />
+    <!-- color pain -->
+
+    <!-- color pain -->
   </head>
   <body>
     <header class="flex-align-center">
@@ -40,8 +43,42 @@
         <i class="fas fa-pen-alt"></i>
         <a href="demo.html" target="_blank">Xem CV</a>
       </button>
-      <button class=""><i class="fas fa-font"></i> Phông chữ</button>
-      <button class=""><i class="fas fa-tint"></i> Màu sắc</button>
+
+      <div class="dropdown">
+        <button
+          class="dropdown-toggle"
+          id="btn-dropdown-color"
+          aria-expanded="true"
+        >
+          <i class="fas fa-tint"></i> Màu sắc
+        </button>
+        <div class="dropdown-menu dropdown-custom dropdown__body-color">
+          <div id="color-picker"></div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button
+          class="dropdown-toggle"
+          id="btn-dropdown-font-size"
+          aria-expanded="false"
+        >
+          <i class="fas fa-font"></i> Phông chữ
+        </button>
+        <div class="dropdown-menu dropdown-custom dropdown__body-font-size">
+          <div class="font-family-custom"></div>
+          <section class="font-family-custom">
+            <div class="previus">
+              <i class="fas fa-chevron-circle-left"></i>
+            </div>
+            <div class="content-body"></div>
+            <div class="next"><i class="fas fa-chevron-circle-right"></i></div>
+          </section>
+          <div class="range border-top">
+            <label for="">Font Size: <b></b></label>
+            <input type="range" class="font-size-custom" min="10" max="100" />
+          </div>
+        </div>
+      </div>
     </header>
     <main class="main-profile" id="main-profile">
       <section class="info row">
@@ -378,9 +415,118 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="App_Update.js"></script>
     <script type="module" src="updateCV.js"></script>
     <script type="module" src="quill.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+    <script>
+      const colorPicker = new iro.ColorPicker("#color-picker", {
+        width: 200,
+        color: "#fff",
+        borderWidth: 2,
+      });
+      let timeout;
+      let i = 0;
+      colorPicker.on("color:change", function (color) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          const hexColor = color.hexString; // Get HEX representation of the color
+          console.log("Selected Color:" + i + "--", hexColor);
+          $(".color-common").css("color", hexColor);
+          i++;
+        }, 1500);
+      });
+    </script>
+    <script>
+      $(document).ready(() => {
+        $("#btn-dropdown-color").click(function () {
+          $(".dropdown__body-color").toggleClass("show");
+        });
+        $("#btn-dropdown-font-size").click(function () {
+          $(".dropdown__body-font-size").toggleClass("show");
+        });
+        $(".font-size-custom").change(function (e) {
+          $(".font-size-common").css(
+            "font-size",
+            parseInt($(".font-size-custom").val())
+          );
+          $(".range label b").text($(".font-size-custom").val() + "px");
+        });
+        setFontFamily();
+        function setFontFamily() {
+          let defaultPage = 1;
+
+          $(".next").click(function () {
+            defaultPage++;
+            setPageFontFamily(defaultPage, "next");
+          });
+          $(".previus").click(function () {
+            defaultPage--;
+            setPageFontFamily(defaultPage, "previus");
+          });
+          setPageFontFamily(defaultPage);
+        }
+
+        function setPageFontFamily(
+          page,
+          classHandlerPrevius,
+          classHandlerNext
+        ) {
+          if (page === null || page === "" || page === undefined) {
+            page = 1;
+          }
+          const fontFamilies = [
+            "Arial, sans-serif",
+            "Verdana, sans-serif",
+            "Helvetica, sans-serif",
+            "Tahoma, sans-serif",
+            "Trebuchet MS, sans-serif",
+            "Times New Roman, serif",
+            "Georgia, serif",
+            "Garamond, serif",
+            "Courier New, monospace",
+            "Lucida Console, monospace",
+            "Roboto, sans-serif", // Google Fonts
+            "Open Sans, sans-serif", // Google Fonts
+            "Lato, sans-serif", // Google Fonts
+            "Montserrat, sans-serif", // Google Fonts
+            "Oswald, sans-serif", // Google Fonts
+            "Poppins, sans-serif", // Google Fonts
+            "Raleway, sans-serif", // Google Fonts
+            "Ubuntu, sans-serif", // Google Fonts
+            "Merriweather, serif", // Google Fonts
+            "Playfair Display, serif",
+            "Playfair Display, serif", // Google Fonts
+          ];
+          const pageSize = 5;
+          const lengthArray = fontFamilies.length;
+          const totalPage = Math.ceil(lengthArray / pageSize);
+
+          if (page >= totalPage) {
+            $("." + classHandlerNext).css("opacity", 0);
+          }
+
+          if (page <= 1) {
+            page = 1;
+            $("." + classHandlerPrevius).css("opacity", 0);
+          }
+          let currentPage = page;
+          let pageHome = page * pageSize;
+          $(".font-family-custom .content-body").html("");
+          for (let i = pageHome - 5; i <= pageHome; i++) {
+            const font = fontFamilies[i];
+            const fontFamilyName = font.split(",")[0];
+            $(".font-family-custom .content-body").append(`
+              <div class="" style="font-family: ${font}" data-id="${font}">
+                ${fontFamilyName}
+              </div>
+            `);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
