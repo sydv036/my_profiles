@@ -29,12 +29,7 @@ public class ProfileResponse {
     private String jobTitleApply;
     private String color;
     private String fontSize;
-    private List<SkillsResponse> skills;
-    private List<EducationResponse> education;
-    private List<ProjectResponse> project;
-    private List<ExperienceResponse> experience;
-    private List<TargetResponse> target;
-    private List<CertificateResponse> certificate;
+    private String fontFamily;
 
     public ProfileResponse(String citizenCard, String fullName, String birthDate, String email, String phoneNumber, String adress, String image, String link, String gender, Integer flag, String jobTitleApply) {
         this.citizenCard = citizenCard;

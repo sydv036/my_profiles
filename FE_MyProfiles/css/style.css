@@ -12,7 +12,6 @@ main {
   overflow: hidden;
   word-wrap: break-word;
   position: relative;
-  z-index: -1;
 }
 header {
   background-color: rgba(122, 120, 120, 0.5);
@@ -25,11 +24,17 @@ header {
   border: 3px solid #752c2c1d;
   border-radius: 30px;
   backdrop-filter: blur(3px);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 header button {
   background: none;
   border: none;
 }
+/* .loading {
+  display: none;
+} */
 .dropdown-custom {
   z-index: 9999;
   box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
@@ -50,6 +55,14 @@ header button {
   flex-direction: column;
   gap: 10px 0;
   width: 200px;
+}
+.font-family-custom .content-body div {
+  cursor: pointer;
+}
+.font-family-custom .content-body div:hover,
+.previus:hover,
+.next:hover {
+  opacity: 0.2;
 }
 .previus,
 .next {
