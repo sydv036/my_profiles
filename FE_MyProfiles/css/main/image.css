@@ -55,3 +55,35 @@
     color: rgb(150, 0, 250);
   }
 }
+
+.info .img .avartar {
+  position: relative;
+}
+.avartar::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -35px;
+  width: 20px;
+  height: 20px;
+  background-color: #fbda61;
+  background-image: linear-gradient(45deg, #fbda61 0%, #ff5acd 100%);
+  border-radius: 30px 70px 20px 50px;
+}
+.avartar::after {
+  overflow: hidden;
+  position: absolute;
+  content: "";
+  bottom: -10px;
+  right: -30px;
+  width: 20px;
+  height: 20px;
+  background-color: #ff3cac;
+  background-image: linear-gradient(
+    225deg,
+    #ff3cac 0%,
+    #784ba0 50%,
+    #2b86c5 100%
+  );
+  border-radius: 60px 40px 80px 30px;
+}

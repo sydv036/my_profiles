@@ -33,7 +33,7 @@ public class Experience extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "accountID", nullable = true)
     private Account account;
-    private Integer flag;
+    private Integer flag = FlagEnum.ACTIVE.ordinal();
 
     public Experience(String companyName, String jobTitle, String fromDate, String toDate, Account account) {
         super("EXP");
