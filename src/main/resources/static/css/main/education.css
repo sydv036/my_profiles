@@ -1,0 +1,9 @@
+.education_info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 20px;
+  gap: 10px 0;
+}
+.education_point p {
+  display: inline-block;
+}

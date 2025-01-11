@@ -1,0 +1,8 @@
+.certificate_form {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  margin-bottom: 20px;
+}
+/* .certificate_form .certificate_basic {
+  float: right;
+} */

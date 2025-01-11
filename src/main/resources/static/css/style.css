@@ -1,0 +1,72 @@
+body {
+  background: linear-gradient(#74ebd5, #acb6e5);
+}
+main {
+  width: 900px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  word-wrap: break-word;
+  position: relative;
+}
+header {
+  background-color: rgba(122, 120, 120, 0.5);
+  width: 900px;
+  height: 50px;
+  max-height: 100%;
+  margin: 0 auto;
+  margin: 20px auto;
+  gap: 10px;
+  border: 3px solid #752c2c1d;
+  border-radius: 30px;
+  backdrop-filter: blur(3px);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+header button {
+  background: none;
+  border: none;
+}
+/* .loading {
+  display: none;
+} */
+.dropdown-custom {
+  z-index: 9999;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
+  display: none;
+  padding: 20px;
+}
+.dropdown-custom.show {
+  display: block;
+}
+.font-family-custom {
+  display: flex;
+  gap: 20px;
+}
+.font-family-custom .content-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+  width: 200px;
+}
+.font-family-custom .content-body div {
+  cursor: pointer;
+}
+.font-family-custom .content-body div:hover,
+.previus:hover,
+.next:hover {
+  opacity: 0.2;
+}
+.previus,
+.next {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

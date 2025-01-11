@@ -1,0 +1,13 @@
+.experience_info {
+  display: flex;
+  flex-direction: column;
+}
+.experience_form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 10px;
+}
+.experience_form .company-name {
+  display: flex;
+  align-items: center;
+}

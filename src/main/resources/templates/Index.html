@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>My Profiles</title>
+    <link rel="website icon" type="icon" th:href="@{/accest/navigation.ico}"/>
+
+    <link rel="stylesheet" th:href="@{/lib/bootstrap-5.3.3-dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/lib/fontawesome-free-5.15.4-web/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/basic-info.css}">
+    <link rel="stylesheet" th:href="@{/css/caree-goal.css}">
+    <link rel="stylesheet" th:href="@{/css/main/education.css}">
+    <link rel="stylesheet" th:href="@{/css/skill.css}">
+    <link rel="stylesheet" th:href="@{/css/experiences.css}">
+    <link rel="stylesheet" th:href="@{/css/main/project.css}">
+    <link rel="stylesheet" th:href="@{/css/more-information.css}">
+    <link rel="stylesheet" th:href="@{/css/main/image.css}">
+</head>
+<body>
+<header class="flex-center">
+    <button class="printPDF">
+        <i class="fas fa-pen-alt"></i>
+        <a th:href="@{/profile-edit}">Chỉnh sửa CV</a>
+    </button>
+    <button class="printPDF" onclick="window.print()">
+        <i class="fas fa-file-pdf"></i> Print PDF
+    </button>
+</header>
+<main class="main-profile" id="main-profile">
+    <section class="info row">
+        <div class="img col-3 flex-align-center">
+            <div class="avartar">
+                <img
+                        class="image common-img w100 h100 border-radius-50"
+                        src="https://placehold.co/100"
+                        alt=""
+                />
+            </div>
+        </div>
+        <div class="basic-info col-9"></div>
+    </section>
+    <section class="career-goals"></section>
+    <section class="education"></section>
+    <section class="skills"></section>
+    <section class="experience"></section>
+    <section class="project"></section>
+    <section class="more-information">
+        <section class="certificate"></section>
+        <section class="hobist">
+            <div
+                    class="hobist_title text-uppercase border-bottom margin-bottom color-common font-size-common"
+            >
+                hobist
+            </div>
+            <div class="hobist_info">
+                <ul>
+                    <li>ĐÁ BÓNG</li>
+                    <li>CẦU LÔNG</li>
+                    <li>BƠI</li>
+                </ul>
+            </div>
+        </section>
+    </section>
+</main>
+<div class="image-show w700 h500">
+    <img
+            class="image-show_image common-img w700 h500"
+            src="https://placehold.co/700X500"
+            alt=""
+    />
+    <div class="more-function">
+        <button class="image-show_btn-download">
+            <i class="fas fa-download"></i>
+        </button>
+        <button class="image-show_btn-cancel">
+            <i class="fas fa-window-close" style="color: #eb0505"></i>
+        </button>
+    </div>
+</div>
+<script th:src="@{/lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js}" crossorigin="anonymous"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"
+></script>
+<script
+        th:src="@{/lib/bootstrap-5.3.3-dist/js/bootstrap.min.js}"
+        crossorigin="anonymous"
+></script>
+<script th:src="@{/lib/jquery-3.7.1/jquery-3.7.1.js}"></script>
+<script th:type="module" th:src="@{/js/App.js}"></script>
+</body>
+</html>
