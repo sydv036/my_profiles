@@ -3,8 +3,8 @@ function renderCertificateUpdate(data) {
   htmlCertificate.html("");
   data.forEach((items, index) => {
     const img = items.certificateImage
-      ? items.certificateImage
-      : "https://placehold.co/100";
+        ? items.certificateImage
+        : "https://placehold.co/100";
     const certificateInfo = `
     <div class="certificate_form form_delete " data-id="${items.certificateID}">
         <div class="certificate_basic">
@@ -28,7 +28,7 @@ function renderCertificateUpdate(data) {
     htmlCertificate.append(certificateInfo);
   });
   htmlCertificate.append(
-    ` <input name="certificateImage" class="file_img-cert" type="file" hidden />`
+      ` <input name="certificateImage" class="file_img-cert" type="file" hidden />`
   );
 }
 export { renderCertificateUpdate };

@@ -37,10 +37,10 @@ function hanlerQuill() {
   $(document).on("click", ".btn-prj-description", function () {
     let description = quill.root.innerHTML;
     callApiPost(
-      "/api/v1/admin/updateProject",
-      new DataRequest(idProject, "description", description),
-      "/api/v1/personal/project",
-      renderProjectUpdate
+        "/api/v1/admin/updateProject",
+        new DataRequest(idProject, "description", description),
+        "/api/v1/personal/project",
+        renderProjectUpdate
     );
   });
 }

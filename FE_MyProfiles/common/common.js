@@ -15,29 +15,29 @@ function create(classClick, classAdd, value, callback) {
 }
 function handleInput(classInput, classParent, dataName, callback) {
   $(document).on(
-    "change",
-    "." + classInput + " " + "input[type='text']",
-    function () {
-      let id = $(this)
-        .closest("." + classParent)
-        .data(dataName);
-      let attrName = $(this).attr("name");
-      let valueNew = $(this).val();
-      if (typeof callback === "function") {
-        callback(new DataRequest(id, attrName, valueNew));
+      "change",
+      "." + classInput + " " + "input[type='text']",
+      function () {
+        let id = $(this)
+            .closest("." + classParent)
+            .data(dataName);
+        let attrName = $(this).attr("name");
+        let valueNew = $(this).val();
+        if (typeof callback === "function") {
+          callback(new DataRequest(id, attrName, valueNew));
+        }
       }
-    }
   );
 }
 function handleInputSingle(classInput, dataName, callback) {
   $(document).on(
-    "change",
-    "." + classInput + " " + "input[type='text']",
-    function () {
-      let id = $(this).data(dataName);
-      let valueNew = $(this).val();
-      callback(new DataRequest(id, null, valueNew));
-    }
+      "change",
+      "." + classInput + " " + "input[type='text']",
+      function () {
+        let id = $(this).data(dataName);
+        let valueNew = $(this).val();
+        callback(new DataRequest(id, null, valueNew));
+      }
   );
 }
 function callApiGet(url) {
@@ -108,10 +108,10 @@ function callApiDelete(url, id, url_get, functionRender) {
   });
 }
 function handleImg(
-  classHandler,
-  classReplaceHandler,
-  classImgFill,
-  onSelectFile
+    classHandler,
+    classReplaceHandler,
+    classImgFill,
+    onSelectFile
 ) {
   $(document).on("click", "." + classHandler, function () {
     $("." + classReplaceHandler).click();
@@ -136,11 +136,11 @@ function handleImg(
   });
 }
 function handleImgWithList(
-  classHandler,
-  classReplaceHandler,
-  classParent,
-  dataName,
-  onSelectFile
+    classHandler,
+    classReplaceHandler,
+    classParent,
+    dataName,
+    onSelectFile
 ) {
   let img = null;
   $(document).on("click", "." + classHandler, function () {
@@ -149,8 +149,8 @@ function handleImgWithList(
     fileInput.click();
     img = $(this).find("img");
     let idCert = $(this)
-      .closest("." + classParent)
-      .data(dataName);
+        .closest("." + classParent)
+        .data(dataName);
     let attrName = fileInput.attr("name");
     $("." + classReplaceHandler).change(function () {
       let file = $(this)[0].files[0];
@@ -175,22 +175,22 @@ function handleImgWithList(
   });
 }
 function handleObjectFormDataImg(
-  classImgHandler,
-  classImgReplaceHandler,
-  classImgFill,
-  classClick,
-  classFormData,
-  attrNameImg,
-  callback
-) {
-  let file = null;
-  handleImg(
     classImgHandler,
     classImgReplaceHandler,
     classImgFill,
-    function (fileImg) {
-      file = fileImg;
-    }
+    classClick,
+    classFormData,
+    attrNameImg,
+    callback
+) {
+  let file = null;
+  handleImg(
+      classImgHandler,
+      classImgReplaceHandler,
+      classImgFill,
+      function (fileImg) {
+        file = fileImg;
+      }
   );
   $("." + classClick).click(async function () {
     let obj = {};
@@ -225,11 +225,11 @@ function isCheckNullList(list_data, data_name) {
   }
 }
 function handleDeleteObj(
-  url,
-  typeHandleInputSingle,
-  classParent,
-  url_get,
-  functionRender
+    url,
+    typeHandleInputSingle,
+    classParent,
+    url_get,
+    functionRender
 ) {
   if (typeof typeHandleInputSingle === "boolean") {
     $(document).on("click", "." + classParent, function (event) {
@@ -260,8 +260,8 @@ function renderCss(classApend, attr, value) {
   } else {
     $("." + classApend).css(attr, parseInt(value));
     $("." + classApend)
-      .children("i")
-      .css("font-size", "initial");
+        .children("i")
+        .css("font-size", "initial");
     $(".font-size-custom").val(parseInt(value));
     $(".range label b").text(parseInt(value) + "px");
   }

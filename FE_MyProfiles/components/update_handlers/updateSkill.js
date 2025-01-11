@@ -7,16 +7,16 @@ import {
 import { renderSkillsUpdate } from "../update-renders/Skill_Update.js";
 function createSoftSkill() {
   create(
-    "icon-soft-skill",
-    "soft_skill_info",
-    '<input type="text" class="col-12" value="Kĩ năng mềm của bạn" />'
+      "icon-soft-skill",
+      "soft_skill_info",
+      '<input type="text" class="col-12" value="Kĩ năng mềm của bạn" />'
   );
 }
 function createProfessionalSkill() {
   create(
-    "icon-profess-skill",
-    "professional_skill_info",
-    '<input type="text" class="col-12" value="Kĩ năng chuyên môn của bạn" />'
+      "icon-profess-skill",
+      "professional_skill_info",
+      '<input type="text" class="col-12" value="Kĩ năng chuyên môn của bạn" />'
   );
 }
 function updateSkill() {
@@ -29,11 +29,11 @@ function updateSkill() {
     callApiPost("/api/v1/admin/updateSkill/1", callback, urlGet, functioRender);
   });
   handleDeleteObj(
-    "/api/v1/admin/deleteSkill",
-    true,
-    "skill_delete",
-    urlGet,
-    functioRender
+      "/api/v1/admin/deleteSkill",
+      true,
+      "skill_delete",
+      urlGet,
+      functioRender
   );
 }
 export { createSoftSkill, createProfessionalSkill, updateSkill };

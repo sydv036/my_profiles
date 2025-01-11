@@ -1,451 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit</title>
-    <link rel="website icon" type="icon" href="../../navigation.ico" />
-    <link
-      rel="stylesheet"
-      href="../../lib/bootstrap-5.3.3-dist/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../lib/fontawesome-free-5.15.4-web/css/all.min.css"
-    />
-    <!-- <base href="../../" /> -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit</title>
+  <link rel="website icon" type="icon" href="../../navigation.ico" />
+  <link
+          rel="stylesheet"
+          href="../../lib/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+  />
+  <link
+          rel="stylesheet"
+          href="../../lib/fontawesome-free-5.15.4-web/css/all.min.css"
+  />
+  <!-- <base href="../../" /> -->
 
-    <link rel="stylesheet" href="../../css/common.css" />
-    <link rel="stylesheet" href="../../css/style.css" />
-    <link rel="stylesheet" href="../../css/basic-info.css" />
-    <link rel="stylesheet" href="../../css/caree-goal.css" />
-    <link rel="stylesheet" href="../../css/update/education-update.css" />
-    <link rel="stylesheet" href="../../css/skill.css" />
-    <link rel="stylesheet" href="../../css/experiences.css" />
-    <link rel="stylesheet" href="../../css/main/project.css" />
-    <link rel="stylesheet" href="../../css/more-information.css" />
-    <link rel="stylesheet" href="../../css/update/certificate-update.css" />
-    <link rel="stylesheet" href="../../css/update/common-update.css" />
-    <link
-      rel="stylesheet"
-      href="../../lib/quill/css/quill.snow.css-1.3.6.css"
-    />
-  </head>
-  <body>
-    <header class="flex-align-center">
-      <button class="printPDF">
-        <i class="fas fa-pen-alt"></i>
-        <a href="Index.html" target="_blank">Xem CV</a>
-      </button>
+  <link rel="stylesheet" href="../../css/common.css" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/basic-info.css" />
+  <link rel="stylesheet" href="../../css/caree-goal.css" />
+  <link rel="stylesheet" href="../../css/update/education-update.css" />
+  <link rel="stylesheet" href="../../css/skill.css" />
+  <link rel="stylesheet" href="../../css/experiences.css" />
+  <link rel="stylesheet" href="../../css/main/project.css" />
+  <link rel="stylesheet" href="../../css/more-information.css" />
+  <link rel="stylesheet" href="../../css/update/certificate-update.css" />
+  <link rel="stylesheet" href="../../css/update/common-update.css" />
+  <link
+          rel="stylesheet"
+          href="../../lib/quill/css/quill.snow.css-1.3.6.css"
+  />
+</head>
+<body>
+<header class="flex-align-center">
+  <button class="printPDF">
+    <i class="fas fa-pen-alt"></i>
+    <a href="Index.html" target="_blank">Xem CV</a>
+  </button>
 
-      <div class="dropdown">
-        <button
-          class="dropdown-toggle"
-          id="btn-dropdown-color"
-          aria-expanded="true"
-        >
-          <i class="fas fa-tint"></i> Màu sắc
-        </button>
-        <div class="dropdown-menu dropdown-custom dropdown__body-color">
-          <div id="color-picker"></div>
+  <div class="dropdown">
+    <button
+            class="dropdown-toggle"
+            id="btn-dropdown-color"
+            aria-expanded="true"
+    >
+      <i class="fas fa-tint"></i> Màu sắc
+    </button>
+    <div class="dropdown-menu dropdown-custom dropdown__body-color">
+      <div id="color-picker"></div>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button
+            class="dropdown-toggle"
+            id="btn-dropdown-font-size"
+            aria-expanded="false"
+    >
+      <i class="fas fa-font"></i> Phông chữ
+    </button>
+    <div class="dropdown-menu dropdown-custom dropdown__body-font-size">
+      <div class="font-family-custom"></div>
+      <section class="font-family-custom">
+        <div class="previus">
+          <i class="fas fa-chevron-circle-left"></i>
         </div>
+        <div class="content-body"></div>
+        <div class="next"><i class="fas fa-chevron-circle-right"></i></div>
+      </section>
+      <div class="range border-top row">
+        <label for="" class="col-12">Font Size: <b></b></label>
+        <input
+                type="range"
+                class="font-size-custom col-12"
+                min="10"
+                max="100"
+                name="FONT_SIZE"
+        />
       </div>
-      <div class="dropdown">
-        <button
-          class="dropdown-toggle"
-          id="btn-dropdown-font-size"
-          aria-expanded="false"
-        >
-          <i class="fas fa-font"></i> Phông chữ
-        </button>
-        <div class="dropdown-menu dropdown-custom dropdown__body-font-size">
-          <div class="font-family-custom"></div>
-          <section class="font-family-custom">
-            <div class="previus">
-              <i class="fas fa-chevron-circle-left"></i>
-            </div>
-            <div class="content-body"></div>
-            <div class="next"><i class="fas fa-chevron-circle-right"></i></div>
-          </section>
-          <div class="range border-top row">
-            <label for="" class="col-12">Font Size: <b></b></label>
-            <input
-              type="range"
-              class="font-size-custom col-12"
-              min="10"
-              max="100"
-              name="FONT_SIZE"
-            />
-          </div>
+    </div>
+  </div>
+  <div class="spinner-border text-light loading" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</header>
+<main class="main-profile" id="main-profile">
+  <section class="info row">
+    <div class="col-3 flex-align-center">
+      <div class="avartar img-container">
+        <img class="avartar_update w100 h100 common-img" src="" alt="" />
+        <div class="camera icon-overlay">
+          <i class="fas fa-camera"></i>
         </div>
+        <input type="file" hidden class="imgHandle" />
       </div>
-      <div class="spinner-border text-light loading" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </header>
-    <main class="main-profile" id="main-profile">
-      <section class="info row">
-        <div class="col-3 flex-align-center">
-          <div class="avartar img-container">
-            <img class="avartar_update w100 h100 common-img" src="" alt="" />
-            <div class="camera icon-overlay">
-              <i class="fas fa-camera"></i>
-            </div>
-            <input type="file" hidden class="imgHandle" />
-          </div>
-        </div>
+    </div>
 
-        <div class="basic-info col-9"></div>
-      </section>
-      <section class="career-goals">
-        <div
-          class="title-career-goals text-uppercase border-bottom padding-bottom font-size-common color-common"
-        >
-          Mục tiêu nghề nghiệp
-        </div>
-        <div class="shot-term-goals padding-custom">
-          <b
-            >Mục tiêu ngắn hạn
-            <i class="fas fa-plus-circle icon-custom icon-shot-term-goals">
-              Add New</i
-            ></b
-          >
-          <div class="shot-goal row"></div>
-        </div>
-        <div class="long-term-goals padding-custom">
-          <b
-            >Mục tiêu dài hạn
-            <i class="fas fa-plus-circle icon-custom icon-long-term-goals"
-              >Add New</i
-            ></b
-          >
-          <div class="long-goal row"></div>
-        </div>
-      </section>
-      <section class="education">
-        <div
-          class="education_title text-uppercase border-bottom padding-bottom font-size-common color-common"
-        >
-          Học vấn
-          <i
-            class="fas fa-plus-circle icon-custom text-capitalize icon-add-edu"
-            data-bs-toggle="modal"
-            data-bs-target="#modalEducation"
-            >Add New</i
-          >
-        </div>
-        <div class="education_info padding-custom"></div>
-      </section>
-      <section class="skills">
-        <div
-          class="skills_title border-bottom padding-bottom text-uppercase font-size-common color-common"
-        >
-          Kĩ năng
-        </div>
-        <div class="skills_name padding-custom">
-          <div class="soft-skills">
-            <b
-              >Kĩ năng mềm
-              <i class="fas fa-plus-circle icon-custom icon-soft-skill"
-                >Add New</i
-              ></b
-            >
-            <div class="soft_skill_info row"></div>
-          </div>
-          <div class="professional-skills padding-custom">
-            <b
-              >Kĩ năng chuyên môn
-              <i class="fas fa-plus-circle icon-custom icon-profess-skill"
-                >Add New</i
-              >
-            </b>
-            <div class="professional_skill_info row"></div>
-          </div>
-        </div>
-      </section>
-      <section class="experience">
-        <div
-          class="experience_title text-uppercase border-bottom padding-bottom font-size-common color-common"
-        >
-          Kinh nghiệm
-          <i
-            class="fas fa-plus-circle icon-custom text-capitalize icon-experience"
-            >Add New</i
-          >
-        </div>
-        <div class="experience_info mb-3 padding-bottom"></div>
-      </section>
-      <section class="project pb-2">
-        <div
-          class="project_title text-uppercase border-bottom padding-bottom font-size-common color-common"
-        >
-          Project
-          <i
-            class="fas fa-plus-circle icon-custom text-capitalize icon-add-project"
-            >Add New</i
-          >
-        </div>
-        <div class="project_form padding-custom"></div>
-      </section>
-      <section class="more-information">
-        <section class="certificate">
-          <div
-            class="certificate_title text-uppercase border-bottom padding-bottom font-size-common color-common"
-          >
-            Certificate
-            <i
-              class="fas fa-plus-circle icon-custom text-capitalize"
+    <div class="basic-info col-9"></div>
+  </section>
+  <section class="career-goals">
+    <div
+            class="title-career-goals text-uppercase border-bottom padding-bottom font-size-common color-common"
+    >
+      Mục tiêu nghề nghiệp
+    </div>
+    <div class="shot-term-goals padding-custom">
+      <b
+      >Mục tiêu ngắn hạn
+        <i class="fas fa-plus-circle icon-custom icon-shot-term-goals">
+          Add New</i
+        ></b
+      >
+      <div class="shot-goal row"></div>
+    </div>
+    <div class="long-term-goals padding-custom">
+      <b
+      >Mục tiêu dài hạn
+        <i class="fas fa-plus-circle icon-custom icon-long-term-goals"
+        >Add New</i
+        ></b
+      >
+      <div class="long-goal row"></div>
+    </div>
+  </section>
+  <section class="education">
+    <div
+            class="education_title text-uppercase border-bottom padding-bottom font-size-common color-common"
+    >
+      Học vấn
+      <i
+              class="fas fa-plus-circle icon-custom text-capitalize icon-add-edu"
               data-bs-toggle="modal"
-              data-bs-target="#modalCertificate"
-              >Add New</i
-            >
-          </div>
-          <div class="certificate_info pt-1 padding-bottom"></div>
-        </section>
-        <section class="hobist">
-          <div
-            class="hobist_title text-uppercase border-bottom padding-bottom color-common font-size-common"
+              data-bs-target="#modalEducation"
+      >Add New</i
+      >
+    </div>
+    <div class="education_info padding-custom"></div>
+  </section>
+  <section class="skills">
+    <div
+            class="skills_title border-bottom padding-bottom text-uppercase font-size-common color-common"
+    >
+      Kĩ năng
+    </div>
+    <div class="skills_name padding-custom">
+      <div class="soft-skills">
+        <b
+        >Kĩ năng mềm
+          <i class="fas fa-plus-circle icon-custom icon-soft-skill"
+          >Add New</i
+          ></b
+        >
+        <div class="soft_skill_info row"></div>
+      </div>
+      <div class="professional-skills padding-custom">
+        <b
+        >Kĩ năng chuyên môn
+          <i class="fas fa-plus-circle icon-custom icon-profess-skill"
+          >Add New</i
           >
-            hobist
-          </div>
-          <div class="hobist_info">
-            <ul>
-              <li>ĐÁ BÓNG</li>
-              <li>CẦU LÔNG</li>
-              <li>BƠI</li>
-            </ul>
-          </div>
-        </section>
-      </section>
-    </main>
-    <!-- Modal quill start-->
-    <div
-      class="modal fade"
-      id="quillModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-dialog-custom">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              Thông tin project
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="modal-body-certificate">
-              <div id="quill-custom"></div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary close-modal"
-              data-bs-dismiss="modal"
-            >
-              Hủy
-            </button>
-            <button type="button" class="btn btn-primary btn-prj-description">
-              Cập nhật
-            </button>
-          </div>
-        </div>
+        </b>
+        <div class="professional_skill_info row"></div>
       </div>
     </div>
-    <!-- Modal quill end-->
-    <!-- Modal Certificate start-->
+  </section>
+  <section class="experience">
     <div
-      class="modal fade"
-      id="modalCertificate"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
+            class="experience_title text-uppercase border-bottom padding-bottom font-size-common color-common"
     >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              Add New Certificate
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body formDataCert">
-            <div class="mb-3">
-              <label for="">Certificate Name</label>
-              <input
-                type="text"
-                class="certificate-name form-control"
-                id="CertificateName"
-                name="certificateName"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="">Duration</label>
-              <input
-                type="text"
-                name="duration"
-                class="duration form-control"
-                id="duration"
-              />
-            </div>
+      Kinh nghiệm
+      <i
+              class="fas fa-plus-circle icon-custom text-capitalize icon-experience"
+      >Add New</i
+      >
+    </div>
+    <div class="experience_info mb-3 padding-bottom"></div>
+  </section>
+  <section class="project pb-2">
+    <div
+            class="project_title text-uppercase border-bottom padding-bottom font-size-common color-common"
+    >
+      Project
+      <i
+              class="fas fa-plus-circle icon-custom text-capitalize icon-add-project"
+      >Add New</i
+      >
+    </div>
+    <div class="project_form padding-custom"></div>
+  </section>
+  <section class="more-information">
+    <section class="certificate">
+      <div
+              class="certificate_title text-uppercase border-bottom padding-bottom font-size-common color-common"
+      >
+        Certificate
+        <i
+                class="fas fa-plus-circle icon-custom text-capitalize"
+                data-bs-toggle="modal"
+                data-bs-target="#modalCertificate"
+        >Add New</i
+        >
+      </div>
+      <div class="certificate_info pt-1 padding-bottom"></div>
+    </section>
+    <section class="hobist">
+      <div
+              class="hobist_title text-uppercase border-bottom padding-bottom color-common font-size-common"
+      >
+        hobist
+      </div>
+      <div class="hobist_info">
+        <ul>
+          <li>ĐÁ BÓNG</li>
+          <li>CẦU LÔNG</li>
+          <li>BƠI</li>
+        </ul>
+      </div>
+    </section>
+  </section>
+</main>
+<!-- Modal quill start-->
+<div
+        class="modal fade"
+        id="quillModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-custom">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Thông tin project
+        </h1>
+        <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body-certificate">
+          <div id="quill-custom"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+                type="button"
+                class="btn btn-secondary close-modal"
+                data-bs-dismiss="modal"
+        >
+          Hủy
+        </button>
+        <button type="button" class="btn btn-primary btn-prj-description">
+          Cập nhật
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal quill end-->
+<!-- Modal Certificate start-->
+<div
+        class="modal fade"
+        id="modalCertificate"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Add New Certificate
+        </h1>
+        <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body formDataCert">
+        <div class="mb-3">
+          <label for="">Certificate Name</label>
+          <input
+                  type="text"
+                  class="certificate-name form-control"
+                  id="CertificateName"
+                  name="certificateName"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="">Duration</label>
+          <input
+                  type="text"
+                  name="duration"
+                  class="duration form-control"
+                  id="duration"
+          />
+        </div>
 
-            <div class="mb-3 chosse-file chosse-file-certificate">
-              <img
-                src="https://placehold.co/100"
-                class="fill-img-select w100 h100 common-img"
-                alt=""
-              />
-              <i class="fas fa-cloud-upload-alt">
-                Chosse a file or drag it here.</i
-              >
-            </div>
-            <input type="file" class="file-cert-new" hidden />
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary createCert">
-              Save changes
-            </button>
-          </div>
+        <div class="mb-3 chosse-file chosse-file-certificate">
+          <img
+                  src="https://placehold.co/100"
+                  class="fill-img-select w100 h100 common-img"
+                  alt=""
+          />
+          <i class="fas fa-cloud-upload-alt">
+            Chosse a file or drag it here.</i
+          >
         </div>
+        <input type="file" class="file-cert-new" hidden />
+      </div>
+      <div class="modal-footer">
+        <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary createCert">
+          Save changes
+        </button>
       </div>
     </div>
-    <!-- Modal Certificate end-->
-    <!-- Modal Education start-->
-    <div
-      class="modal fade"
-      id="modalEducation"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              Add New Education
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+  </div>
+</div>
+<!-- Modal Certificate end-->
+<!-- Modal Education start-->
+<div
+        class="modal fade"
+        id="modalEducation"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Add New Education
+        </h1>
+        <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body formDataEdu">
+        <div class="mb-3">
+          <label for="">Education Name</label>
+          <input type="text" class="form-control" name="educationName" />
+        </div>
+        <div class="mb-3">
+          <label for="">Major</label>
+          <input type="text" name="major" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="">Point</label>
+          <input type="text" name="point" class="form-control" />
+        </div>
+        <div class="row">
+          <div class="mb-3 col-6">
+            <label for="">Start Date</label>
+            <input type="text" name="startDate" class="form-control" />
           </div>
-          <div class="modal-body formDataEdu">
-            <div class="mb-3">
-              <label for="">Education Name</label>
-              <input type="text" class="form-control" name="educationName" />
-            </div>
-            <div class="mb-3">
-              <label for="">Major</label>
-              <input type="text" name="major" class="form-control" />
-            </div>
-            <div class="mb-3">
-              <label for="">Point</label>
-              <input type="text" name="point" class="form-control" />
-            </div>
-            <div class="row">
-              <div class="mb-3 col-6">
-                <label for="">Start Date</label>
-                <input type="text" name="startDate" class="form-control" />
-              </div>
-              <div class="mb-3 col-6">
-                <label for="">End Date</label>
-                <input type="text" name="endDate" class="form-control" />
-              </div>
-            </div>
+          <div class="mb-3 col-6">
+            <label for="">End Date</label>
+            <input type="text" name="endDate" class="form-control" />
+          </div>
+        </div>
 
-            <div class="mb-3 chosse-file chosse-file-edu">
-              <img
-                src="https://placehold.co/100"
-                class="fill-img-edu-select common-img w100 h100"
-                alt=""
-              />
-              <i class="fas fa-cloud-upload-alt">
-                Select a scoreboard image or drag it here.</i
-              >
-            </div>
-            <input type="file" class="file-edu-new" hidden />
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary createEdu">
-              Save changes
-            </button>
-          </div>
+        <div class="mb-3 chosse-file chosse-file-edu">
+          <img
+                  src="https://placehold.co/100"
+                  class="fill-img-edu-select common-img w100 h100"
+                  alt=""
+          />
+          <i class="fas fa-cloud-upload-alt">
+            Select a scoreboard image or drag it here.</i
+          >
         </div>
+        <input type="file" class="file-edu-new" hidden />
+      </div>
+      <div class="modal-footer">
+        <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary createEdu">
+          Save changes
+        </button>
       </div>
     </div>
-    <!-- Modal Education end-->
-    <!-- <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-      crossorigin="anonymous"
-    ></script> -->
-    <script
-      src="../../lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="../../lib/bootstrap-5.3.3-dist/js/bootstrap.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
-    <script
-      src="../../lib/jquery-3.7.1/jquery-3.7.1.js"
-      crossorigin="anonymous"
-    ></script>
-    <script type="module" src="../update-renders/App_Update.js"></script>
-    <script
-      type="module"
-      src="../../components/update_handlers/updateCV.js"
-    ></script>
-    <script type="module" src="../../config/Quill-Config.js"></script>
-    <!-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script> -->
-    <script
-      src="../../lib/quill/js/quill.1.3.6.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
-  </body>
+  </div>
+</div>
+<!-- Modal Education end-->
+<!-- <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+  integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+  integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+  crossorigin="anonymous"
+></script> -->
+<script
+        src="../../lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"
+></script>
+<script
+        src="../../lib/bootstrap-5.3.3-dist/js/bootstrap.min.js"
+        crossorigin="anonymous"
+></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+<script
+        src="../../lib/jquery-3.7.1/jquery-3.7.1.js"
+        crossorigin="anonymous"
+></script>
+<script type="module" src="../update-renders/App_Update.js"></script>
+<script
+        type="module"
+        src="../../components/update_handlers/updateCV.js"
+></script>
+<script type="module" src="../../config/Quill-Config.js"></script>
+<!-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script> -->
+<script
+        src="../../lib/quill/js/quill.1.3.6.js"
+        crossorigin="anonymous"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+</body>
 </html>

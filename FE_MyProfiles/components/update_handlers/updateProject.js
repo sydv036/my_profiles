@@ -1,17 +1,17 @@
 import {
-  create,
-  handleInput,
-  callApiPost,
-  handleDeleteObj,
+    create,
+    handleInput,
+    callApiPost,
+    handleDeleteObj,
 } from "../../common/common.js";
 import { renderProjectUpdate } from "../update-renders/Project_Update.js";
 const urlGet = "/api/v1/personal/project";
 const functionRender = renderProjectUpdate;
 function createProject() {
-  create(
-    "icon-add-project",
-    "project_form",
-    `
+    create(
+        "icon-add-project",
+        "project_form",
+        `
               <div class='project_info form_delete'>
                   <div class="time-on  ">
                     <input type='text' name="jobTitle" class="job-title" value="Chức vụ"/>
@@ -28,33 +28,33 @@ function createProject() {
                   </div>
               </div>
       `,
-    function () {
-      const inputValue = $(
-        ".project_form .project_info:last input[type='text']"
-      );
-      const data = {};
-      inputValue.each(function () {
-        const key = $(this).attr("name");
-        const value = $(this).val();
-        data[key] = value;
-      });
-      data["description"] = "Thông tin dự án";
-      callApiPost("/api/v1/admin/saveProject", data, urlGet, functionRender);
-    }
-  );
+        function () {
+            const inputValue = $(
+                ".project_form .project_info:last input[type='text']"
+            );
+            const data = {};
+            inputValue.each(function () {
+                const key = $(this).attr("name");
+                const value = $(this).val();
+                data[key] = value;
+            });
+            data["description"] = "Thông tin dự án";
+            callApiPost("/api/v1/admin/saveProject", data, urlGet, functionRender);
+        }
+    );
 }
 
 function updateProject() {
-  handleInput("project_info", "project_info", "id", function (data) {
-    callApiPost("/api/v1/admin/updateProject", data, urlGet, functionRender);
-  });
-  handleDeleteObj(
-    "/api/v1/admin/deleteProject",
-    false,
-    "project_info",
-    urlGet,
-    functionRender
-  );
+    handleInput("project_info", "project_info", "id", function (data) {
+        callApiPost("/api/v1/admin/updateProject", data, urlGet, functionRender);
+    });
+    handleDeleteObj(
+        "/api/v1/admin/deleteProject",
+        false,
+        "project_info",
+        urlGet,
+        functionRender
+    );
 }
 
 export { createProject, updateProject };

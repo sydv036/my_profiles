@@ -54,17 +54,17 @@ function uploadImage(fileImg) {
 
     const storageRef = ref(storage, `images/${file.name}`);
     uploadBytes(storageRef, file)
-      .then(() => {
-        return getDownloadURL(storageRef);
-      })
-      .then((url) => {
-        console.log("url img:", url);
-        resolve(url);
-      })
-      .catch((error) => {
-        alert("Không thể tải ảnh! Vui lòng thử lại!");
-        reject(error);
-      });
+        .then(() => {
+          return getDownloadURL(storageRef);
+        })
+        .then((url) => {
+          console.log("url img:", url);
+          resolve(url);
+        })
+        .catch((error) => {
+          alert("Không thể tải ảnh! Vui lòng thử lại!");
+          reject(error);
+        });
   });
 }
 

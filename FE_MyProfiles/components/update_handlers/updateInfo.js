@@ -16,16 +16,16 @@ function updateInformation() {
     callApiPost("/api/v1/admin/information", dataRequest);
   });
   handleImg(
-    "avartar .camera",
-    "imgHandle",
-    "avartar_update",
-    async function (file) {
-      const urlImg = await uploadImage(file);
-      callApiPost(
-        "/api/v1/admin/information",
-        new DataRequest($("#citizenCard").val(), "image", urlImg)
-      );
-    }
+      "avartar .camera",
+      "imgHandle",
+      "avartar_update",
+      async function (file) {
+        const urlImg = await uploadImage(file);
+        callApiPost(
+            "/api/v1/admin/information",
+            new DataRequest($("#citizenCard").val(), "image", urlImg)
+        );
+      }
   );
 }
 
