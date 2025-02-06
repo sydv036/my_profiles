@@ -1,0 +1,35 @@
+.more-information {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 10px;
+  max-width: 100%;
+  overflow: hidden;
+}
+.hobist_info ul {
+  list-style-type: none;
+}
+.hobist_info ul li::before {
+  content: "\f510";
+  font-family: "Font Awesome 5 Brands";
+  padding-right: 10px;
+}
+/* .experience_form {
+  position: relative;
+}
+.experience_form:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 0px;
+  border: 3px solid #752c2c1d;
+  border-radius: 10px;
+  backdrop-filter: blur(3px);
+  overflow: hidden;
+}
+.experience_form:hover::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  content: "\f510";
+  font-size: 30px;
+  font-family: "Font Awesome 5 Brands";
+  cursor: pointer;
+} */

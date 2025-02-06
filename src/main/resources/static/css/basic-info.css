@@ -1,0 +1,19 @@
+.name {
+  display: flex;
+  justify-content: space-between;
+}
+.contact {
+  padding-top: 7px;
+  font-size: 12px;
+  color: rgb(53, 30, 30);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 20px);
+  gap: 2px 10px;
+}
+.contact div {
+  margin-bottom: 20px;
+}
+.contact div p {
+  display: inline-block;
+}
