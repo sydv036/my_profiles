@@ -62,6 +62,10 @@ public class Account {
     @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<TargetAccount> targetAccounts;
 
+    @OneToOne
+    @JoinColumn(name = "SortableID")
+    private Sortable sortable;
+
 
     public String show() {
         return "Account{" +

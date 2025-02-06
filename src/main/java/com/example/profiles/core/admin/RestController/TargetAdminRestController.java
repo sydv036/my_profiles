@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/admin")
-@CrossOrigin("*")
 @RequiredArgsConstructor
 public class TargetAdminRestController {
     private final ITargetAdminService targetAdminService;

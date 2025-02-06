@@ -9,6 +9,9 @@
   <link rel="stylesheet" th:href="@{/lib/fontawesome-free-5.15.4-web/css/all.min.css}">
   <!-- <base href="../../" /> -->
 
+<!--  new sortable-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+<!--  -->
   <link rel="stylesheet" th:href="@{/css/common.css}">
   <link rel="stylesheet" th:href="@{/css/style.css}">
   <link rel="stylesheet" th:href="@{/css/basic-info.css}">
@@ -63,7 +66,7 @@
         <div class="next"><i class="fas fa-chevron-circle-right"></i></div>
       </section>
       <div class="range border-top row">
-        <label for="" class="col-12">Font Size: <b></b></label>
+        <label  class="col-12">Font Size: <b></b></label>
         <input
                 type="range"
                 class="font-size-custom col-12"
@@ -79,7 +82,7 @@
   </div>
 </header>
 <main class="main-profile" id="main-profile">
-  <section class="info row">
+  <section class="info row" id="info">
     <div class="col-3 flex-align-center">
       <div class="avartar img-container">
         <img class="avartar_update w100 h100 common-img" src="" alt="" />
@@ -92,7 +95,7 @@
 
     <div class="basic-info col-9"></div>
   </section>
-  <section class="career-goals">
+  <section class="career-goals" id="career-goals">
     <div
             class="title-career-goals text-uppercase border-bottom padding-bottom font-size-common color-common"
     >
@@ -117,7 +120,7 @@
       <div class="long-goal row"></div>
     </div>
   </section>
-  <section class="education">
+  <section class="education" id="education">
     <div
             class="education_title text-uppercase border-bottom padding-bottom font-size-common color-common"
     >
@@ -131,7 +134,7 @@
     </div>
     <div class="education_info padding-custom"></div>
   </section>
-  <section class="skills">
+  <section class="skills" id="skills">
     <div
             class="skills_title border-bottom padding-bottom text-uppercase font-size-common color-common"
     >
@@ -158,7 +161,7 @@
       </div>
     </div>
   </section>
-  <section class="experience">
+  <section class="experience" id="experience">
     <div
             class="experience_title text-uppercase border-bottom padding-bottom font-size-common color-common"
     >
@@ -170,7 +173,7 @@
     </div>
     <div class="experience_info mb-3 padding-bottom"></div>
   </section>
-  <section class="project pb-2">
+  <section class="project pb-2" id="project">
     <div
             class="project_title text-uppercase border-bottom padding-bottom font-size-common color-common"
     >
@@ -182,7 +185,7 @@
     </div>
     <div class="project_form padding-custom"></div>
   </section>
-  <section class="more-information">
+  <section class="more-information" id="more-information">
     <section class="certificate">
       <div
               class="certificate_title text-uppercase border-bottom padding-bottom font-size-common color-common"
@@ -224,7 +227,7 @@
   <div class="modal-dialog modal-dialog-centered modal-dialog-custom">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
+        <h1 class="modal-title fs-5" >
           Thông tin project
         </h1>
         <button
@@ -266,7 +269,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
+        <h1 class="modal-title fs-5" >
           Add New Certificate
         </h1>
         <button
@@ -278,7 +281,7 @@
       </div>
       <div class="modal-body formDataCert">
         <div class="mb-3">
-          <label for="">Certificate Name</label>
+          <label >Certificate Name</label>
           <input
                   type="text"
                   class="certificate-name form-control"
@@ -287,7 +290,7 @@
           />
         </div>
         <div class="mb-3">
-          <label for="">Duration</label>
+          <label >Duration</label>
           <input
                   type="text"
                   name="duration"
@@ -347,24 +350,24 @@
       </div>
       <div class="modal-body formDataEdu">
         <div class="mb-3">
-          <label for="">Education Name</label>
+          <label >Education Name</label>
           <input type="text" class="form-control" name="educationName" />
         </div>
         <div class="mb-3">
-          <label for="">Major</label>
+          <label >Major</label>
           <input type="text" name="major" class="form-control" />
         </div>
         <div class="mb-3">
-          <label for="">Point</label>
+          <label >Point</label>
           <input type="text" name="point" class="form-control" />
         </div>
         <div class="row">
           <div class="mb-3 col-6">
-            <label for="">Start Date</label>
+            <label >Start Date</label>
             <input type="text" name="startDate" class="form-control" />
           </div>
           <div class="mb-3 col-6">
-            <label for="">End Date</label>
+            <label >End Date</label>
             <input type="text" name="endDate" class="form-control" />
           </div>
         </div>
@@ -419,5 +422,9 @@
         crossorigin="anonymous"
 ></script>
 <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+<!--new sortable-->
+<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+<!---->
+<script type="module" th:src="@{/js/components/other_handlers/Sortable.js}"></script>
 </body>
 </html>

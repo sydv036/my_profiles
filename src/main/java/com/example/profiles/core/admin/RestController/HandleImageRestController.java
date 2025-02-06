@@ -11,7 +11,6 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/v1/admin")
 @RequiredArgsConstructor
-@CrossOrigin("*")
 public class HandleImageRestController {
     private final IHandelImageService handelImageService;
 
