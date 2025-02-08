@@ -14,8 +14,8 @@ import java.io.IOException;
 public class HandleImageRestController {
     private final IHandelImageService handelImageService;
 
-    @GetMapping("/download/img")
-    public ResponseEntity<?> downloadImage(@RequestParam("url") String url) throws IOException {
+    @PostMapping("/download/img")
+    public ResponseEntity<?> downloadImage(@RequestBody String url) throws IOException {
         handelImageService.downloadImage(url);
         return ResponseEntity.ok("OKE");
     }

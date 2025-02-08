@@ -23,7 +23,7 @@
 .image-show_btn-download {
   background: none;
   border: none;
-  opacity: 0.1;
+  /*opacity: 0.1;*/
 }
 .image-show_btn-cancel:hover,
 .image-show_btn-download:hover {
@@ -34,7 +34,8 @@
   animation: color-flow 1s infinite;
 }
 .image-show_btn-download:not(:hover) {
-  opacity: 0.1;
+  /*opacity: 0.1;*/
+  color: white;
   transition: 1s ease-in-out;
 }
 .image-show_btn-cancel:not(:hover) {
@@ -44,7 +45,7 @@
 @keyframes color-flow {
   0% {
     opacity: 0.3;
-    color: rgb(10, 116, 209);
+    color: rgb(255, 255, 255);
   }
   50% {
     opacity: 0.5;

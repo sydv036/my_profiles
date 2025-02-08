@@ -13,6 +13,9 @@ main {
   word-wrap: break-word;
   position: relative;
 }
+main section div .text-move-common:hover{
+  cursor:move;
+}
 header {
   background-color: rgba(122, 120, 120, 0.5);
   width: 900px;

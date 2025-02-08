@@ -9,8 +9,10 @@
   list-style-type: none;
 }
 .hobist_info ul li::before {
-  content: "\f510";
-  font-family: "Font Awesome 5 Brands";
+  /*content: "\f510";*/
+  /*font-family: "Font Awesome 5 Brands";*/
+  content: "\f1f8";
+  font-family: "Font Awesome 5 Free Solid";
   padding-right: 10px;
 }
 /* .experience_form {

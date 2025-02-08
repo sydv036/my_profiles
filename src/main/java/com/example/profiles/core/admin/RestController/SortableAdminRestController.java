@@ -19,7 +19,7 @@ public class SortableAdminRestController {
     private ISortableAdminService sortableAdminService;
 
     @PostMapping("/save-sortable")
-    public ResponseEntity<?> saveSortable(@RequestBody Map<String, String> sortable) {
+    public ResponseEntity<?> saveSortable(@RequestBody String sortable) {
         boolean isCheck = sortableAdminService.saveSortable(sortable);
         return CheckProcessCommon.isProcess(isCheck);
     }
