@@ -15,7 +15,7 @@ $(() => {
         },
         update: function (event,ui){
             let arraySorted = $("#main-profile").sortable("toArray");
-            callApiPost("/api/v1/admin/save-sortable",arraySorted);
+            callApiPost("/api/v1/admin/save-sortable",arraySorted.join(","));
         }
     });
 });

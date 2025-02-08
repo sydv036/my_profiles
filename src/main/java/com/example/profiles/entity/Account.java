@@ -52,20 +52,15 @@ public class Account {
     @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Experience> experiences;
 
-    @OneToOne
-    @JoinColumn(name = "JobTitleApplyID")
-    private JobTitleApply JobTitleApply;
+//    @OneToOne
+//    @JoinColumn(name = "JobTitleApplyID")
+//    private JobTitleApply JobTitleApply;
 
     @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Project> projects;
 
     @OneToMany(mappedBy = "account", orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<TargetAccount> targetAccounts;
-
-    @OneToOne
-    @JoinColumn(name = "SortableID")
-    private Sortable sortable;
-
 
     public String show() {
         return "Account{" +

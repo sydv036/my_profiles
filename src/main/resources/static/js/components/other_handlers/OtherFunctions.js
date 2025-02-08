@@ -43,6 +43,7 @@ function handlerFontSize() {
     $(".range label b").text($(".font-size-custom").val() + "px");
   });
 }
+
 function handlerFontFamily() {
   $(document).on(
     "click",
@@ -58,6 +59,7 @@ function handlerFontFamily() {
   );
   setFontFamily();
 }
+
 function setFontFamily() {
   let defaultPage = 1;
   $(".next").click(function () {
@@ -70,6 +72,7 @@ function setFontFamily() {
   });
   setPageFontFamily(defaultPage);
 }
+
 function setPageFontFamily(page) {
   if (page === null || page === "" || page === undefined) {
     page = 1;
@@ -141,4 +144,5 @@ function setPageFontFamily(page) {
   }
   return page;
 }
+
 export { handlerColor, handlerFontSize, handlerFontFamily };
