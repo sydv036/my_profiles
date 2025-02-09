@@ -85,14 +85,28 @@ $(async () => {
         if (!url) {
             return;
         }
-        fetch("/api/v1/admin/download/img" , {
+        let device = window.navigator.userAgent;
+        let osName;
+        if (device.includes('Windows') || device.includes('Macintosh') || device.includes('Mac OS X')) {
+            osName = "DESKTOP";
+        } else if (device.includes('Linux')) {
+            osName = 'SMATPHONE';
+        } else if (device.includes('Android') || userAgent.includes("iOS") || userAgent.includes("iPhone") || userAgent.includes("iPad")) {
+            osName = 'SMATPHONE';
+        }
+
+        fetch("/api/v1/admin/download/img", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json", // Định dạng dữ liệu gửi đi là JSON
             },
-            body: JSON.stringify(url)
+            body: JSON.stringify(osName + '@@@@' + url)
         }).then((respense) => {
-            console.log(respense);
+            if (respense.status === 200) {
+                alert('Ảnh đã được tải về thư mục Download của bạn!');
+                return;
+            }
+            alert('Lỗi trong quá trình tải ảnh. Vui lòng thử lại sau!');
         });
     });
 });

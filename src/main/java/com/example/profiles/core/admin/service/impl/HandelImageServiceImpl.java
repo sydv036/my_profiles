@@ -13,6 +13,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.http.HttpHeaders;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 @Service
 public class HandelImageServiceImpl implements IHandelImageService {
@@ -20,16 +22,23 @@ public class HandelImageServiceImpl implements IHandelImageService {
     public void downloadImage(String imageName) throws IOException {
         CheckIsNullCommon.isIdCheck(imageName);
         try {
-            URL url = new URL(imageName.replaceAll("\"", ""));
+            imageName = imageName.replaceAll("\"", "");
+            String urlImg = imageName.split("@@@@")[1];
+            String osName = imageName.split("@@@@")[0];
+            URL url = new URL(urlImg);
             URLConnection connection = url.openConnection();
             InputStream inputStream = connection.getInputStream();
-
-            File directory = new File(System.getProperty("user.home"), "/Downloads");
-            // **Đảm bảo thư mục tồn tại, nếu không thì tạo mới**
+            File directory;
+            if (osName.equals("DESKTOP")) {
+                directory = new File(System.getProperty("user.home"), "/Downloads");
+            } else {
+                directory = new File(System.getProperty("user.home"), "/Downloads");
+            }
             if (!directory.exists()) {
                 directory.mkdirs();
             }
-            File imageFile = new File(directory, "downloaded_image.jpg");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+            File imageFile = new File(directory, "downloaded_image_" + simpleDateFormat.format(new Timestamp(System.currentTimeMillis())) + ".jpg");
             FileOutputStream outputStream = new FileOutputStream(imageFile); // Sử dụng imageFile ở đây
 
             byte[] buffer = new byte[1024];

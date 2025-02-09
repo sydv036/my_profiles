@@ -12,13 +12,21 @@ import java.util.List;
 public interface IEducationAccountRepository extends EducationAccountRepository {
 
     @Query(value = """
-                    select new com.example.profiles.core.personally.dtos.response.EducationResponse
-                        (
-                      edu.id ,edu.educationName,edu.major,edu.startDate,edu.endDate,edu.point,edu.transcript
-                        )                
-                        from EducationAccount eduac
-                         left join  Education edu on eduac.education.id = edu.id
-                        where eduac.account.citizenCard = :citizenCard and edu.flag = 0
-            """)
+                    select
+                    	edu.id as educationID,
+                    	edu.education_name as educationName,
+                    	edu.major as major,
+                    	edu.start_date as startDate,
+                    	edu.end_date as endDate,
+                    	edu.`point` as point,
+                    	edu.transcript as transcript
+                    from
+                    	education_accounts eda
+                    left join educations edu on
+                    	eda.educationid = edu.id
+                    where
+                    	eda.accountid = :citizenCard
+                    	and edu.flag = 0
+            """, nativeQuery = true)
     List<EducationResponse> getEducationByCitizenCard(@Param("citizenCard") String citizenCard);
 }

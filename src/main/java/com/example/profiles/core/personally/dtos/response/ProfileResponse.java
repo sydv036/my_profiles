@@ -4,6 +4,7 @@ import com.example.profiles.entity.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.rest.core.config.Projection;
 
 import java.time.LocalDate;
 import java.util.List;

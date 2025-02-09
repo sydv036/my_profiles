@@ -17,5 +17,23 @@ public interface IAccountRepository extends AccountRepository {
                     where ac.citizenCard = :citizenCard
             """)
     ProfileResponse getProfileByCitizenCard(@Param("citizenCard") String citizenCard);
-
+//    @Query(value = """
+//                    select
+//                    	ac.citizen_card as citizenCard,
+//                    	ac.full_name as fullName,
+//                    	ac.birth_date as birthDate,
+//                    	ac.email ,
+//                    	ac.phone_number as phoneNumber,
+//                    	ac.adress ,
+//                    	ac.image ,
+//                    	ac.link ,
+//                    	ac.gender ,
+//                    	ac.flag ,
+//                    	ac.job_title_applly as jobTitleApplly
+//                    from
+//                    	accounts ac
+//                    where
+//                    	ac.citizen_card = :citizenCard
+//            """, nativeQuery = true)
+//    ProfileResponse getProfileByCitizenCard(@Param("citizenCard") String citizenCard);
 }
