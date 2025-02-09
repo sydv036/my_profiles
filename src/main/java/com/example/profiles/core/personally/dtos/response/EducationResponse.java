@@ -5,20 +5,19 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
-@Builder
-public class EducationResponse {
-    private String educationID;
-    private String educationName;
-    private String major;
-//    @JsonFormat(pattern = "MM-yyyy")
-    private String startDate;
-//    @JsonFormat(pattern = "MM-yyyy")
-    private String endDate;
-    private String point;
-    private String transcript;
+
+public interface EducationResponse {
+    String getEducationID();
+
+    String getEducationName();
+
+    String getMajor();
+
+    String getStartDate();
+
+    String getEndDate();
+
+    String getPoint();
+
+    String getTranscript();
 }

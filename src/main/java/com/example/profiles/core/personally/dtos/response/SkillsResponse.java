@@ -1,17 +1,17 @@
 package com.example.profiles.core.personally.dtos.response;
 
 
-import lombok.*;
+import com.example.profiles.entity.Skill;
+import com.example.profiles.entity.SkillType;
+import org.springframework.data.rest.core.config.Projection;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
-@Builder
-public class SkillsResponse {
-    private String skillsID;
-    private String SkillsName;
-    private String skillsTypeID;
-    private int skillsTypeName;
+@Projection(types = {Skill.class, SkillType.class})
+public interface SkillsResponse {
+    String getSkillsName();
+
+    String getSkillsIDString();
+
+    String getSkillsTypeID();
+
+    String getSkillsTypeName();
 }

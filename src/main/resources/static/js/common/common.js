@@ -55,6 +55,8 @@ function callApiGet(url) {
           return;
         }
         alert("Có lỗi tạm thời xảy ra, vui lòng thử lại sau!");
+        console.log(reponse);
+        // window.location = "/errors/500";
         reject("Data not found");
       },
       error: function (error) {

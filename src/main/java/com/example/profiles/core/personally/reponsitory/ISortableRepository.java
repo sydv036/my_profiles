@@ -9,7 +9,13 @@ import org.springframework.stereotype.Repository;
 public interface ISortableRepository extends SortableRepository {
 
     @Query(value = """
-            select  sab.value from sortable sab where sab.id = :cityzenCard and sab.flag = 0
+            select
+            	sab.value
+            from
+            	sortable sab
+            where
+            	sab.id = :cityzenCard
+            	and sab.flag = 0
             """, nativeQuery = true)
     String getValueByCityzenCard(@Param("cityzenCard") String cityzenCard);
 }
