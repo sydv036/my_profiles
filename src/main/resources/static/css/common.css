@@ -1,181 +1,225 @@
 .common-img {
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
 }
+
 .h50 {
-  height: 50px;
-  max-height: 50px;
+    height: 50px;
+    max-height: 50px;
 }
+
 .w50 {
-  width: 50px;
-  max-width: 50px;
+    width: 50px;
+    max-width: 50px;
 }
+
 .h100 {
-  height: 100px;
-  max-height: 100px;
+    height: 100px;
+    max-height: 100px;
 }
+
 .w100 {
-  width: 100px;
-  max-width: 100px;
+    width: 100px;
+    max-width: 100px;
 }
 
 .w700 {
-  width: 700px;
-  max-width: 100%;
+    width: 700px;
+    max-width: 100%;
 }
+
 .h500 {
-  height: 500px;
-  max-height: 100%;
+    height: 500px;
+    max-height: 100%;
 }
+
 .border-radius-50 {
-  border-radius: 50%;
+    border-radius: 50%;
 }
+
 .flex-center {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
+
 .flex-align-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .border-bottom {
-  border-bottom: 2px solid black;
+    border-bottom: 2px solid black;
 }
+
 .border-top {
-  border-top: 1px solid rgb(143, 141, 141);
+    border-top: 1px solid rgb(143, 141, 141);
 }
+
 .text-uppercase {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
+
 .flex-direction-column {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
+
 .flex-direction-row {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
+
 .text-hover:hover {
-  color: red;
-  cursor: pointer;
+    color: red;
+    cursor: pointer;
 }
 
 .margin-bottom {
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 .img-container {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
 }
+
 .icon-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
 }
+
 .img-container:hover .icon-overlay {
-  opacity: 1;
+    opacity: 1;
 }
+
 .icon-custom {
-  color: rgb(38, 57, 230);
-  cursor: pointer;
+    color: rgb(38, 57, 230);
+    cursor: pointer;
 }
+
 .icon-custom:hover {
-  color: brown;
+    color: brown;
 }
+
 #quill-custom {
-  height: 375px;
+    height: 375px;
 }
+
 .chosse-file {
-  border: 1px dashed rgb(129, 128, 128);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
-  max-height: 150px;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 10px;
-  color: rgb(12, 92, 211);
+    border: 1px dashed rgb(129, 128, 128);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    max-height: 150px;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 10px;
+    color: rgb(12, 92, 211);
 }
 
 .form_delete {
-  position: relative;
+    position: relative;
 }
+
 .form_delete:hover {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 0px;
-  border: 3px solid #752c2c1d;
-  border-radius: 10px;
-  backdrop-filter: blur(3px);
-  /* overflow: hidden; */
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 0px;
+    border: 3px solid #752c2c1d;
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    /* overflow: hidden; */
 }
+
 .form_delete:hover::after {
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: translate(-50%, -50%);
-  font-size: 30px;
-  content: "\f2ed";
-  /*content: "\f1f8";*/
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  cursor: pointer;
-  animation: 2s icon_delete infinite;
-  z-index: 2;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    content: "\f2ed";
+    /*content: "\f1f8";*/
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    cursor: pointer;
+    animation: 2s icon_delete infinite;
+    z-index: 2;
 }
+
 .input_wapper {
-  position: relative;
+    position: relative;
 }
+
 .input_wapper:hover {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 0px;
-  border: 3px solid #752c2c1d;
-  border-radius: 10px;
-  backdrop-filter: blur(3px);
-  width: 98%;
-  background: none;
-  display: inline;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px 0px;
+    border: 3px solid #752c2c1d;
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    width: 98%;
+    background: none;
+    display: inline;
 }
+
 .input_wapper:hover::after {
-  position: absolute;
-  content: "\f2ed";
-  /*content: "\f1f8";*/
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  font-size: 20px;
-  top: 0;
-  right: 2%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  /* z-index: 9999; */
-  animation: 2s icon_delete infinite;
+    position: absolute;
+    content: "\f2ed";
+    /*content: "\f1f8";*/
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 20px;
+    top: 0;
+    right: 2%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    /* z-index: 9999; */
+    animation: 2s icon_delete infinite;
 }
+
 @keyframes icon_delete {
-  0% {
-    opacity: 1;
-    color: red;
-  }
-  100% {
-    opacity: 1;
-    color: black;
-  }
+    0% {
+        opacity: 1;
+        color: red;
+    }
+    100% {
+        opacity: 1;
+        color: black;
+    }
 }
+
 @media print {
     header {
-      display: none;
+        display: none !important;
     }
+
+    @page {
+        margin: 0;
+        size: auto;
+    }
+
+    body {
+        margin: 0;
+        background: white !important;
+    }
+
+    main {
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
 }
